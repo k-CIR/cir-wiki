@@ -32,8 +32,10 @@ In Python you write comments with the hash-tag symbol `#`. Use this to write sho
 For example:
 
 ```python
-    # like this
-
+    # Define the frequency range for the analysis
+    config = {} # config dictionary
+    config['low_freq'] = 1 # low frequency
+    config['high_freq'] = 60 # high frequency
     """
     You can also add longer segments of text that should not be treated as code, but as plain text like this.
     """
@@ -42,9 +44,22 @@ For example:
 
 There are several reasons why you should comment your scripts. The first reason is that it makes it much easier to go back to your old scripts and know what they are supposed to do. What is self-evident when you first write your code might not be evident years later. The time you spent on writing comments in your code will come back later. The second reason for commenting your code is the usefulness if you are part of collaboration where you have to share data and scripts. What is self-evident for you might not be evident for other people. The third reason is that there is an increase in demand for sharing analysis scripts when publishing scientific articles, either for review purposes or demand by publishers that it has to be made available upon publication. Make it easier for the reviewers to understand what you are doing with your data. And finally, writing what the code is supposed to do helps you identify code that is not working correctly.
 
+## Install packages
+
+/// tab | Python
+In python you need to import the modules and/or functions that you will use. Many are included by default, but you will need to install some additional modules. How to do this will not be covered in this tutorial. Make a habit of importing the libraries in the beginning of your script.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import mne
+```
+///
+
 ## Use section breaks when testing code
 When writing code you often want to run only a small snip of code, e.g. when you test your code while scripting.
 
+/// tab | MATLAB
 If you only want to run parts of your script, you can mark code and select `run selection` or press `F9`. However, constantly marking code manually becomes annoying, really fast. Instead, use section breaks. You start a section with `%%` (two percentage signs). The line is commented, and you will notice that the section is highlighted in a yellowish colour. If you now press `ctrl+enter` you will run the code in the highlighted section.
 
 ```matlab
@@ -55,13 +70,29 @@ y = rand(size(x));
 %% Make a new section
 plot(x, y, 'or')
 ```
+///
+
+/// tab | Python
+Constantly marking code manually becomes annoying, really fast. Instead, use section breaks. You start a section with `# %%` (hash and two percentage signs). The line is commented, and you will notice that the section is grey (with defualt settings). If you now press ctrl+enter / cmd+enter you will run the code in the highlighted section. This is not a standard Python feature, but many IDEs and text editors support this feature. For example, in Jupyter notebooks, you can use this to run a cell at a time.
+
+```python
+# %%
+x = list(range(10))
+y = [random.random() for _ in x]
+
+# %%
+plt.plot(x, y, 'or')
+```
+///
 
 ## Define the paths and toolboxes at the beginning of the script
-For this tutorial, you will use the toolbox FieldTrip to analyses MEG/EEG data. FieldTrip is written in MATLAB but is not a part of MATLAB. We , therefore, need to make sure that MATLAB has FieldTrip in its PATH definition to use the functions. The same applies if you use other toolboxes. This is simple: simply use the MATLAB function  `addpath( ... )` to add the path where you downloaded FieldTrip. If you have several versions of FieldTrip or have used other toolboxes before you run this script, it is also a good idea to restore the PATH with the function `resotredefaultpath`
+/// tab | MATLAB
+
+For this tutorial, you will use the toolbox FieldTrip to analyses MEG/EEG data. FieldTrip is written in MATLAB but is not a part of MATLAB. We, therefore, need to make sure that MATLAB has FieldTrip in its PATH definition to use the functions. The same applies if you use other toolboxes. This is simple: simply use the MATLAB function  `addpath( ... )` to add the path where you downloaded FieldTrip. If you have several versions of FieldTrip or have used other toolboxes before you run this script, it is also a good idea to restore the PATH with the function `resotredefaultpath`
 
 The start of my script may look like this:
 
-```Matlab
+```matlab
 restoredefaultpath
 addpath('/home/mikkel/fieldtrip')       % Change to your path
 ft_defaults
@@ -71,8 +102,23 @@ If you have several variables with the same names, it might also be good to add 
 ```matlab
 close all       % Close all open windows
 clear all       % Clear all variables from the workspace
-````
+```
 After this, we are ready to begin our script, and we will use the version of FieldTrip that we know we have at the given location.
+///
+
+/// tab | Python
+The start of my script may look like this with import of the necessary modules and definition of paths.
+
+```python
+import mne
+import numpy as np
+import matplotlib.pyplot as plt
+
+home_path = '/Users/andger/'
+project_path = home_path + 'meeg_course_mne/'
+```
+///
+
 
 ## Run all analysis with one version of the software
 Toolboxes for data analysis gets updated regularly. FieldTrip, for example, is updated with a new version daily to keep the functionality up to date or to fix bugs in the code that users might have occurred. However, do not update FieldTrip daily! When you begin a project, make sure that all data is processed with the same version of the software that you use. If you need to update (which you sometimes need to do) make sure that your code is backwards compatible with the updated toolbox. If you need to update, better re-run everything.

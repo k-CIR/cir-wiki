@@ -1,3 +1,8 @@
+---
+title: Beyond Compare
+---
+
+
 # BeyondCompare
 
 BeyondCompare is a file-manager and ftp-client primarily used to upload your files to the Archive server.

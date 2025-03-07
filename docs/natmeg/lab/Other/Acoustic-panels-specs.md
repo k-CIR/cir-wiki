@@ -1,3 +1,7 @@
+---
+title: Acoustic Panels
+---
+
 ## t.akustik PET Ceiling Absorber 120 WH
 
 **Manufacturers specification:**  

@@ -1,3 +1,7 @@
+---
+title: Magnetically Shielded Room (MSR)
+---
+
 ## Magnetically Shielded Room (MSR)
 
 All MEG/EEG recordings are done within a two-layer MSR, model Ak3B from Vacuumschmelze GmbH.

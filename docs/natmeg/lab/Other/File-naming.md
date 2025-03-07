@@ -1,3 +1,7 @@
+---
+title: File naming
+---
+
 # File naming
 
 Plan in advance how you want to name your files. You may have different conditions or times of measurement. Plan also for how you want to name the files if you have to stop recordings.

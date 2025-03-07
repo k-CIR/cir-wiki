@@ -1,3 +1,7 @@
+---
+title: Maxfilter
+---
+
 # Maxfilter
 
 It is convenient to use a script to loop through your raw fif-files with MaxFilter. MaxFilter is installed on DANA.

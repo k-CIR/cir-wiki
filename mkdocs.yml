@@ -7,8 +7,34 @@ site_url: https://natmegsweden.github.io/documentation/
 
 theme: 
   name: material
+  logo: assets/logo_white.svg
   color_mode: auto
-  user_color_mode_toggle: true
+  # user_color_mode_toggle: true
+  palette:
+    # - media: "(prefers-color-scheme)"
+    #   primary: black
+    #   toggle:
+    #     icon: material/brightness-auto
+    #     name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: black
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: black
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
   features:
       - announce.dismiss
       - content.action.view
@@ -16,6 +42,11 @@ theme:
       - navigation.instant
       - navigation.instant.preview
       - navigation.tabs
+      - navigation.tabs.sticky
+      - navigation.path
+      - navigation.indexes
+      - toc.follow
+      - navigation.footer
       # - navigation.sections # Makes top level sections expandable
 markdown_extensions:
   - pymdownx.betterem:
@@ -31,11 +62,15 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+extra:
+  # version:
+  #   provider: mike
+  scope: /
 
 nav:
   - Home: index.md
   - NatMEG:
-    - About: about-NatMEG.md
+    - About NatMEG: natmeg/index.md
     - Preparation:
       - Apply electrodes: natmeg/lab/Electrodes-standard-setup.md
       - Digitization: natmeg/lab/Digitization-hpi.md
@@ -66,7 +101,6 @@ nav:
         - Electric nerve stimulation: natmeg/lab/ENS-specs.md
         - Mechanical pain: natmeg/lab/Mechanical-pain-specs.md
         - Olfactometer: natmeg/lab/Olfaction-specs.md
-        - New test-page: natmeg/test_new.md
     - Response Equipment: 
       - Eye-tracker: natmeg/lab/Eye-tracker.md
     - Presentation:
@@ -76,13 +110,13 @@ nav:
         - Auditory oddball: natmeg/lab/Presentation-code-example-Auditory-oddball-paradigm.md
         - Resting state: natmeg/lab/Presentation‐code‐example‐Resting‐state‐paradigm.md
     - Triggers: natmeg/lab/Triggers-specs.md
-    - Other:
-      - File naming: natmeg/lab/File-naming.md
-      - Beyond compare: natmeg/lab/Beyond-compare.md
-      - Maxfilter: natmeg/lab/Maxfilter.md
-      - MSR:  natmeg/lab/MSR-specs.md
-      - Monitors: natmeg/lab/Monitors.md
-      - Acoustic-panels-specs: natmeg/lab/Acoustic-panels-specs.md
+    - Other: 
+      - natmeg/lab/Other/File-naming.md
+      - natmeg/lab/Other/Beyond-compare.md
+      - natmeg/lab/Other/Maxfilter.md
+      - natmeg/lab/Other/MSR-specs.md
+      - natmeg/lab/Other/Monitors.md
+      - natmeg/lab/Other/Acoustic-panels-specs.md
   - Server:
     - Set-up connection: 
       - Connect to Archive: natmeg/server/Connect-to-Archive.md

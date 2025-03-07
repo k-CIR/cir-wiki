@@ -1,3 +1,7 @@
+---
+title: Monitors
+---
+
 # Monitors
 
 ## Dual monitors
