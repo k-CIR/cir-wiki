@@ -7,8 +7,8 @@ edit_url: https://github.com/natmegsweden/documentation/edit/main/docs/
 
 nav:
   - Home: index.md
-  - About: about.md
   - NatMEG:
+    - About: about-NatMEG.md
     - Preparation:
       - Apply electrodes: natmeg/lab/Electrodes-standard-setup.md
       - Digitization: natmeg/lab/Digitization-hpi.md
