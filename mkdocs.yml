@@ -69,7 +69,11 @@ nav:
       
 
     
-theme: material
+theme: 
+  name: material
+  features:
+      - announce.dismiss
+      - content.action.edit
 markdown_extensions:
   - pymdownx.betterem:
       smart_enable: all
