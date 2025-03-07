@@ -4,6 +4,29 @@ repo_url: https://github.com/natmegsweden/documentation
 repo_name: Show on GitHub
 edit_uri: blob/main/docs/
 
+theme: 
+  name: material
+  color_mode: auto
+  user_color_mode_toggle: true
+  features:
+      - announce.dismiss
+      - content.action.view
+      - content.action.edit
+markdown_extensions:
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.blocks.tab:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
 nav:
   - Home: index.md
   - NatMEG:
@@ -66,26 +89,3 @@ nav:
     - Analysis:
       - General: natmeg/server/tutorial_00_tips_for_writing_scripts.md
     # - Troubleshooting:
-      
-
-    
-theme: 
-  name: material
-  features:
-      - announce.dismiss
-      - content.action.view
-      - content.action.edit
-markdown_extensions:
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.blocks.tab:
-      alternate_style: true
-      combine_header_slug: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
