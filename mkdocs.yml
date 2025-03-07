@@ -3,6 +3,7 @@ site_name: Centre for Imaging Research (CIR)
 repo_url: https://github.com/natmegsweden/documentation
 repo_name: Show on GitHub
 edit_uri: blob/main/docs/
+site_url: https://natmegsweden.github.io/documentation/
 
 theme: 
   name: material
@@ -12,6 +13,9 @@ theme:
       - announce.dismiss
       - content.action.view
       - content.action.edit
+      - navigation.instant
+      - navigation.instant.preview
+      - navigation.tabs
       # - navigation.sections # Makes top level sections expandable
 markdown_extensions:
   - pymdownx.betterem:
