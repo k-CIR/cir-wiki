@@ -61,6 +61,7 @@ nav:
         - Electric nerve stimulation: natmeg/lab/ENS-specs.md
         - Mechanical pain: natmeg/lab/Mechanical-pain-specs.md
         - Olfactometer: natmeg/lab/Olfaction-specs.md
+        - New test-page: natmeg/test_new.md
     - Response Equipment: 
       - Eye-tracker: natmeg/lab/Eye-tracker.md
     - Presentation:
