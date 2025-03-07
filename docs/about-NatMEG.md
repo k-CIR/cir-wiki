@@ -1,0 +1,3 @@
+NatMEG is the first and only research laboratory in Sweden for whole-head measurements of neuronal brain activity using magnetoencephalography (MEG). The NatMEG lab was  inaugurated in October 2013, and is one out of only approximately 200 active MEG labs worldwide.
+
+Since 2024, we have the worlds largest on-scalp MEG system that uses optically pumped magnetometer (OPM) sensors, a new type of quantum enhanced sensors that can measure closer to the scalp than conventional MEG sensors.
