@@ -12,6 +12,7 @@ theme:
       - announce.dismiss
       - content.action.view
       - content.action.edit
+      - navigation.sections # Makes top level sections expandable
 markdown_extensions:
   - pymdownx.betterem:
       smart_enable: all
@@ -86,6 +87,7 @@ nav:
     - Install software:
       - Set-up MNE on Compute: natmeg/server/Set-up-MNE-Python-on-Compute.md
       - Set-up FieldTrip on Compute: natmeg/server/Set-up-FieldTrip-on-Compute.md
+      - Set-up FreeSurfer on Compute: natmeg/server/Guide-for-setting-up-Freesurfer-on-Compute.md
     - Analysis:
       - General: natmeg/server/tutorial_00_tips_for_writing_scripts.md
     # - Troubleshooting:
