@@ -2,8 +2,7 @@ site_name: Centre for Imaging Research (CIR)
 
 repo_url: https://github.com/natmegsweden/documentation
 repo_name: Edit on GitHub
-
-edit_url: https://github.com/natmegsweden/documentation/edit/main/docs/
+edit_url: blob/main/docs/
 
 nav:
   - Home: index.md
