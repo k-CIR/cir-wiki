@@ -26,4 +26,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force# This is a basic workflow to help you get started with Actions
+      - run: mkdocs gh-deploy --force #This is a basic workflow to help you get started with Actions
