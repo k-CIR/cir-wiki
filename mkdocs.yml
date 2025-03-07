@@ -12,7 +12,7 @@ theme:
       - announce.dismiss
       - content.action.view
       - content.action.edit
-      - navigation.sections # Makes top level sections expandable
+      # - navigation.sections # Makes top level sections expandable
 markdown_extensions:
   - pymdownx.betterem:
       smart_enable: all
