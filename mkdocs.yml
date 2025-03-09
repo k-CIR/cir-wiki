@@ -66,67 +66,30 @@ extra:
   # version:
   #   provider: mike
   scope: /
+plugins:
+  - search
+  - include_dir_to_nav
 
 nav:
   - Home: index.md
   - NatMEG:
     - About NatMEG: natmeg/index.md
     - Preparation:
-      - Apply electrodes: natmeg/lab/Electrodes-standard-setup.md
-      - Digitization: natmeg/lab/Digitization-hpi.md
-    - SQUID Acquisition: 
-      - About TRIUX: natmeg/lab/TRIUX-specs.md
-      - Acquisition: natmeg/lab/Acquisition.md
-      - Tuning channels: natmeg/lab/Tuning.md 
-      - Check channels: natmeg/lab/Check-channels.md
-      - EEG: natmeg/lab/EEG-specs.md
-      - Bio channels: natmeg/lab/Biochannels-specs.md
-      - Lab notebook: natmeg/lab/Lab-notebook.md
-
-    - OPM Acquisition: natmeg/lab/OPM-Acquisition.md
-    
+      - natmeg/preparation/
+    - SQUID Acquisition: natmeg/squid-acquisition/
+    - OPM Acquisition: natmeg/opm-acquisition/
     - Stimulus Equipment:
-      - Audio: 
-        - Audio mixer: natmeg/lab/Audio-mixer.md
-        - Speakers: natmeg/lab/Speakers-specs.md
-        - Sound tubes: natmeg/lab/Soundtubes-specs.md
-        - Audio file: natmeg/lab/Audiofile-specs.md
-        - Behringer interface: natmeg/lab/Behringer-specs.md
-        - B&K sound level: natmeg/lab/B&K-sound-level-meter-specs.md
-      - Visual:
-        - Screen and Projector: natmeg/lab/Screen-and-projector.md
-      - Other: 
-        - Pleasant touch: natmeg/lab/Pleasant-touch-specs.md
-        - Tactile stimulator: natmeg/lab/Tactile-specs.md
-        - Electric nerve stimulation: natmeg/lab/ENS-specs.md
-        - Mechanical pain: natmeg/lab/Mechanical-pain-specs.md
-        - Olfactometer: natmeg/lab/Olfaction-specs.md
-    - Response Equipment: 
-      - Eye-tracker: natmeg/lab/Eye-tracker.md
-    - Presentation:
-      - Presentation: natmeg/lab/Presentation.md
-      - Presentation tips: natmeg/lab/Presentation-script-tips.md
-      - Presentation examples: 
-        - Auditory oddball: natmeg/lab/Presentation-code-example-Auditory-oddball-paradigm.md
-        - Resting state: natmeg/lab/Presentation‐code‐example‐Resting‐state‐paradigm.md
-    - Triggers: natmeg/lab/Triggers-specs.md
-    - Other: 
-      - natmeg/lab/Other/File-naming.md
-      - natmeg/lab/Other/Beyond-compare.md
-      - natmeg/lab/Other/Maxfilter.md
-      - natmeg/lab/Other/MSR-specs.md
-      - natmeg/lab/Other/Monitors.md
-      - natmeg/lab/Other/Acoustic-panels-specs.md
+      - Audio: natmeg/stimulus-equipment/audio
+      - Visual: natmeg/stimulus-equipment/visual
+      - Other: natmeg/stimulus-equipment/other
+    - Response Equipment: natmeg/response-equipment/
+    - Presentation: natmeg/presentation/
+    - Other: natmeg/other/
+    - NatMEG server:
+      - Set-up connection: natmeg/server/set-up-connection/
+      - Install software: natmeg/server/install-software/
+      - Script tips: natmeg/server/script-tips/
+      - Troubleshooting: natmeg/server/troubleshooting/
   - Server:
-    - Set-up connection: 
-      - Connect to Archive: natmeg/server/Connect-to-Archive.md
-      - Connect to Storate: natmeg/server/Connect-to-Storage.md
-      - Connect to Compute: natmeg/server/Connect-to-Compute.md
-      - Close VNC connection: natmeg/server/Close-VNC-connection.md
-    - Install software:
-      - Set-up MNE on Compute: natmeg/server/Set-up-MNE-Python-on-Compute.md
-      - Set-up FieldTrip on Compute: natmeg/server/Set-up-FieldTrip-on-Compute.md
-      - Set-up FreeSurfer on Compute: natmeg/server/Guide-for-setting-up-Freesurfer-on-Compute.md
-    - Analysis:
-      - General: natmeg/server/tutorial_00_tips_for_writing_scripts.md
-    # - Troubleshooting:
+    - About the server: server/index.md
+    - Connect: server/connect/

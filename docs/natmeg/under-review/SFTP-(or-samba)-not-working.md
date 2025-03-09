@@ -1,1 +1,0 @@
-This can happen when the bash console on storage returns a message that is too large for the protocol. To fix it connect to storage02 with ssh (_ssh username@storage02.natmeg.se_), open the bashrc file with a text editor (e.g., _nano ~/.bashrc_), comment out any _echo_ commands by adding a _#_ in front of it and save. 
