@@ -3,7 +3,7 @@ site_name: Centre for Imaging Research (CIR)
 repo_url: https://github.com/natmegsweden/documentation
 repo_name: Show on GitHub
 edit_uri: blob/main/docs/
-site_url: https://natmegsweden.github.io/documentation/
+site_url: https://www.kcir.se
 
 theme: 
   name: material
@@ -72,10 +72,9 @@ plugins:
 
 nav:
   - Home: index.md
-  - NatMEG:
-    - About NatMEG: natmeg/index.md
-    - Preparation:
-      - natmeg/preparation/
+  - NatMEG: 
+    - natmeg/index.md
+    - Preparation: natmeg/preparation/
     - SQUID Acquisition: natmeg/squid-acquisition/
     - OPM Acquisition: natmeg/opm-acquisition/
     - Stimulus Equipment:
