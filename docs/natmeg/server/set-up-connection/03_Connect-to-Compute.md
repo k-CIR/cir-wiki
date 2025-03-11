@@ -48,6 +48,7 @@ Click open. A terminal will pop up. Enter your username and password. You are no
 /// tab | MacOS/Linux
 **Linux/Mac:** Open a new terminal window and type: `ssh username@compute.natmeg.se`, where `username `is your personal username. Enter your password when asked. You are now connected to Compute.
 ///
+
 ## Create a new VNC session
 When connected to “compute”, you must create a new VNC session (not to confuse with VPN). You do this in the terminal:
 
@@ -63,6 +64,8 @@ The first time you create a VNC server you should be asked to create a password 
 **Mac:** Exit the ssh session with `exit`.
 
 ### Configure connection for future connection.
+
+/// tab | Windows
 **Windows:** Open a new PuTTY. Go to the tab  Connection -> SSH -> Tunnels. Add “Source port” as `59XX` where XX is the number of your VNC server, e.g. 5902. Add “Destination” as `localhost:59XX` where XX is the number of your VNC server (see picture below). Click “Add”.
 
 ![PuTTy](../../../resources/wiki_images/remote_connect03.png)
@@ -72,10 +75,11 @@ Go to the tab Connection -> SSH -> X11. Make sure “Enable X11 forwarding” is
 ![PuTTy](../../../resources/wiki_images/remote_connect04.png)
 
 Before proceeding, go back to the first tab and save the settings.
+///
 
-
-
+/// tab | Mac
 **Mac:** Open a new terminal and reconnect to Compute with SSH with the following command: `ssh username@compute.natmeg.se -L 59XX:localhost:59XX` where you replace `username` with your personal username and `XX` is your VNC session number. If you get a one-digit VNC id back, e.g. 4, your id is 04 (so you get `:5904`).
+///
 
 > If you experience a black screen with an error when you connect, see [here](../troubleshooting/VNC-black-screen-error.md).
 
