@@ -38,14 +38,16 @@ Once you have this in place, you can connect to compute and create a VNC session
 
 Follow this procedure to set up the VNC connection to Compute:
 
+/// tab | Windows
 **Windows:** Open PuTTy. On the main tab enter “Host Name (or IP address)” as `compute.natmeg.se`. Use port `22` (typically the default), as shown below:
 
 ![PuTTy](../../../resources/wiki_images/remote_connect01.png)
 
 Click open. A terminal will pop up. Enter your username and password. You are now connected to Compute.
-
+///
+/// tab | MacOS/Linux
 **Linux/Mac:** Open a new terminal window and type: `ssh username@compute.natmeg.se`, where `username `is your personal username. Enter your password when asked. You are now connected to Compute.
-
+///
 ## Create a new VNC session
 When connected to “compute”, you must create a new VNC session (not to confuse with VPN). You do this in the terminal:
 
