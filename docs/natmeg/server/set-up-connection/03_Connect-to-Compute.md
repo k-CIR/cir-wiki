@@ -32,21 +32,22 @@ When you are on KI's network—either by remote or physically present at KI—yo
 ## Setup a connection to Compute
 If you have not connected to Compute before, you will need to do an initial setup.
 
+/// tab | Windows
 If working on a Windows computer, you first need an **SSH client** (e.g. PuTTy if on PC www.putty.org) and a **VNC client** (e.g. SSVNC, https://sourceforge.net/projects/ssvnc/files/ssvnc/1.0.29 or TightVNC Viewer, www.tightvnc.com/download.php). Linux and Mac computers already support SSH. Mac computers also come with a VNC client already installed.
 
 Once you have this in place, you can connect to compute and create a VNC session.
 
 Follow this procedure to set up the VNC connection to Compute:
 
-/// tab | Windows
-**Windows:** Open PuTTy. On the main tab enter “Host Name (or IP address)” as `compute.natmeg.se`. Use port `22` (typically the default), as shown below:
+Open PuTTy. On the main tab enter “Host Name (or IP address)” as `compute.natmeg.se`. Use port `22` (typically the default), as shown below:
 
 ![PuTTy](../../../resources/wiki_images/remote_connect01.png)
 
 Click open. A terminal will pop up. Enter your username and password. You are now connected to Compute.
 ///
+
 /// tab | MacOS/Linux
-**Linux/Mac:** Open a new terminal window and type: `ssh username@compute.natmeg.se`, where `username `is your personal username. Enter your password when asked. You are now connected to Compute.
+Open a new terminal window and type: `ssh username@compute.natmeg.se`, where `username `is your personal username. Enter your password when asked. You are now connected to Compute.
 ///
 
 ## Create a new VNC session
@@ -66,7 +67,7 @@ The first time you create a VNC server you should be asked to create a password 
 ### Configure connection for future connection.
 
 /// tab | Windows
-**Windows:** Open a new PuTTY. Go to the tab  Connection -> SSH -> Tunnels. Add “Source port” as `59XX` where XX is the number of your VNC server, e.g. 5902. Add “Destination” as `localhost:59XX` where XX is the number of your VNC server (see picture below). Click “Add”.
+Open a new PuTTY. Go to the tab  Connection -> SSH -> Tunnels. Add “Source port” as `59XX` where XX is the number of your VNC server, e.g. 5902. Add “Destination” as `localhost:59XX` where XX is the number of your VNC server (see picture below). Click “Add”.
 
 ![PuTTy](../../../resources/wiki_images/remote_connect03.png)
  
@@ -77,8 +78,8 @@ Go to the tab Connection -> SSH -> X11. Make sure “Enable X11 forwarding” is
 Before proceeding, go back to the first tab and save the settings.
 ///
 
-/// tab | Mac
-**Mac:** Open a new terminal and reconnect to Compute with SSH with the following command: `ssh username@compute.natmeg.se -L 59XX:localhost:59XX` where you replace `username` with your personal username and `XX` is your VNC session number. If you get a one-digit VNC id back, e.g. 4, your id is 04 (so you get `:5904`).
+/// tab | MacOS/Linux
+Open a new terminal and reconnect to Compute with SSH with the following command: `ssh username@compute.natmeg.se -L 59XX:localhost:59XX` where you replace `username` with your personal username and `XX` is your VNC session number. If you get a one-digit VNC id back, e.g. 4, your id is 04 (so you get `:5904`).
 ///
 
 > If you experience a black screen with an error when you connect, see [here](../troubleshooting/VNC-black-screen-error.md).
@@ -90,18 +91,19 @@ We recommend [TurboVNC](https://github.com/TurboVNC/turbovnc/releases) as it is 
 
 ![VNC](../../../resources/wiki_images/remote_connect06.png)
 
-**Windows:**
-
+/// tab | Windows
 1. Open PuTTy. If you saved the settings (as instructed above), click “Open”. Then enter your username and password. 
 2. When connected to the server, open your VNC client. Then enter your username and password.
 > If you set X11 forwarding, as described above, connect to “Remote Host” `localhost:0`. If not, connect using your username + the IP address to compute (130.229.40.51) + an index (59) + your VNC session number. If you get a one-digit VNC session, e.g. 4, your id is 04 (so you get `:5904`).
+///
 
-**Mac:**
+/// tab | MacOS/Linux
 
 1. Open a terminal and connect with SSH to Compute with the following command: `ssh username@compute.natmeg.se -L 59XX:localhost:59XX` where you replace `username` with your personal username and `XX` is your VNC session number
 2. When connected to the server, open your VNC client. Then enter your username and password.
 
 > Or if you don't want to use external software, in the Mac menu "Go" and click "Connect to Server...". Enter the address as `vnc://localhost:59XX` where `XX` is your VNC session number.
+///
 
 ## Close VNC server
 You can leave your VNC session running between uses and reuse the same session number. However, if you know that you will not use Compute resources in a while (e.g. over a vacation or similar), we appreciate if you close your open VNC servers. 
