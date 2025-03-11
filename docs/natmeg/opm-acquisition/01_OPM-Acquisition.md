@@ -13,7 +13,7 @@ Some utility scripts that will be mentioned in this document can be find the pat
 If one wants to do an OPM recording in parallel with some recording with the MEG scan, it is important that when defining the preparation, the "internal active shielding" is off as internal active shielding interferes with the OPM system. To check so, click to "change" in Acquisition and check that the bottom checkbox called "internal active shielding" is off.
 
 ![](../../resources/wiki_images/OPM_support_and_sensorsout.png)
-*Figure 1: *left:* Free-standing helmet mount. *right:* sensors pulled out to be flush with inner helmet surface.*
+*Figure 1: left: Free-standing helmet mount. right: sensors pulled out to be flush with inner helmet surface.*
 <!-- <div align="center">
   <img src="../../resources/wiki_images/OPM_support_and_sensorsout.png" width="800">
   <p><em>Figure 1: *left:* Free-standing helmet mount. *right:* sensors pulled out to be flush with inner helmet surface. </em></p>
