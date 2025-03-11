@@ -10,11 +10,11 @@ Plot the channel positions:
 ```matlab
 plot3(data.grad.chanpos(:,1), data.grad.chanpos(:,2), data.grad.chanpos(:,3), 'o')
 ```
-![](../../../resources/wiki_images/wiki_images/sensors_on_drugs.png)
+![](../../../resources/wiki_images/sensors_on_drugs.png)
 
 How it should look:
 
-![](../../../resources/wiki_images/wiki_images/sensors_plot.png)
+![](../../../resources/wiki_images/sensors_plot.png)
 
 Also, you cannot plot the sensor layout with `ft_plot_sens(data.grad)`:
 ```

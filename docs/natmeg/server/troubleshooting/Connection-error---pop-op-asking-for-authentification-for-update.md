@@ -4,11 +4,11 @@ title: Connection error - pop-op asking for authentification for update
 
 **Problem**: a pop-op prompt saying "*Authentification is required to set the network proxy used for downloading packages*" keeps appears but require sudo right to continue.
 
-![](../../../resources/wiki_images/wiki_images/Fig_4-1.png)
+![](../../../resources/wiki_images/Fig_4-1.png)
 
 This is possibly the same/related error:
 
-![](../../../resources/wiki_images/wiki_images/Fig_5-1.png)
+![](../../../resources/wiki_images/Fig_5-1.png)
 
 **Cause**: It seems to be a generic error message caused outdated driver somewhere. **Update 2021-01-21:** this should be fixed now (@mcvinding)
 
