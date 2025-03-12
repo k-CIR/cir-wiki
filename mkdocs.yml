@@ -62,13 +62,16 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
-extra:
-  # version:
-  #   provider: mike
-  scope: /
 plugins:
   - search
   - include_dir_to_nav
+  - macros
+extra:
+  # version:
+  #   provider: mike
+  picture_path: /docs/resources/wiki_images
+  scope: /
+
 
 nav:
   - Home: index.md
