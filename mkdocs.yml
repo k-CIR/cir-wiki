@@ -1,6 +1,6 @@
 site_name: Centre for Imaging Research (CIR)
 
-repo_url: https://github.com/natmegsweden/documentation
+repo_url: https://github.com/k-CIR/cir-wiki
 repo_name: Show on GitHub
 edit_uri: blob/main/docs/
 site_url: https://www.kcir.se
@@ -97,6 +97,7 @@ nav:
     - bmic/index.md
   - MRC:
     - mrc/index.md
+    - mrc/mrc-cir-protocol.md
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/
