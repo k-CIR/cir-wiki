@@ -1,9 +1,9 @@
 ---
-title: CIR Protocol
+title: 3T CIR Protocol
 ---
 
 ## Introduction 
-The brain imaging protocol for CIR was develop in synergy between the UK Biobank, ADNI-4  and HumanConnectom-Aging projects. CIR will establish a standard protocol at Karolinska CIR to enable multi-modality and cross-subject, cross-disease research of human brain. Hereby, we provide details of the acquisition protocols and suggestions for minimal image pre-processing.
+The brain imaging protocol for CIR was developed in synergy between the UK Biobank, ADNI-4  and HumanConnectom-Aging projects. CIR will establish a standard protocol at Karolinska CIR to enable multi-modality and cross-subject, cross-disease research of human brain. Hereby, we provide details of the acquisition protocols and suggestions for minimal image pre-processing.
 
 ## MRI scanner
 The protocol was developed on the General Electric (GE) 3 Tesla scanner, Signa-PremierXT installed 202301, 70 cm bore, 80 mT/m max gradient strength, 200 T/m/s slew rate, and a 48 channels RF receive head-neck coil. 
