@@ -90,8 +90,8 @@ nav:
       - Script tips: natmeg/server/script-tips/
       - Troubleshooting: natmeg/server/troubleshooting/
     - Cerberos: natmeg/cerberos/
-  - BIMIC: 
-    - bimic/index.md
+  - BMIC: 
+    - bmic/index.md
   - MRC:
     - mrc/index.md
   - Server:
