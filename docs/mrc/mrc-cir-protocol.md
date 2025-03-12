@@ -2,7 +2,7 @@
 title: CIR Protocol
 ---
 
-# Introduction 
+## Introduction 
 The brain imaging protocol for CIR was develop in synergy between the UK Biobank, ADNI-4  and HumanConnectom-Aging projects. CIR will establish a standard protocol at Karolinska CIR to enable multi-modality and cross-subject, cross-disease research of human brain. Hereby, we provide details of the acquisition protocols and suggestions for minimal image pre-processing.
 
 # MRI scanner
