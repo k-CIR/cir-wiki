@@ -33,4 +33,4 @@ end
 
 This loop presents this figure:
 
-![](https://github.com/natmegsweden/NatMEG_Wiki/blob/main/wiki_images/exampleplot1.png)
+![]({{ picture_path }}/exampleplot1.png)

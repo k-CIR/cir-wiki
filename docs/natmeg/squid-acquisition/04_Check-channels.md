@@ -27,7 +27,7 @@ No action required
 
 Open: Menu -> Neuromag -> Squiddler
 
-![Squiddler](../../resources/wiki_images/squiddler_small.jpg)
+![Squiddler]({{ picture_path }}/squiddler_small.jpg)
 
 
 In Squiddler:

@@ -6,7 +6,7 @@ title: Audio mixer
 
 See figure below for an overview of how to control the sound mixer. The mixer should as default always be on. If it is switched off, use the on/off switch on the backside of the mixer to switch it back on.
 
-![Audio mixer](../../../resources/wiki_images/audio_mixer_marked.jpg)
+![Audio mixer]({{ picture_path }}/audio_mixer_marked.jpg)
 *Figure 1. Mackie Big Knob Studio+ with labels*
 
 A. Select input. Sound from  Audiofile (3/4) and/or Stimulus Computer (5/6)
@@ -50,10 +50,10 @@ Remember to press the correct talkback button when communicating the the partici
 
 The Audio mixer receives input from the [Stimulus PC](), [AudioFile](Audiofile-specs.md) and the [Motu interface](). It outputs to the [MSR speakers](Speakers-specs.md) and the control room speakers. The built-in microphone is used for communication with a person inside the MSR either via the MSR speakers or via the ear-tubes.
 
-![Audio mixer](../../../resources/wiki_images/audio_mixer.png)
+![Audio mixer]({{ picture_path }}/audio_mixer.png)
 *Figure 2. Mackie Big Knob Studio+ front*
 
-![Audio mixer rear](../../../resources/wiki_images/audio_mixer_rear.png)
+![Audio mixer rear]({{ picture_path }}/audio_mixer_rear.png)
 *Figure 3. Mackie Big Knob Studio+ back*
 
 * Further technical specifications are found [here](../../../resources/manuals/Big_Knob_Studio-Studio+_OM.pdf).
@@ -88,7 +88,7 @@ The Audio mixer receives input from the [Stimulus PC](), [AudioFile](Audiofile-s
 
 Yes, you can use the built in Triux system intercom. Do the following.
 
-![Intercom](../../../resources/wiki_images/intercom.png)
+![Intercom]({{ picture_path }}/intercom.png)
 
 > ! If the microphone is not plugged in find it and plug it in on the side of the MEG.
 

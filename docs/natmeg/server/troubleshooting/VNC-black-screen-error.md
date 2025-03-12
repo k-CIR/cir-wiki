@@ -4,9 +4,9 @@ tags: [troubleshooting]
 ---
 You might experience a black screen with an error message when you first log in to a new VNC server.
 
-![](../../../resources/wiki_images/Fig_1-1.png)
+![]({{ picture_path }}/Fig_1-1.png)
 
-![](../../../resources/wiki_images/Fig_2-1.png)
+![]({{ picture_path }}/Fig_2-1.png)
 
 The error seems to be due to Anaconda/Python initiation, which messes with the VNC config in some way. I have not been able to solve the problem definitly [if you know, please tell me! @mcvinding], but the following procedure circumvents the problem:
 
