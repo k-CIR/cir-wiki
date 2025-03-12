@@ -62,13 +62,16 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
-extra:
-  # version:
-  #   provider: mike
-  scope: /
 plugins:
   - search
   - include_dir_to_nav
+  - macros
+extra:
+  # version:
+  #   provider: mike
+  picture_path: /docs/resources/wiki_images
+  scope: /
+
 
 nav:
   - Home: index.md
@@ -96,7 +99,9 @@ nav:
     - mrc/index.md
     - mrc/mrc-cir-protocol.md
     - MRC servers: mrc/servers/
-      - Connection and data transfer: mrc/servers/set-up-connection/
+        - Connection and data transfer: mrc/servers/set-up-connection/
+    - Response Equipment: 
+        - mrc/response-equipment/
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/

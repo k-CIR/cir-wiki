@@ -121,5 +121,5 @@ epo_meg = ft_redefinetrial(cfg, raw_meg);
 
 ## Option C: Make epochs immediately, then merge split files
 
-See [here](https://github.com/natmegsweden/NatMEG_Wiki/wiki/Ignore-trials-split-between-fif-files)
+See [here](Ignore-trials-split-between-fif-files.md)
 

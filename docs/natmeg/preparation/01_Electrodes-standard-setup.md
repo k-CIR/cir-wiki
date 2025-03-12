@@ -38,6 +38,6 @@ When all electrodes are attached. Check impedance using the impedance meter.
 2. Click the middle white button to turn SIGGI on and select *Impedance Meter*. Press white button again.
 3. Read impedance for each channel, by moving the connector to the different electrodes. **Impedance levels should not be higher than 20 ${k\Omega}$**, but the less the better. If impedance is too high, try to press on the electrode. If the signal is still not good, remove the electrode, clean the skin and attach a new.
 
-![SIGGI impedance meter](../../resources/wiki_images/impedence.png)
+![SIGGI impedance meter]({{ picture_path }}/impedence.png)
 
 When finished with the electrodes move on to the [Digitization](02_Digitization-hpi.md).

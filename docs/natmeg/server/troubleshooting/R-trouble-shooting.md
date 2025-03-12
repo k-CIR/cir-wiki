@@ -6,7 +6,7 @@ tags: [R, Rstudio, troubleshooting]
 Here are some know issues with R/Rstudio on Compute.
 
 ## Install R/Rstudio
-See [here](https://github.com/natmegsweden/NatMEG_Wiki/wiki/Guide-for-setting-up-R-and-RStudio-on-Compute).
+See [here](../install-software/Guide-for-setting-up-R-and-RStudio-on-Compute.md).
  
 ## r-stan problems
 <u>Problem</u>: issues installing rstan-dependencies
