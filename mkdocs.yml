@@ -98,7 +98,8 @@ nav:
   - MRC:
     - mrc/index.md
     - mrc/mrc-cir-protocol.md
-    - MRC servers: mrc/servers/
+    - MRC servers: 
+        - mrc/servers/
         - Connection and data transfer: mrc/servers/set-up-connection/
     - Response Equipment: 
         - mrc/response-equipment/
