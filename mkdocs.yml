@@ -95,6 +95,8 @@ nav:
   - MRC:
     - mrc/index.md
     - mrc/mrc-cir-protocol.md
+    - MRC servers: mrc/servers/
+      - Connection and data transfer: mrc/servers/set-up-connection/
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/
