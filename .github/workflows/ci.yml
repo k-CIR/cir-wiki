@@ -27,4 +27,5 @@ jobs:
             mkdocs-material-
       - run: pip install mkdocs-material
       - run: pip install mkdocs-include-dir-to-nav
+      - run: pip install mkdocs-macros-plugin
       - run: mkdocs gh-deploy --force #This is a basic workflow to help you get started with Actions
