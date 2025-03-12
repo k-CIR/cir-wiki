@@ -1,3 +1,7 @@
+---
+title: Acquisition
+---
+
 # Acquisition
 
 Acquisition is the main program you need for running the MEG-recording.
