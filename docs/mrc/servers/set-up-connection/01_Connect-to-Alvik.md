@@ -14,7 +14,7 @@ Running VNC has the advantage of giving you the whole desktop of Alvik and to al
 1. **Download** and **install** the software here: [TurboVNC](https://www.turbovnc.org/)
 2.  Make a new **TurboVNC connection**. Write your <mark style="color:purple;">**username**</mark> followed by **@193.10.16.82:**
 
-![](https://github.com/k-CIR/MR-Center/blob/main/wiki_images/turboVNC_login.png)
+![](../../../resources/wiki_images/mrcturboVNC_login.png)
 
 3. Click "**Connect**," and you will be prompted to enter your **password**.
 
