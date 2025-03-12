@@ -94,6 +94,7 @@ nav:
     - bmic/index.md
   - MRC:
     - mrc/index.md
+    - mrc/CIR Protocol.md
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/
