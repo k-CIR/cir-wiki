@@ -99,7 +99,7 @@ nav:
     - mrc/index.md
     - mrc/mrc-cir-protocol.md
     - Response Equipment: 
-        - Eye-tracker: mrc/response-equipment/mrc-eyetrack.md
+        - Eye-tracker: mrc/response-equipment/
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/
