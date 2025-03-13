@@ -71,7 +71,7 @@ plugins:
 extra:
   # version:
   #   provider: mike
-  picture_path: /docs/resources/wiki_images
+  picture_path: /resources/wiki_images
   scope: /
 
 
@@ -100,6 +100,11 @@ nav:
   - MRC:
     - mrc/index.md
     - mrc/mrc-cir-protocol.md
+    - MRC servers: 
+        - mrc/servers/
+        - Connection and data transfer: mrc/servers/set-up-connection/
+    - Response Equipment: 
+        - mrc/response-equipment/
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/
