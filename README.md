@@ -1,4 +1,4 @@
-# The CIR wiki (for contributers)
+# The CIR wiki (for contributors)
 
 ## Structure of the wiki
 In the docs directory each facility is added as top level and an index.md is included to describe the facility. Subdirectories can be added and markdown-files in each subdirectory is included in the navigation automatically if parent directory is included in the mkdocs.yml file.
@@ -22,7 +22,7 @@ To make the navigation look nicer add title in the header parameters of the mark
 
 ```markdown
 ---
-title: Audio mixer specifiations
+title: Audio mixer specifications
 ---
 ```
 
@@ -57,3 +57,17 @@ conda activate mkdocs_env
 ```
 
 `mkdocs serve` to run locally
+
+## How to contribute to the wiki
+You can contribute in two ways:  
+
+**Through Pull Requests**
+
+If you have edits or new content to add, fork the repository, make your changes, and submit a pull request for review. It’s good practice to:  
+- Request at least one reviewer from the main collaborators of the CIR repository.  
+- Assign the pull request to yourself and/or others who need to work on it.  
+
+**Through Issues**
+
+If you have suggestions, corrections, or requests but can't make the changes yourself, open an issue to bring it to our attention.  
+
