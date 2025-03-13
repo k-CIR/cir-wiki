@@ -62,17 +62,19 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
-  - pymdownx.pathconverter:
-      base_path: docs
+  # - pymdownx.pathconverter:
+  #     base_path: docs
 plugins:
   - search
   - include_dir_to_nav
+  - markdownextradata
   - macros
 extra:
+  # scope: /
   # version:
   #   provider: mike
-  picture_path: /resources/wiki_images
-  scope: /
+  # picture_path: /resources/wiki_images
+  picture_path: ./docs/resources/wiki_images
 
 
 nav:
