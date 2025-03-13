@@ -71,7 +71,7 @@ plugins:
 extra:
   # version:
   #   provider: mike
-  picture_path: /resources/wiki_images
+  picture_path: /docs/resources/wiki_images
   scope: /
 
 
