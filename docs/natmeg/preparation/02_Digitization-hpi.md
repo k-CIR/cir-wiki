@@ -28,7 +28,7 @@ To monitor head position, open a terminal and type:
 
 > mneHeadPos
 
-![HPI tool]({{ picture_path }}/hpi-tool_small.jpg)
+![HPI tool](../../resources/wiki_images/hpi-tool_small.jpg)
 
 The head position is read from the latest HPI fit. Click" Reload HPI" to update the view.
 
@@ -62,7 +62,7 @@ Close head position tool
 
 ### HPI errors
 
-![HPI results]({{ picture_path }}/hpi-results_small.jpg)
+![HPI results](../../resources/wiki_images/hpi-results_small.jpg)
 _(HPI results window showing successful HPI fit)_
 
 <u>Problem</u>: Errors with HPI. It gives an error message or Suggestion in HPI results window (screenshot) is "redo HPI" as opposed to "Accept" (like in the screenshot).

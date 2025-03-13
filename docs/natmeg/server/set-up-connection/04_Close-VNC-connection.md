@@ -7,7 +7,7 @@ title: Close VNC connection
 
 Type `vncserver –kill :N` to close a server, where `N` is the server's number, e.g. `compute:20` in the picture below.
 
-![VNC]({{ picture_path }}/remote_connect02.png)
+![VNC](../../../resources/wiki_images/remote_connect02.png)
 
 ## Close VNC connection (errors)
 Sometimes, for some reason, it is not possible to use `vncserver –kill` to shut down the VNC connection. You might get an error like this:

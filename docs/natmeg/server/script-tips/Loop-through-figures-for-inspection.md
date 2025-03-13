@@ -33,4 +33,4 @@ end
 
 This loop presents this figure:
 
-![]({{ picture_path }}/exampleplot1.png)
+![](../../../resources/wiki_images/exampleplot1.png)

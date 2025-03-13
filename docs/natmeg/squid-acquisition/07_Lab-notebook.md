@@ -5,7 +5,7 @@ title: Lab notebook
 
 # Lab notebook
 
-![Lab notebook]({{ picture_path }}/lab-notebook_small.jpg)
+![Lab notebook](../../resources/wiki_images/lab-notebook_small.jpg)
 
 The Lab notebook helps you to note important things for your project. You can add project specific details in the Project column, subject specific details in the Subject column or measurement specific details in the Date column. The Lab notebook is saved as json-files and txt-files in your project folder.
 
