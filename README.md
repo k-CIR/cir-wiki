@@ -1,5 +1,4 @@
-
-
+# The CIR wiki (for contributers)
 
 ## Structure of the wiki
 In the docs directory each facility is added as top level and an index.md is included to describe the facility. Subdirectories can be added and markdown-files in each subdirectory is included in the navigation automatically if parent directory is included in the mkdocs.yml file.
@@ -19,14 +18,13 @@ docs
 └── mkdocs.yml
 ```
 
-To make the navigation look nicer add title in the header parameters of the markdown file.
+To make the navigation look nicer add title in the header parameters of the markdown file. This will be used in the menu instead of the filename. Files are sorted alphabetically so for a specific order add a number in the beginning of the filename.
 
 ```markdown
 ---
 title: Audio mixer specifiations
 ---
 ```
-
 
 Navigation of the mkdocs.yml
 ```yml
@@ -47,12 +45,12 @@ Clone the repository then you need a few python packages
 
 Using pip:
 ```bash
-pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav
+pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
 ```
 
 Using conda
 ```bash
-conda create -n mkdocs_env mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav
+conda create -n mkdocs_env mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
 
 conda activate mkdocs_env
 

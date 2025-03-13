@@ -1,6 +1,6 @@
 ## Electric Nerve Stimulation
 
-![Electric Nerve Stimulator](../../../resources/wiki_images/electric-nerve.png)
+![Electric Nerve Stimulator]({{ picture_path }}/electric-nerve.png)
 
 For  electrical nerve stimulation, we use two DeMeTec SCG30 stimulators, either with felt tips for median nerve stimulation, or with ring electrodes for single phalange stimulation.
 

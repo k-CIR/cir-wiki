@@ -4,7 +4,7 @@ title: The CIR data template
 
 The **main directory** of the **CIR data template** contains all **important directories** and **singularity containers** for running the programs necessary for transfer, conversion to BIDS and preprocessing of data.
 
-![]({{ picture_path }}/cirtemplate.png)
+![CIR-Template]({{ picture_path }}/cirtemplate.png)
 
 ### Scripts&#x20;
 
