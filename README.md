@@ -64,7 +64,7 @@ You can contribute in two ways:
 **Through Pull Requests**
 
 If you have edits or new content to add, fork the repository, make your changes, and submit a pull request for review. It’s good practice to:  
-- Request at least one reviewer from the main collaborators of the CIR repository.  
+- Request at least one reviewer from the main contributors of the CIR repository.  
 - Assign the pull request to yourself and/or others who need to work on it.  
 
 **Through Issues**
