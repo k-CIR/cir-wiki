@@ -62,6 +62,8 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+  - pymdownx.pathconverter:
+      base_path: docs
 plugins:
   - search
   - include_dir_to_nav
