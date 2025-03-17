@@ -38,6 +38,18 @@ nav:
 
 See [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) for more options on navigation and theme
 
+## How to contribute to the wiki
+You can contribute in two ways:  
+
+**Through Pull Requests**
+
+If you have edits or new content to add, fork the repository, make your changes, and submit a pull request for review. It’s good practice to:  
+- Request at least one reviewer from the main contributors of the CIR repository.  
+- Assign the pull request to yourself and/or others who need to work on it.  
+
+**Through Issues**
+
+If you have suggestions, corrections, or requests but can't make the changes yourself, open an issue to bring it to our attention.  
 
 ## Install locally
 
@@ -57,17 +69,4 @@ conda activate mkdocs_env
 ```
 
 `mkdocs serve` to run locally
-
-## How to contribute to the wiki
-You can contribute in two ways:  
-
-**Through Pull Requests**
-
-If you have edits or new content to add, fork the repository, make your changes, and submit a pull request for review. It’s good practice to:  
-- Request at least one reviewer from the main contributors of the CIR repository.  
-- Assign the pull request to yourself and/or others who need to work on it.  
-
-**Through Issues**
-
-If you have suggestions, corrections, or requests but can't make the changes yourself, open an issue to bring it to our attention.  
 
