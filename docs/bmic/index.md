@@ -1,5 +1,5 @@
 ---
-title: About BIMIC
+title: About BMIC
 ---
 
 TBA
