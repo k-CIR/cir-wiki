@@ -17,5 +17,5 @@ ft_plot_headmodel(headmodel)
 ft_plot_axes([], 'unit', 'cm');
 ```
 
-![](https://github.com/natmegsweden/meeg_course/blob/master/figures/meg_check.jpg)
+![]({{ picture_path }}/meg_check.jpg)
 ///

@@ -6,6 +6,6 @@ MRC provide the EyeLink 1000 Plus eyetracker from [SR Research](https://www.sr-r
 
 Eyetracking require a front-coated mirror mounted to the head coil. Other mirrors does not reflect enough IR-light for the eyetracker to pick up the corneal reflex reliably.
 
-![EyeLink-1000-Plus-Long-Range-Mount](../../resources/wiki_images/sr-1000.jpg)
+![EyeLink-1000-Plus-Long-Range-Mount]({{ picture_path }}/sr-1000.jpg)
 
 [See this page from SR research for installation guide and user manual](https://www.sr-research.com/support/thread-173.html)

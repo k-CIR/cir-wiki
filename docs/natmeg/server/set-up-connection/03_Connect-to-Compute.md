@@ -41,7 +41,7 @@ Follow this procedure to set up the VNC connection to Compute:
 
 Open PuTTy. On the main tab enter “Host Name (or IP address)” as `compute.natmeg.se`. Use port `22` (typically the default), as shown below:
 
-![PuTTy](../../../resources/wiki_images/remote_connect01.png)
+![PuTTy]({{ picture_path }}/remote_connect01.png)
 
 Click open. A terminal will pop up. Enter your username and password. You are now connected to Compute.
 ///
@@ -56,7 +56,7 @@ When connected to “compute”, you must create a new VNC session (not to confu
 1. Type: `vncserver` to open a new VNC server. If you want the remote session window to be of a certain size, add a geometry flag, e.g. `vncserver –geometry 2560x1340`. Choose a geometry, i.e. screen resolution, that works with your own monitor.
 2. Note the session number you get in return and use this to connect to your VNC session later.
 
-![VNC](../../../resources/wiki_images/remote_connect02.png)
+![VNC]({{ picture_path }}/remote_connect02.png)
 
 3. Type `vncserver –list` to see your active VNC sessions. Type `vncserver –kill :N` to close a server, where `N` is the server's number, e.g. `compute:20` in the picture above. For example, if you want to change the geometry of the window later on.
 
@@ -69,11 +69,11 @@ The first time you create a VNC server you should be asked to create a password 
 /// tab | Windows
 Open a new PuTTY. Go to the tab  Connection -> SSH -> Tunnels. Add “Source port” as `59XX` where XX is the number of your VNC server, e.g. 5902. Add “Destination” as `localhost:59XX` where XX is the number of your VNC server (see picture below). Click “Add”.
 
-![PuTTy](../../../resources/wiki_images/remote_connect03.png)
+![PuTTy]({{ picture_path }}/remote_connect03.png)
  
 Go to the tab Connection -> SSH -> X11. Make sure “Enable X11 forwarding” is checked. Add “X display location” `localhost:0`.
  
-![PuTTy](../../../resources/wiki_images/remote_connect04.png)
+![PuTTy]({{ picture_path }}/remote_connect04.png)
 
 Before proceeding, go back to the first tab and save the settings.
 ///
@@ -89,7 +89,7 @@ Once the setup is complete, you connect to the servers using a VNC client.
 
 We recommend [TurboVNC](https://github.com/TurboVNC/turbovnc/releases) as it is free, open source and you are able to adjust screen resolution and copy-paste between the VNC window and your local computer.
 
-![VNC](../../../resources/wiki_images/remote_connect06.png)
+![VNC]({{ picture_path }}/remote_connect06.png)
 
 /// tab | Windows
 1. Open PuTTy. If you saved the settings (as instructed above), click “Open”. Then enter your username and password. 

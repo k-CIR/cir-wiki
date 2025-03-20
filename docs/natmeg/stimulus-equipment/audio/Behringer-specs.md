@@ -7,8 +7,8 @@ S/N: -
 
 There are two ULTRAGAIN DIGITAL ADA8200 in the lab, one in the Stimulus cabinet (Unit A) and one in the MSR cabinet (Unit B). They are connected to each other via an 8-channel ADAT link.
 
-![Front](../../../resources/wiki_images/ADA8200_P0ATL_Front_XL.png)
-![Rear](../../../resources/wiki_images/ADA8200_P0ATL_Rear_XL.png)
+![Front]({{ picture_path }}/ADA8200_P0ATL_Front_XL.png)
+![Rear]({{ picture_path }}/ADA8200_P0ATL_Rear_XL.png)
 
 Unit B receives input from the microphone via the [Amplifier](), sends the signal to Unit A which outputs it to the [Speaker]().
 
@@ -88,4 +88,4 @@ Loaded with 8 premium MIDAS designed microphone preamps the ADA8200 provides dyn
 * THD: 0.008
 * Crosstalk: -87 dB
 
-[Quick Start guide (download pdf)](../../../resources/wiki_images/ADA8200_QSG_WW.pdf)
+[Quick Start guide (download pdf)]({{ picture_path }}/ADA8200_QSG_WW.pdf)
