@@ -98,8 +98,9 @@ nav:
     - bmic/index.md
   - MRC:
     - mrc/index.md
+    - mrc/mrc-bids.md
     - mrc/mrc-cir-protocol.md
-    - mrc/mrc-cir-data-template.md
+    # - mrc/mrc-cir-data-template.md
     - MRC servers: 
         - mrc/servers/index.md
         - Connection and data transfer: mrc/servers/set-up-connection/
