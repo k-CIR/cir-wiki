@@ -2,7 +2,6 @@
 title: Digitization
 ---
 
-
 # Digitization
 
 **The digitization is the second part of the preparation. The first part is the [placement of electrodes](01_Electrodes-standard-setup.md).**
@@ -19,16 +18,16 @@ The HPI coil positions, and hence the head position, are estimated from the coil
 
 TBA
 
-
 ## Before measurement
 1. Check so that the correct HPI preparation is loaded
 2. Remember to check  **cHPI**  in the Acquisition window
 
-To monitor head position, open a terminal and type:
+To monitor head position, open a terminal and type: 
+```bash
+mneHeadPos
+```
 
-> mneHeadPos
-
-![HPI tool](../../resources/wiki_images/hpi-tool_small.jpg)
+![HPI tool](/resources/wiki_images/hpi-tool_small.jpg)
 
 The head position is read from the latest HPI fit. Click" Reload HPI" to update the view.
 
@@ -62,7 +61,7 @@ Close head position tool
 
 ### HPI errors
 
-![HPI results](../../resources/wiki_images/hpi-results_small.jpg)
+![HPI results](/resources/wiki_images/hpi-results_small.jpg)
 _(HPI results window showing successful HPI fit)_
 
 <u>Problem</u>: Errors with HPI. It gives an error message or Suggestion in HPI results window (screenshot) is "redo HPI" as opposed to "Accept" (like in the screenshot).

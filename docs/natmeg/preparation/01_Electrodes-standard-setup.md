@@ -15,7 +15,7 @@ The standard setup of electrodes includes:
 
 
 ## Material
-![Material needed](../../resources/wiki_images/electrods-prep-matrial.png)
+![Material needed](/resources/wiki_images/electrods-prep-matrial.png)
 
 
 ## Step-by-step guide
@@ -28,7 +28,7 @@ The standard setup of electrodes includes:
 4. After letting the alcohol dry a few seconds attach the electrodes at the location indicated by the picture.
 > ! You can cut away part of the electrode (not too much!) to avoid participant getting it in the eye.
 
-![Electrode placement map](../../resources/wiki_images/electrods-palcement.png)
+![Electrode placement map]({{ picture_path }}/electrods-palcement.png)
 
 ### Check impedance
 
@@ -38,7 +38,7 @@ When all electrodes are attached. Check impedance using the impedance meter.
 2. Click the middle white button to turn SIGGI on and select *Impedance Meter*. Press white button again.
 3. Read impedance for each channel, by moving the connector to the different electrodes. **Impedance levels should not be higher than 20 ${k\Omega}$**, but the less the better. If impedance is too high, try to press on the electrode. If the signal is still not good, remove the electrode, clean the skin and attach a new.
 
-![SIGGI impedance meter](../../resources/wiki_images/impedence.png)
+![SIGGI impedance meter]({{ picture_path }}/impedence.png)
 
 
 When finished with the electrodes move on to the [Digitization](02_Digitization-hpi.md).
