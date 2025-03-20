@@ -62,9 +62,11 @@ pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav 
 
 Using conda
 ```bash
-conda create -n mkdocs_env mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
+conda create -n mkdocs_env mkdocs mkdocs-material pymdown-extensions mkdocs-macros-plugin
 
 conda activate mkdocs_env
+
+pip install mkdocs-include-dir-to-nav # not available in conda
 
 ```
 
