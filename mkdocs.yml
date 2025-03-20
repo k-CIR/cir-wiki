@@ -75,7 +75,9 @@ extra:
 
 
 nav:
-  - Home: index.md
+  - Home: 
+    - index.md
+    - How to edit this wiki: edit-this-wiki.md
   - NatMEG: 
     - natmeg/index.md
     - Preparation: natmeg/preparation/
