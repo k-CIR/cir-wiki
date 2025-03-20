@@ -45,13 +45,13 @@ You can contribute in two ways:
 
 If you have edits or new content to add, follow these steps:
 
-1. Fork the repository on GitHub.
-2. Create a new branch for your edits.
-3. Make your changes and commit them.
-4. Push your branch to your forked repository.
-5. Open a pull request against the dev branch of this repository.
-6. Request at least one reviewer from the main contributors of the CIR repository.
-7. Assign the pull request to yourself and/or others who need to work on it.  
+1. **Fork** the repository on GitHub.
+2. **Create a new branch** for your edits.
+3. **Make your changes** and **commit** them.
+4. **Push your branch** to your forked repository.
+5. **Open a pull request** against the dev branch of this repository.
+6. **Request at least one reviewer** from the main contributors of the CIR repository.
+7. **Assign the pull request** to yourself and/or others who need to work on it.  
 
 **Through Issues**
 
