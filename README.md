@@ -83,8 +83,8 @@ conda create -n mkdocs_env --channel=conda-forge mkdocs mkdocs-material pymdown-
 conda activate mkdocs_env
 
 pip install mkdocs-include-dir-to-nav # not available in conda
-
 ```
+
 ### 3. Run Locally
 
 To preview the documentation locally, use:
