@@ -14,11 +14,11 @@ Flame retardant according to the ASTM E84 - Class 1
   
 8pcs mounted with brass eyelets, nylon string and 3D-printed PLA brackets.
 
-![image](../../resources/wiki_images/ceiling-absorber.png)
+![image]({{ picture_path }}/ceiling-absorber.png)
 
 ## Clearsonic S2466x2 Sorber
 
 Dimension: 1670 x 609 x 38 mm  
 
-![image](../../resources/wiki_images/standing-absorber.png)
+![image]({{ picture_path }}/standing-absorber.png)
 

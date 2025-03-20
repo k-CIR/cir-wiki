@@ -15,7 +15,7 @@ The standard setup of electrodes includes:
 
 
 ## Material
-![Material needed](/resources/wiki_images/electrods-prep-matrial.png)
+![Material needed]({{ picture_path }}/electrods-prep-matrial.png)
 
 
 ## Step-by-step guide

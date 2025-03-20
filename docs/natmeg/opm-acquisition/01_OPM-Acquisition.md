@@ -12,10 +12,10 @@ Some utility scripts that will be mentioned in this document can be find the pat
 
 If one wants to do an OPM recording in parallel with some recording with the MEG scan, it is important that when defining the preparation, the "internal active shielding" is off as internal active shielding interferes with the OPM system. To check so, click to "change" in Acquisition and check that the bottom checkbox called "internal active shielding" is off.
 
-![](../../resources/wiki_images/OPM_support_and_sensorsout.png)
+![]({{ picture_path }}/OPM_support_and_sensorsout.png)
 *Figure 1: left: Free-standing helmet mount. right: sensors pulled out to be flush with inner helmet surface.*
 <!-- <div align="center">
-  <img src="../../resources/wiki_images/OPM_support_and_sensorsout.png" width="800">
+  <img src="{{ picture_path }}/OPM_support_and_sensorsout.png" width="800">
   <p><em>Figure 1: *left:* Free-standing helmet mount. *right:* sensors pulled out to be flush with inner helmet surface. </em></p>
 </div> -->
 
@@ -27,10 +27,10 @@ To turn on the system, you need to go behind the MEG room and find the Hedscan s
 
 In the figure the buttons that need to be turned on can be seen. However, it is important to follow the correct order.
 
-![](../../resources/wiki_images/OPM-computer.jpg)
+![]({{ picture_path }}/OPM-computer.jpg)
 *Figure 2: Hedscan system*
 <!-- <div align="center">
-  <img src="../../resources/wiki_images/OPM-computer.jpg" width="400">
+  <img src="{{ picture_path }}/OPM-computer.jpg" width="400">
   <p><em>Figure 2: Hedscan system</em></p>
 </div> -->
 
@@ -39,10 +39,10 @@ First, you needs to turn on the power button on the bottom left corner. Then, tu
 
 After that, you need to go back to the Hedscan host computer and open the Hedscan software (which you can find in the desktop). Once the software is open, it will detect that there is a HEDscan system that is on. If not, one may need to wait a few moments. Click on it and click to connect (see following figure). 
 
-![](../../resources/wiki_images/OPM-start-screen.png)
+![]({{ picture_path }}/OPM-start-screen.png)
 *Figure 3: Screenshot of Hedscan UI when connecting with a Hedscan system*
 <!-- <div align="center">
-  <img src="../../resources/wiki_images/OPM-start-screen.png" width="500">
+  <img src="{{ picture_path }}/OPM-start-screen.png" width="500">
   <p><em>Figure 3: Screenshot of Hedscan UI when connecting with a Hedscan system</em></p>
 </div> -->
 
@@ -54,7 +54,7 @@ To use Hedscan with your participant you will need to correctly position the hel
 
 When the software is connected, you will see all the channels that have a sensor connected to it in the different sensor cards. Other important cards we may want to pay attention to are "digital in" and "HPI". **Make sure to enable the HPI and digital input channels** by double-clicking on the respective symbols of: hpi217, 218, 219 and 220 and digital in (they turn blue when enabled).
 
-![](../../resources/wiki_images/OPM-ui-channels1.png)
+![]({{ picture_path }}/OPM-ui-channels1.png)
 *Figure 4: Screenshot of the UI when you first opens the software*
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/583fc70d-0c19-4db7-89b4-63b749d60ae9" width="800">
@@ -91,7 +91,7 @@ It is important to mention that this process needs to be done with the MSR door 
 
 Again, the channels will start blinking until they stop and turn blue. If some channel still remains green, you can select it and initialize it again.  If the problem persists, you may turn off the channel in question so it will not interfere with its neighbors.
 
-![](../../resources/wiki_images/OPM-ui-channels2.png)
+![]({{ picture_path }}/OPM-ui-channels2.png)
 *Figure 5: Screenshot of the UI when the sensors are green and some of them red.*
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/85b411f8-18c5-4e21-8594-6fd5bb24e122" width="800">
@@ -113,7 +113,7 @@ Once all of these names are provided, you can click on "Record". If you know the
 
 Probably, all the different recordings that you may want to record in a single session are related to the same project and participant. Thus, you can have the recording window open and just change the file name between recordings. 
 
-![](../../resources/wiki_images/OPM-ui-rec-window.png)<br>
+![]({{ picture_path }}/OPM-ui-rec-window.png)<br>
 *Figure 6: Screenshot of the recording window*
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/37d8b41e-a9f8-4214-9141-e88029db6aa7" width="500">
@@ -158,7 +158,7 @@ When starting the recording check that triggers show up as expected. The trigger
 
 On the top left part of the visualizer window you can find different icons. Some of the most relevant ones are mentioned below (see the image below).
 
-![](../../resources/wiki_images/OPM-ui-visual.png)
+![]({{ picture_path }}/OPM-ui-visual.png)
 *Figure 7: Data visualization buttons.*
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/0f71c511-7259-4474-b1bc-ed9eddbe5ec1" width="200">
@@ -168,7 +168,7 @@ On the top left part of the visualizer window you can find different icons. Some
 
 The second icon is used to apply some digital filters to the data. These filters are only for visualization purposes since those are not applied to the recorded data. This can help you to identify some specific patterns in your data. You need to select a filter (low pass, high pass...) and then you can choose the channel/s you will apply it to, the cut off frequency, the type and order (see the following figure). 
 
-![](../../resources/wiki_images/OPM-ui-filter.png)
+![]({{ picture_path }}/OPM-ui-filter.png)
 *Figure 8: Filter selection.*
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/5c522565-6c6a-4db2-8b6b-df7aff0dd194" width="300">
@@ -179,7 +179,7 @@ The third icon can be used to open the online-FFT visualizer of your data. Choos
 
 The fourth one, can be used to change the scaling of the visualization of the data. You can increase or decrease the space between each row in graph spacing. The time discretization of the visualization can be changed "time" and the scaling of the amplitude of the data can be changed in "major grid scaling". 
 
-![](../../resources/wiki_images/OPM-ui-scaling-settings.png)
+![]({{ picture_path }}/OPM-ui-scaling-settings.png)
 *Figure 9: Scaling settings*
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/1fb57af4-6ce9-4755-b2cf-59495f5307eb" width="300">
