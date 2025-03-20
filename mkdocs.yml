@@ -71,6 +71,7 @@ plugins:
   - macros
 extra:
   picture_path: /resources/wiki_images
+  manuals_path: /resources/manuals
 
 
 nav:
