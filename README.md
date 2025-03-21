@@ -59,22 +59,37 @@ If you have suggestions, corrections, or requests but can't make the changes you
 
 ## Install locally
 
-Clone the repository then you need a few python packages
+To set up the project locally, follow these steps:
 
-Using pip:
+### 1. Clone the repository
+
+```bash
+git clone <repository_url>
+cd <repository_directory>
+```
+
+### 2. Install required python packages
+You can install the necessary dependencies using either pip or conda:
+
+**Using pip:**
 ```bash
 pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
 ```
 
-Using conda
+**Using conda:**
 ```bash
 conda create -n mkdocs_env --channel=conda-forge mkdocs mkdocs-material pymdown-extensions mkdocs-macros-plugin
 
 conda activate mkdocs_env
 
 pip install mkdocs-include-dir-to-nav # not available in conda
-
 ```
 
-`mkdocs serve` to run locally
+### 3. Run Locally
+
+To preview the documentation locally, use:
+```bash
+mkdocs serve
+```
+Then open the provided local URL in your browser to view the documentation.
 
