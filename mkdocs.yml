@@ -2,7 +2,7 @@ site_name: Centre for Imaging Research (CIR)
 
 repo_url: https://github.com/k-CIR/cir-wiki
 repo_name: Show on GitHub
-edit_uri: blob/main/docs/
+edit_uri: blob/dev/docs/
 site_url: https://www.kcir.se
 
 theme: 
