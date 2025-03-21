@@ -49,6 +49,7 @@ theme:
       - navigation.footer
       # - navigation.sections # Makes top level sections expandable
 markdown_extensions:
+  - sane_lists
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.superfences:
@@ -97,7 +98,8 @@ nav:
       - Troubleshooting: natmeg/server/troubleshooting/
     - Cerberos: natmeg/cerberos/
   - BMIC: 
-    - bmic/index.md
+    - BMIC: bmic/index.md
+    - Getting Started: bmic/01_getting_started
   - MRC:
     - mrc/index.md
     - mrc/mrc-bids.md
