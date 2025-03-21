@@ -2,7 +2,7 @@ site_name: Centre for Imaging Research (CIR)
 
 repo_url: https://github.com/k-CIR/cir-wiki
 repo_name: Show on GitHub
-edit_uri: blob/main/docs/
+edit_uri: blob/dev/docs/
 site_url: https://www.kcir.se
 
 theme: 
@@ -71,10 +71,13 @@ plugins:
   - macros
 extra:
   picture_path: /resources/wiki_images
+  manuals_path: /resources/manuals
 
 
 nav:
-  - Home: index.md
+  - Home: 
+    - index.md
+    - How to edit this wiki: edit-this-wiki.md
   - NatMEG: 
     - natmeg/index.md
     - Preparation: natmeg/preparation/
@@ -97,8 +100,9 @@ nav:
     - bmic/index.md
   - MRC:
     - mrc/index.md
+    - mrc/mrc-bids.md
     - mrc/mrc-cir-protocol.md
-    - mrc/mrc-cir-data-template.md
+    # - mrc/mrc-cir-data-template.md
     - MRC servers: 
         - mrc/servers/index.md
         - Connection and data transfer: mrc/servers/set-up-connection/

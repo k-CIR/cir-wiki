@@ -43,9 +43,15 @@ You can contribute in two ways:
 
 **Through Pull Requests**
 
-If you have edits or new content to add, fork the repository, make your changes, and submit a pull request for review. It’s good practice to:  
-- Request at least one reviewer from the main contributors of the CIR repository.  
-- Assign the pull request to yourself and/or others who need to work on it.  
+If you have edits or new content to add, follow these steps:
+
+1. **Fork** the repository on GitHub.
+2. **Create a new branch** for your edits.
+3. **Make your changes** and **commit** them.
+4. **Push your branch** to your forked repository.
+5. **Open a pull request** against the dev branch of this repository.
+6. **Request at least one reviewer** from the main contributors of the CIR repository.
+7. **Assign the pull request** to yourself and/or others who need to work on it.  
 
 **Through Issues**
 
@@ -53,20 +59,37 @@ If you have suggestions, corrections, or requests but can't make the changes you
 
 ## Install locally
 
-Clone the repository then you need a few python packages
+To set up the project locally, follow these steps:
 
-Using pip:
+### 1. Clone the repository
+
+```bash
+git clone <repository_url>
+cd <repository_directory>
+```
+
+### 2. Install required python packages
+You can install the necessary dependencies using either pip or conda:
+
+**Using pip:**
 ```bash
 pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
 ```
 
-Using conda
+**Using conda:**
 ```bash
-conda create -n mkdocs_env mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
+conda create -n mkdocs_env --channel=conda-forge mkdocs mkdocs-material pymdown-extensions mkdocs-macros-plugin
 
 conda activate mkdocs_env
 
+pip install mkdocs-include-dir-to-nav # not available in conda
 ```
 
-`mkdocs serve` to run locally
+### 3. Run Locally
+
+To preview the documentation locally, use:
+```bash
+mkdocs serve
+```
+Then open the provided local URL in your browser to view the documentation.
 

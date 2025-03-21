@@ -9,7 +9,7 @@ title: Alt-key does not work from vncserver window
 
 1. Identify the keycode of your alt-key: `xev -event keyboard` press Alt. This will probably show double events, including Shift_L (probably keycode 50), check the keycode for the other events.
 
-![exv -event keyboard](../../../resources/wiki_images/xev_print.png)
+![exv -event keyboard]({{ picture_path }}/xev_print.png)
 
 1. run `xmodmap -e "keycode your_keycode = Alt_L"`
 2. to make it automatic when you start your vncserver add it to your .bashrc

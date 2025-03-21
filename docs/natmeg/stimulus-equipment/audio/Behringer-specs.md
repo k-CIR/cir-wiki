@@ -88,4 +88,4 @@ Loaded with 8 premium MIDAS designed microphone preamps the ADA8200 provides dyn
 * THD: 0.008
 * Crosstalk: -87 dB
 
-[Quick Start guide (download pdf)]({{ picture_path }}/ADA8200_QSG_WW.pdf)
+[Quick Start guide (download pdf)]({{ manuals_path }}/ADA8200_QSG_WW.pdf)
