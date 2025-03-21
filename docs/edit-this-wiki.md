@@ -16,4 +16,4 @@ These documents are tracked via the version control system [git](https://git-scm
 Each markdown document collected in the repository for this wiki represent one page of the wiki. [MkDocs](https://www.mkdocs.org/) runs in the background to build a site from the documents in the main branch of that repository based on the settings specified in its configuration file `mkdocs.yml`
 
 ## How to edit
-You can find detailed instructions on how to edit and add pages to the wiki in the README of the repository [here.](https://github.com/k-CIR/cir-wiki/tree/main)
+You can find detailed instructions on how to edit and add pages to the wiki in the README of the repository [here.](https://github.com/k-CIR/cir-wiki/tree/dev)
