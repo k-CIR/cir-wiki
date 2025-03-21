@@ -15,5 +15,30 @@ These documents are tracked via the version control system [git](https://git-scm
 
 Each markdown document collected in the repository for this wiki represent one page of the wiki. [MkDocs](https://www.mkdocs.org/) runs in the background to build a site from the documents in the main branch of that repository based on the settings specified in its configuration file `mkdocs.yml`
 
-## How to edit
-You can find detailed instructions on how to edit and add pages to the wiki in the README of the repository [here.](https://github.com/k-CIR/cir-wiki/tree/dev)
+## How to edit a page
+Editing the content of the wiki is simple. To do it correctly you need to know a bit about git and github to so that edits are tracked properly.
+
+**Step one:** Get an account on [github](https://github.com/).
+
+Now, if you click the button for "Edit this page" on any page on the wiki, you'll be taken to the corresponding markdown file in the repository on github.
+
+<figure style="text-align: center;">
+    <img src="{{ picture_path }}/edit_page_screen.png" alt="Edit this page screenshot" width="500">
+    <figcaption>The "Edit this page" button - top right of every page on this wiki.</figcaption>
+</figure>
+
+Here, you can click the pen to "Edit this file on github", assuming you are logged in.
+
+<figure style="text-align: center;">
+    <img src="{{ picture_path }}/edit_githubmd_screen.png" alt="Edit this page" width="500">
+    <figcaption>Edit this file on github.</figcaption>
+</figure>
+
+You can now make your changes. When you are done, to avoid conflicts from people modifying the same document, you can not save your changes and have them published directly. Instead, you propose the change and create a ticket for an admin of the wiki to review and approve. In git-nomencalture you will **commit** your changes to a new version of the repository (called a **branch**) and create a request to have your changes pulled in to repository by an admin of the wiki.
+
+<figure style="text-align: center;">
+    <img src="{{ picture_path }}/commit_screenshot.png" alt="Screenshot commit" width="500">
+    <figcaption><b>1.</b> Commit your changes and <b>2.</b> Write a commit message and propose changes in new branch.</figcaption>
+</figure>
+
+To be continued..
