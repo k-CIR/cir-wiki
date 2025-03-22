@@ -100,6 +100,8 @@ nav:
   - BMIC: 
     - BMIC: bmic/index.md
     - Getting Started: bmic/01_getting_started
+    - Solena: bmic/02_solena
+    - BIDS at BMIC: bmic/03_bmic_bids
   - MRC:
     - mrc/index.md
     - mrc/mrc-bids.md
