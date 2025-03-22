@@ -7,7 +7,7 @@ Raw PET data and participant details are stored on Flexiview. Follow the instruc
 
 1. Find `FlexiviewSetup.msi` in the  `fluor18/Temp/FlexiView` or in `fluor18/Ecat7_nfs/downloads/FlexiView/` and copy it to your local drive.
 
-2. Install Flexiview from FlexiviewSetup.msi.  On Linux, this can be installed usine Wine and Winetricks.
+2. Install Flexiview from FlexiviewSetup.msi.  On Linux, this can be installed usine Wine and Winetricks. If Windows gives you a warning about installing it, click first on "More info" and then "Run anyway"
   
 3. If you are not at BioClinicum, or not connected to the main Bioclinicum network, connect first to the KI VPN.
 

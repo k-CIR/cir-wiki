@@ -30,6 +30,8 @@ title: Mounting Network Drives
     
    * **matlab:** Map \\\\193.10.16.204\\matlab to another drive name (typically X:)
       * This is the file server for MATLAB scripts
+      
+7. When prompted for username and password, enter your full KI email adddress and password respectively
     
 ## Linux (Debian/Ubuntu)
 
