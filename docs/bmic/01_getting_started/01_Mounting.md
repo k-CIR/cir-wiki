@@ -21,14 +21,14 @@ title: Mounting Network Drives
 5. Select "Choose a custom network location"
 
 6. Add the relevant network locations as follows:
-
-   * **alfred:** Map \\\\130.229.41.50\\alfred to one drive name (typically Z:)
+    
+    * **alfred:** Map \\\\130.229.41.50\\alfred to one drive name (typically Z:)
       * This is the file server for working directories
     
-   * **fluor18:** Map \\\\130.229.41.50\\fluor18 to another drive name (typically Y:)
+    * **fluor18:** Map \\\\130.229.41.50\\fluor18 to another drive name (typically Y:)
       * This is the file server for software
     
-   * **matlab:** Map \\\\193.10.16.204\\matlab to another drive name (typically X:)
+    * **matlab:** Map \\\\193.10.16.204\\matlab to another drive name (typically X:)
       * This is the file server for MATLAB scripts
       
 7. When prompted for username and password, enter your full KI email adddress and password respectively
