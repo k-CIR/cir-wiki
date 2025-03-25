@@ -49,6 +49,7 @@ theme:
       - navigation.footer
       # - navigation.sections # Makes top level sections expandable
 markdown_extensions:
+  - attr_list
   - sane_lists
   - pymdownx.betterem:
       smart_enable: all
@@ -63,6 +64,7 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+  - pymdownx.blocks.caption
 validation:
   links:
     absolute_links: relative_to_docs
