@@ -22,13 +22,7 @@ Editing the content of the wiki is simple. To do it correctly you need to know a
 
 Now, if you click the button for "Edit this page" on any page on the wiki, you'll be taken to the corresponding markdown file in the repository on github.
 
-<!-- <figure markdown="span">
-    ![Image title]({{ picture_path }}/edit_page_screen.png){ width="300" }
-    <img src="{{ picture_path }}/edit_page_screen.png" alt="Edit this page screenshot" width="500">
-    <figcaption>The "Edit this page" button - top right of every page on this wiki.</figcaption>
-</figure> -->
-
-![Image title]({{ picture_path }}/edit_page_screen.png){ width="500" }
+![Edit this page screenshot]({{ picture_path }}/edit_page_screen.png){ width="500" }
 /// caption
 The "Edit this page" button - top right of every page on this wiki.
 ///
