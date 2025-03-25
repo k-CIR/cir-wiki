@@ -33,13 +33,13 @@ Follow these steps to set up Solena in MATLAB for the first time.
 addpath('X:\toolbox\m-files\solena')
 ```
 
-    * Alternatively, if this does not work, you can use the full network address as follows:
+  * Alternatively, if this does not work, you can use the full network address as follows:
 
 ```
 addpath('\\130.229.41.50\toolbox\m-files\solena')
 ```
 
-    * Close MATLAB again
+  * Close MATLAB again
 
 
 4. Initialize Solena:
