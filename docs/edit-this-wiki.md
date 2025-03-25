@@ -22,23 +22,25 @@ Editing the content of the wiki is simple. To do it correctly you need to know a
 
 Now, if you click the button for "Edit this page" on any page on the wiki, you'll be taken to the corresponding markdown file in the repository on github.
 
-<figure style="text-align: center;">
-    <img src="{{ picture_path }}/edit_page_screen.png" alt="Edit this page screenshot" width="500">
-    <figcaption>The "Edit this page" button - top right of every page on this wiki.</figcaption>
-</figure>
+![Edit this page screenshot]({{ picture_path }}/edit_page_screen.png){ width="500" }
+/// caption
+The "Edit this page" button - top right of every page on this wiki.
+///
 
 Here, you can click the pen to "Edit this file on github", assuming you are logged in.
 
-<figure style="text-align: center;">
-    <img src="{{ picture_path }}/edit_githubmd_screen.png" alt="Edit this page" width="500">
-    <figcaption>Edit this file on github.</figcaption>
-</figure>
+![Edit this page]({{ picture_path }}/edit_githubmd_screen.png){ width="500" }
+/// caption
+Edit this file on github.
+///
+
+
 
 You can now make your changes. When you are done, to avoid conflicts from people modifying the same document, you can not save your changes and have them published directly. Instead, you propose the change and create a ticket for an admin of the wiki to review and approve. In git-nomencalture you will **commit** your changes to a new version of the repository (called a **branch**) and create a request to have your changes pulled in to repository by an admin of the wiki.
 
-<figure style="text-align: center;">
-    <img src="{{ picture_path }}/commit_screenshot.png" alt="Screenshot commit" width="500">
-    <figcaption><b>1.</b> Commit your changes and <b>2.</b> Write a commit message and propose changes in new branch.</figcaption>
-</figure>
+![Screenshot commit]({{ picture_path }}/commit_screenshot.png){ width="500" }
+/// caption
+(1) Commit your changes and. (2) Write a commit message and propose changes in new branch.
+///
 
 To be continued..
