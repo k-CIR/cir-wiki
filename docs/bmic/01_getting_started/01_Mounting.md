@@ -2,12 +2,6 @@
 title: Mounting Network Drives
 ---
 
-## Table of Contents
-
-- [Windows](#windows)
-- [Linux (Debian/Ubuntu)](#linux-debianubuntu)
-
-
 ## Windows
 
 1. Open the Windows File Explorer
