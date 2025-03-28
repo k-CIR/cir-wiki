@@ -8,8 +8,8 @@ MATLAB is a proprietary multi-paradigm programming language and numeric computin
 - MATLAB is pre-installed on the server
 - First-time users must activate their license
 - During initial launch, you'll be prompted to:
-  1. Enter your MathWorks account credentials
-  2. Authenticate your institutional license
+    1. Enter your MathWorks account credentials
+    2. Authenticate your institutional license
 
 ## Accessing MATLAB
 
