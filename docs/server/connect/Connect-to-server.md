@@ -26,8 +26,7 @@ Install XQuartz for Mac: [Download from XQuartz Official Site](https://www.xquar
   ssh -X <username>@193.10.16.5
   ```
 
-The -X flag enables X11 forwarding.
-It allows you to run graphical applications remotely.
+The -X flag enables X11 forwarding: it allows you to run graphical applications remotely.
 
 ### Troubleshooting
 If you get the following error:

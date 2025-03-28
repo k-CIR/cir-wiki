@@ -117,5 +117,5 @@ nav:
   - Server:
     - About the server: server/index.md
     - Connect: server/connect/
-    # - Install software: server/install-software/
+    - Install software: server/install-software/
   
