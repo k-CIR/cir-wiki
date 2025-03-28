@@ -24,8 +24,10 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
     3. Accept the license agreement
     4. Select "Just Me" when asked who to install for
     5. Choose a destination folder (the default is fine)
-    6. Check both options in the Advanced Installation Options
+    6. For Advanced Options, you can leave them as they are
     7. Click "Install"
+
+3. For future steps, when using the terminal, use the "Anaconda Prompt". You will find it in your start menu.
 
 #### Linux (Ubuntu/Debian)
 
@@ -59,10 +61,10 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
 
 [PET2BIDS](https://github.com/openneuropet/PET2BIDS) is a well-validated tool for converting ecat7 (`.v`) and DICOM (`.dcm`) files to BIDS files.
 
-Assuming Python and conda (or miniconda) are already installed, we start by creating and activating a PETBIDS environment
+Assuming Python and conda (or miniconda) are already installed, we start by creating and activating a PETBIDS environment. Remember that in Windows, you need to be using the "Anaconda Prompt".
 
 ```
-conda create --name PETBIDS
+conda create --name PETBIDS python=3.10
 conda activate PETBIDS
 ```
 
