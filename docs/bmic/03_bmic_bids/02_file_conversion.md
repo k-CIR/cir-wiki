@@ -72,4 +72,4 @@ ecatpet2bids /path/to/pet/filename.v --convert -n /path/to/bids/folder/sub-XX/pe
 
 ## Raw PET Blood Data
 
-...
+At BMIC, raw PET blood data are provided as `.anc` files. 
