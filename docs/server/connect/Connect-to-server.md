@@ -11,12 +11,23 @@ tags: [server, connect]
 ## SSH connection
 
 - Windows: Use Windows PowerShell or PuTTY
-- Mac or Linux: Use the terminal
+- Mac & Linux: Use the terminal
 
 Basic connection command:
   ```
   ssh <username>@193.10.16.5
   ```
+
+### Mac ssh connection with X11 forwarding
+
+Install XQuartz for Mac: [Download from XQuartz Official Site](https://www.xquartz.org/)
+
+  ```
+  ssh -X <username>@193.10.16.5
+  ```
+
+The -X flag enables X11 forwarding.
+It allows you to run graphical applications remotely.
 
 ### Troubleshooting
 If you get the following error:
