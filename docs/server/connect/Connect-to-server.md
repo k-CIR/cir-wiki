@@ -21,10 +21,12 @@ Basic connection command:
 /// tab | MacOS/Linux
 Open a new terminal window and type: `ssh <username>@compute.kcir.se`, where `username` is your personal username. Enter your password when asked. You are now connected to the CIR computing server.
 
-## Mac ssh connection with X11 forwarding
+### Run graphical applications remotely with X11 forwarding
 
-Install XQuartz for Mac: [Download from XQuartz Official Site](https://www.xquartz.org/)
+Install XQuartz for Mac and use it instead of your terminal: [Download from XQuartz Official Site](https://www.xquartz.org/)
+For Linux, you can use your default terminal directly.
 
+Type this command to connect to the server:
   ```
   ssh -X <username>@compute.kcir.se
   ```
