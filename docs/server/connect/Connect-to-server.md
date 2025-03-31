@@ -6,27 +6,31 @@ tags: [server, connect]
 ## Prerequisites
 
 - Activate [KI VPN](https://staff.ki.se/tools-and-support/it-and-telephony/tools-for-working-off-campus/vpn-service-ki-vpn)
-- Server address: `193.10.16.5`
+- Server address: `compute.kcir.se` (193.10.16.5)
 
 ## SSH connection
-
-- Windows: Use Windows PowerShell or PuTTY
-- Mac & Linux: Use the terminal
+/// tab | Windows
+Use Windows PowerShell or PuTTY
 
 Basic connection command:
   ```
-  ssh <username>@193.10.16.5
+  ssh <username>@compute.kcir.se
   ```
+/// 
 
-### Mac ssh connection with X11 forwarding
+/// tab | MacOS/Linux
+Open a new terminal window and type: `ssh <username>@compute.kcir.se`, where `username` is your personal username. Enter your password when asked. You are now connected to the CIR computing server.
+
+## Mac ssh connection with X11 forwarding
 
 Install XQuartz for Mac: [Download from XQuartz Official Site](https://www.xquartz.org/)
 
   ```
-  ssh -X <username>@193.10.16.5
+  ssh -X <username>@compute.kcir.se
   ```
 
 The -X flag enables X11 forwarding: it allows you to run graphical applications remotely.
+/// 
 
 ### Troubleshooting
 If you get the following error:
@@ -42,7 +46,7 @@ PubkeyAcceptedKeyTypes ssh-rsa
 If you encounter the following host key error: 
 `no matching host key type found. Their offer: rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519` , try:
   ```
-  ssh -oHostKeyAlgorithms=+ssh-rsa <username>@193.10.16.5
+  ssh -oHostKeyAlgorithms=+ssh-rsa <username>@compute.kcir.se
   ```
 
 ## File transfer (SFTP)
@@ -51,7 +55,7 @@ If you encounter the following host key error:
 1. Download [FileZilla](https://filezilla-project.org/)
 2. Configure SFTP:
     * Protocol: SFTP
-    * Host: `193.10.16.5`
+    * Host: `compute.kcir.se`
     * User: Your provided username
     * Password: Your server password
 
@@ -64,7 +68,7 @@ SFTP configuration for FileZilla.
 A graphical desktop environment is installed on the CIR server. 
 ### Windows
 - Use Windows **Remote Desktop Connection**
-- Server IP: `193.10.16.5`
+- Server IP: `compute.kcir.se`
 
 ### Mac
 - Download Remote Desktop from App Store: [Windows App](https://apps.apple.com/us/app/windows-app/id1295203466?mt=12)
