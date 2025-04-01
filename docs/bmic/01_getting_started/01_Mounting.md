@@ -2,13 +2,7 @@
 title: Mounting Network Drives
 ---
 
-## Table of Contents
-
-- [Windows](#windows)
-- [Linux (Debian/Ubuntu)](#linux-debianubuntu)
-
-
-## Windows
+/// tab | Windows
 
 1. Open the Windows File Explorer
 
@@ -33,9 +27,11 @@ title: Mounting Network Drives
       
 7. When prompted for username and password, enter your full KI email adddress and password respectively
 
-Note: some projects use a projects folder (P:) to store data. To gain access to a project folder, connect using the KI instructions for [Windows](https://selfservice.ki.se/en-us/knowledgebase/article/KA-01095) or [Mac](https://selfservice.ki.se/en-US/knowledgebase/article/KA-01096) and request access in [IDAC](https://idac.ki.se/home). 
-    
-## Linux (Debian/Ubuntu)
+
+///
+
+
+/// tab | Linux (Debian/Ubuntu)
 
 1. Create empty folders in `/mnt` for alfred, fluor18 and matlab by pasting these commands into the terminal.
 
@@ -62,3 +58,5 @@ sudo mount -t cifs -o username=ZZZ,password=XX,vers=2.0,uid=$(id -u),gid=$(id -g
 4. *If* you ever need to un-mount, use e.g. `sudo umount -f /mnt/alfred` (and similarly for the other mounted file servers)
 
 5. And if you un-mount and need to re-mount, use `sudo mount -a`
+
+///
