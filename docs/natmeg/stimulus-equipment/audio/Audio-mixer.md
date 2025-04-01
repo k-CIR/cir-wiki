@@ -11,13 +11,13 @@ See figure below for an overview of how to control the sound mixer. The mixer sh
 
 A. Select input. Sound from  Audiofile (3/4) and/or Stimulus Computer (5/6)
 
-B. Select the MSR backpanal loudspeakers as output and adjust the volume.
+B. Select the MSR flat panel loudspeakers as output and adjust the volume.
 
 C. Select the Control Room speakers (the small speakers next to the mixer) as output. Soundtubes always recieve sound.
 
 D. Talkback. Hold down either button to use the mixer to speak to the participant inside the MSR.
    - Left button: speak though sound tubes.
-   - Right button: speak though the backpanel speakers.
+   - Right button: speak though the speakers.
 
 E. Microphone for talkback.
 
