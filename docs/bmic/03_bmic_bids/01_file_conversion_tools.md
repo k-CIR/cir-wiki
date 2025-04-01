@@ -8,7 +8,7 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
 
 ### Python
 
-#### Windows
+/// tab | Windows
 
 1. Install Python
 
@@ -35,8 +35,9 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
     conda activate PETBIDS
     ```
 
+///
 
-#### Linux (Ubuntu/Debian)
+/// tab | Linux (Ubuntu/Debian)
 
 1. Install Python (if not already installed)
 
@@ -69,6 +70,8 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
     conda create --name PETBIDS python=3.10
     conda activate PETBIDS
     ```
+
+///
 
 ### PET2BIDS
 
@@ -106,7 +109,7 @@ To check if dcm2niix is installed correctly:
 
 Docker is a tool for running software within a containerized environment. This means that all the dependencies are included within the docker container, and the software can be run without installing anything. BIDS Apps are often containerised within docker or singularity containers.
 
-#### Windows
+/// tab | Windows
 
 Docker works best in Linux, and can be a bit of a pain in Windows. For running Docker in Windows, it's generally easier to run it within WSL (Windows Subsystem for Linux) to simulate a Linux environment.
 
@@ -129,15 +132,11 @@ Docker works best in Linux, and can be a bit of a pain in Windows. For running D
    sudo apt update && sudo apt upgrade -y
    ```
 
-5. Within the Ubuntu installation, install prerequisites
-
-    ```bash
-    sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-    ```
-
 Then follow the instructions for installing on Linux
 
-#### Linux
+///
+
+/// tab | Linux (Ubuntu/Debian)
 
 1. Install prerequisites
 
@@ -170,3 +169,5 @@ Then follow the instructions for installing on Linux
     ```
     docker run hello-world
     ```
+
+///
