@@ -29,6 +29,13 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
 
 3. For future steps, when using the terminal, use the "Anaconda Prompt". You will find it in your start menu.
 
+4. In Anaconda Prompt, create a new virtual environment for working with PET BIDS data
+    ```
+    conda create --name PETBIDS python=3.10
+    conda activate PETBIDS
+    ```
+
+
 #### Linux (Ubuntu/Debian)
 
 1. Install Python (if not already installed)
@@ -57,14 +64,18 @@ For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for conv
     4. Follow the prompts, accept the license agreement
     5. Allow the installer to initialize Miniconda
 
+3. Create a new virtual environment for working with PET BIDS data
+    ```
+    conda create --name PETBIDS python=3.10
+    conda activate PETBIDS
+    ```
+
 ### PET2BIDS
 
 [PET2BIDS](https://github.com/openneuropet/PET2BIDS) is a well-validated tool for converting ecat7 (`.v`) and DICOM (`.dcm`) files to BIDS files.
 
-Assuming Python and conda (or miniconda) are already installed, we start by creating and activating a PETBIDS environment. Remember that in Windows, you need to be using the "Anaconda Prompt".
-
+Activate your PETBIDS environment. Remember that in Windows, you need to be using the "Anaconda Prompt".
 ```
-conda create --name PETBIDS python=3.10
 conda activate PETBIDS
 ```
 
@@ -78,9 +89,10 @@ The full package documentation can be found [here](https://pet2bids.readthedocs.
 
 ### dcm2niix
 
-dcm2niix can also be installed using `conda` as follows:
+dcm2niix can also be installed using `conda` into your PETBIDS environment as follows:
 
 ```
+conda activate PETBIDS
 conda install -c conda-forge dcm2niix
 ```
 
@@ -90,3 +102,71 @@ To check if dcm2niix is installed correctly:
 2. Type `dcm2niix -h` and press Enter
 3. You should see the help message with usage instructions
 
+### Docker
+
+Docker is a tool for running software within a containerized environment. This means that all the dependencies are included within the docker container, and the software can be run without installing anything. BIDS Apps are often containerised within docker or singularity containers.
+
+#### Windows
+
+Docker works best in Linux, and can be a bit of a pain in Windows. For running Docker in Windows, it's generally easier to run it within WSL (Windows Subsystem for Linux) to simulate a Linux environment.
+
+1. Open PowerShell as Administrator
+   - Search for PowerShell in the Start menu
+   - Right-click and select "Run as administrator"
+
+2. Install WSL with Ubuntu
+   ```powershell
+   wsl --install
+   ```
+   This command installs WSL with Ubuntu as the default distribution. The system will require a restart.
+
+3. After restart, Ubuntu will finish setup
+   - When prompted, create a username and password for your Linux distribution
+   - This doesn't need to match your Windows credentials
+
+4. Update your Ubuntu installation
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   ```
+
+5. Within the Ubuntu installation, install prerequisites
+
+    ```bash
+    sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+    ```
+
+Then follow the instructions for installing on Linux
+
+#### Linux
+
+1. Install prerequisites
+
+   ```bash
+   sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+   ```
+
+2. Follow the instructions [here](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) to:
+    i. Set up Docker's apt repository.
+    ii. Install the Docker packages.
+
+
+3. Check that the installation was successful by running the  `hello-world` container
+
+    ```
+    sudo docker run hello-world
+    ```
+
+4. Follow the [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/):
+
+     ```
+     sudo groupadd docker
+     sudo usermod -aG docker $USER
+     ```
+
+5. Log out and log in again (or restart)
+
+6. Test that you can now run docker commands without `sudo`
+
+    ```
+    docker run hello-world
+    ```
