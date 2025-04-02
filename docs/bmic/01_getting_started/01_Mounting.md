@@ -25,7 +25,9 @@ title: Mounting Network Drives
     * **matlab:** Map \\\\193.10.16.204\\matlab to another drive name (typically X:)
       * This is the file server for MATLAB scripts, including Solena
       
-7. When prompted for username and password, enter your full KI email adddress and password respectively
+7. When prompted for username and password, enter your full KI email adddress and password respectively.
+
+Note: some projects use a projects folder (P:) to store data. To gain access to a project folder, connect using the KI instructions for [Windows](https://selfservice.ki.se/en-us/knowledgebase/article/KA-01095) and request access in [IDAC](https://idac.ki.se/home).
 
 
 ///
@@ -58,5 +60,7 @@ sudo mount -t cifs -o username=ZZZ,password=XX,vers=2.0,uid=$(id -u),gid=$(id -g
 4. *If* you ever need to un-mount, use e.g. `sudo umount -f /mnt/alfred` (and similarly for the other mounted file servers)
 
 5. And if you un-mount and need to re-mount, use `sudo mount -a`
+
+Note: some projects use a projects folder (P:) to store data. To gain access to a project folder, connect using the KI instructions for [Mac](https://selfservice.ki.se/en-US/knowledgebase/article/KA-01096) and request access in [IDAC](https://idac.ki.se/home).
 
 ///
