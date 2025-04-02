@@ -47,6 +47,7 @@ theme:
       - navigation.indexes
       - toc.follow
       - navigation.footer
+      - content.code.copy
       # - navigation.sections # Makes top level sections expandable
 markdown_extensions:
   - attr_list
