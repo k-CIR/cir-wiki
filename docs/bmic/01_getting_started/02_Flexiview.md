@@ -3,6 +3,8 @@ title: Setting up Flexiview
 ---
 
 
+Before Flexiview can be downloaded and installed, you need to have mounted the `fluor18` network drive (see `Mounting Network Drives`).
+
 Raw PET data and participant details are stored on Flexiview. Follow the instructions below to get up and running with Flexiview.
 
 1. Find `FlexiviewSetup.msi` in the  `fluor18/Temp/FlexiView` or in `fluor18/Ecat7_nfs/downloads/FlexiView/` and copy it to your local drive.
