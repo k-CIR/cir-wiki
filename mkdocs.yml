@@ -71,7 +71,9 @@ validation:
     absolute_links: relative_to_docs
 plugins:
   - search
-  - include_dir_to_nav
+  - include_dir_to_nav:
+      # add _dep_ beginning of filename to ignore it in nav
+      file_pattern: '^(?!.*_dep*)' 
   - macros
 extra:
   picture_path: /resources/wiki_images
@@ -93,6 +95,7 @@ nav:
       - Other: natmeg/stimulus-equipment/other
     - Response Equipment: natmeg/response-equipment/
     - Presentation: natmeg/presentation/
+    - MaxFilter: natmeg/maxfilter/
     - Other: natmeg/other/
     - NatMEG server:
       - Set-up connection: natmeg/server/set-up-connection/
