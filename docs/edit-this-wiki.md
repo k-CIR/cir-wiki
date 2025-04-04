@@ -40,7 +40,31 @@ You can now make your changes. When you are done, to avoid conflicts from people
 
 ![Screenshot commit]({{ picture_path }}/commit_screenshot.png){ width="500" }
 /// caption
-(1) Commit your changes and. (2) Write a commit message and propose changes in new branch.
+(1) Commit your changes and (2) Write a commit message and propose changes.
 ///
 
-To be continued..
+Make sure you write a descriptive and consice _commit message_ for your commit to make it easy for other to understand the purpose for the change. Some examples of good commit messages:
+
+- Fixed typos in description
+- Added section on electrode-array
+- Fixed dead links to external repository
+
+While poor commit messages looks like:
+
+- general updates
+- added some stuff
+- new commit for MRI
+
+When you click _propose changes_ you'll be taken to the screen below for an overview of the pull request (PR) you are about to create. Once you click _Create pull request_ there's a second confirmation screen where you can add additional comments to your request. In part, this is because multiple commits can be baked into one PR, which we don't go in to yet.
+
+![Screenshot commit]({{ picture_path }}/create_PR.png){ width="500" }
+/// caption
+Overview on the pull request you are creating.
+///
+
+![Screenshot commit]({{ picture_path }}/create_PR2.png){ width="500" }
+/// caption
+Accept your pull request and ship it for review.
+///
+
+Now, your changes are submitted and will be implemented in the wiki as soon as a maintainer accepts your PR.
