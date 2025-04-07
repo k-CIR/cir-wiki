@@ -21,11 +21,11 @@ Connecting to Compute has three steps:
 The first time you connect you need to start a VNC server and configure your settings. The guide below explains the steps in detail.
 
 ## Connect to NatMEG’s servers from outside KI's network
-To connect to the NatMEG servers, you need to be on KI’s network. If you are working on KI you can go to step 2: *Connect to Compute with VNC*. If not, you first need to set up a VPN connection to KI.
+To connect to the NatMEG servers, you need to be on KI’s network. If you are working on KI you can go to [*Connect to Compute with VNC*](#connect-to-compute-with-vnc). If not, you first need to set up a VPN connection to KI.
 
 To remote connect to KI's network, you need to have a KI account and username and then connect via KI's VPN service and the PointSharp app.
 
-If you do not have a VPN connection to KI, you need to set this up first. This includes downloading a VPN app Cisco Anyconnect and a verification app PointSharp. If you do not have the PointSharp app already, you need to contact KI's IT support (fixit@ki.se) to get a verification code the first time you connect. You can find the official guide here: https://staff.ki.se/vpn-service.
+If you do not have a VPN connection to KI, you need to set this up first. You can find the official guide here: [https://staff.ki.se/vpn-service](https://staff.ki.se/vpn-service).
 
 When you are on KI's network—either by remote or physically present at KI—you can connect to Compute.
 
