@@ -5,7 +5,7 @@ title: BIDS Apps for PET
 There are a growing number of BIDS apps for processing of PET data arranged according to the BIDS specification.  This guide will provide a brief guide for how to use several tools.
 
 
-**Note:** these instructions are very preliminary, and subject to be updated.
+**Note:** these instructions are preliminary, and subject to be updated.
 
 ## sMRIPrep: Structural MRI PREProcessing pipeline
 
@@ -62,23 +62,13 @@ docker run -it --rm \
 
 This method is usually more updated, but package installation can cause some annoyances. Remember to work in your conda PETBIDS environment.
 
-1. Download the package. If you have git, you can git clone it
+1. Install the package
 
     ```
-    git clone https://github.com/mnoergaard/petprep_hmc.git
+    pip install petprep_hmc
     ```
 
-Otherwise, download it from [here](https://github.com/mnoergaard/petprep_hmc), and unzip it to a folder called `petprep_hmc`
-
-
-2. Install the package
-
-    ```
-    cd petprep_hmc
-    pip install -e .
-    ```
-
-3. Run the pipeline through Python. Note that the output directory needs to be specified with the name of the pipeline too, i.e. /path/to/bids/data/dir/**derivatives/petprep_hmc**
+2. Run the pipeline through Python. Note that the output directory needs to be specified with the name of the pipeline too, i.e. /path/to/bids/data/dir/**derivatives/petprep_hmc**
 
     ```
     python3 path/to/petprep_hmc/run.py /path/to/bids/data/dir /path/to/output/dir group
@@ -89,23 +79,66 @@ Otherwise, download it from [here](https://github.com/mnoergaard/petprep_hmc), a
 
 The `petprep_extract_tacs` extracts time activity curves (TACs) using the FreeSurfer derivative output. To use this package, you can use either the docker container or use it directly using Python. The full documentation is provided [here](https://petprep-extract-tacs.readthedocs.io/en/latest/): what follows is a condensed version.
 
-*Method 1: Using the docker container*
 
-The docker container should work, but I believe that this syntax will soon be updated. Note that the output directory needs to be specified with the name of the pipeline too, i.e. /path/to/bids/data/dir/**derivatives/petprep_extract_tacs**
+*Method 1: Using the docker container through the Python interface*
 
-```
-docker run -a stderr -a stdout --rm \ 
-    -v /path/to/bids/data/dir:/bids_dir \
-    -v /path/to/output/dir:/output_dir \
-    -v $PWD:/workdir -v $PWD/petprep_extract_tacs:/petprep_extract_tacs \
-    -v /path/to/freesurfer/license.txt:/opt/freesurfer/license.txt \
-    --platform linux/amd64 \
-    petprep_extract_tacs \
-    /bids_dir /output_dir participant --n_procs 4  --petprep_hmc \
-    system_platform=Darwin
-```
+The docker container should work, but I believe that this syntax will soon be updated. Note that the output directory needs to be specified with the name of the pipeline too, i.e. /path/to/bids/data/dir/**derivatives/petprep_extract_tacs**.
 
-*Method 2: Using the bare-metal Python installation*
+1. The docker container is not directly available online yet.  You will first need to build it.  To do so, download the code using either `git`
+
+    ```bash
+    git clone https://github.com/mnoergaard/petprep_extract_tacs.git  
+    ```
+
+    ... or by navigating to the [page](https://github.com/mnoergaard/petprep_extract_tacs) and downloading it using the green code button, and then unzipping it to a folder called `petprep_extract_tacs`.  Then you can build the docker container and install the python package:
+
+    ```
+    cd petprep_extract_tacs
+    docker build . -t petprep_extract_tacs
+    pip install -e .
+    ```
+
+
+2. Run the docker container through the Python wrapper
+
+    ```
+    petprep_extract_tacs /path/to/bids/data/dir /path/to/output/dir participant --n_procs 4 --docker --petprep_hmc --gtm
+    ```
+    **Note:** the `n_procs` input defines how many cores you will use: with more, it will be faster, but use more computational resources.  The `--docker` flag instructs the pipeline to use the docker container. The `--petprep_hmc` flag directs the pipeline to use the head-motion-corrected PET images. And the `--gtm` flag instructs the pipeline to extract the default FreeSurfer set of ROIs for grey matter (will check this point).
+
+*Method 2: Using the docker container directly*
+
+The docker container should work, but I believe that this syntax will soon be updated. Note that the output directory needs to be specified with the name of the pipeline too, i.e. /path/to/bids/data/dir/**derivatives/petprep_extract_tacs**.
+
+1. This docker container is not directly available online yet.  You will first need to build it.  To do so, download the code using either `git`
+
+    ```bash
+    git clone https://github.com/mnoergaard/petprep_extract_tacs.git  
+    ```
+
+    ... or by navigating to the [page](https://github.com/mnoergaard/petprep_extract_tacs) and downloading it using the green code button, and then unzipping it to a folder called `petprep_extract_tacs`.  Then you can build the docker container:
+
+    ```
+    cd petprep_extract_tacs
+    docker build . -t petprep_extract_tacs
+    ```
+
+2. When you have built the docker image, you can run the docker container with the following:
+
+    ```
+    docker run -a stderr -a stdout --rm \ 
+        -v /path/to/bids/data/dir:/bids_dir \
+        -v /path/to/output/dir:/output_dir \
+        -v $PWD:/workdir -v $PWD/petprep_extract_tacs:/petprep_extract_tacs \
+        -v /path/to/freesurfer/license.txt:/opt/freesurfer/license.txt \
+        --platform linux/amd64 \
+        petprep_extract_tacs \
+        /bids_dir /output_dir participant --n_procs 4 --gtm  --petprep_hmc
+    ```
+
+    **Note:** the `n_procs` input defines how many cores you will use: with more, it will be faster, but use more computational resources.  TThe `--petprep_hmc` flag directs the pipeline to use the head-motion-corrected PET images. And the `--gtm` flag instructs the pipeline to extract the default FreeSurfer set of ROIs for grey matter (will check this point).
+
+*Method 3: Using the bare-metal Python installation*
 
 This method is usually more updated, but package installation can cause some annoyances. Remember to work in your conda PETBIDS environment.
 
@@ -138,4 +171,5 @@ Otherwise, download it from [here](https://github.com/mnoergaard/petprep_extract
     ```
     python path/to/petprep_extract_tacs/run.py /path/to/bids/data/dir /path/to/output/dir participant --n_procs 4 --gtm --petprep_hmc 
     ```
-    Note: the petprep_hmc flag at the end directs the pipeline to use the output of the head-motion correction step.
+
+    **Note:** the `n_procs` input defines how many cores you will use: with more, it will be faster, but use more computational resources.  The `--docker` flag instructs the pipeline to use the docker container. The `--petprep_hmc` flag directs the pipeline to use the head-motion-corrected PET images. And the `--gtm` flag instructs the pipeline to extract the default FreeSurfer set of ROIs for grey matter (will check this point).
