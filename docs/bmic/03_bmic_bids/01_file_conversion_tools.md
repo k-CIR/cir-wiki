@@ -6,6 +6,31 @@ title: File Conversion Tools
 
 For converting anatomical MR files to BIDS, we will use `dcm2niix`, and for converting PET files to BIDS, we will use `PET2BIDS`.  To use `PET2BIDS`, we will first install Python and conda (although PET2BIDS can also be used with MATLAB - see the [full documentation](https://pet2bids.readthedocs.io/en/latest/index.html#) for details).
 
+**Note:** For Windows users, many of these tools *can* be run with Windows directly, but with some difficulty. It is easier to run everything using Linux directly through the Windows Subsystem for Linux (WSL).
+
+### WSL (Windows users)
+
+I recommend using WSL with Ubuntu 22.04, because FreeSurfer has not yet been made available for Ubuntu 24.04 (which is the default WSL distribution).
+
+1. Open PowerShell as Administrator
+   - Search for PowerShell in the Start menu
+   - Right-click and select "Run as administrator"
+
+2. Install WSL with Ubuntu
+   ```powershell
+   wsl --install -d Ubuntu-22.04
+   ```
+   This command installs WSL with Ubuntu as the default distribution. The system will require a restart.
+
+3. After restart, Ubuntu will finish setup
+   - When prompted, create a username and password for your Linux distribution
+   - This doesn't need to match your Windows credentials
+
+4. To open Ubuntu, search for Ubuntu in the Start menu
+
+**Note:** To understand where things are using WSL, your local drives are listed as mounted drives. You can find them in the `/mnt` folder.  So the contents of your C:\ are at `/mnt/c/`.  Note that for network drives, this can be a bit of a pain. I recommend doing processing locally and copying the files later to the network drive, but if you do wish to mount the network drive directly, you can follow the guide under BMIC > Getting Started > Mounting Network Drives (and follow the instructions for Linux).
+
+
 ### Python
 
 /// tab | Windows
@@ -119,7 +144,7 @@ Docker works best in Linux, and can be a bit of a pain in Windows. For running D
 
 2. Install WSL with Ubuntu
    ```powershell
-   wsl --install
+   wsl --install -d Ubuntu-22.04
    ```
    This command installs WSL with Ubuntu as the default distribution. The system will require a restart.
 
