@@ -20,12 +20,12 @@ Location: `/scratch/singularityContainers/fmriprep.simg`
 Location: `/scratch/singularityContainers/heudiconv.sif`
 
 ### halfpipe
-[ENIGMA Halfpipe](https://github.com/HALFpipe/HALFpipe)
+[ENIGMA Halfpipe](https://github.com/HALFpipe/HALFpipe) is an intuitive tool designed to streamline reproducible fMRI analysis, covering preprocessing, individual, and group-level analyses. It leverages fMRIPrep for advanced preprocessing without requiring BIDS data conversion, and allows for real-time computation of common resting-state and task-based fMRI metrics.
 
 Location: `/scratch/singularityContainers/halfpipe.sif`
 
 ### mriqc
-[mriqc](https://mriqc.readthedocs.io/en/latest/)
+[mriqc](https://mriqc.readthedocs.io/en/latest/) is an open-source tool that automatically extracts image quality metrics (IQMs) from structural, functional, and diffusion MRI data, without needing a reference image. It is designed for minimal preprocessing and is built using modular Nipype workflows that integrate tools like ANTs and AFNI. MRIQC adheres to BIDS and BIDS-App standards for compatibility and follows strong software engineering practices to ensure robustness and reliability, with continuous testing on diverse datasets.
 
 Location: `/scratch/singularityContainers/mriqc.sif`
 
