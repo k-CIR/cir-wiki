@@ -61,7 +61,7 @@ The following SPM versions are installed and available on the system:
 You can launch SPM from MATLAB by navigating to the corresponding directory or adding it to your MATLAB path.
 
 ### Learn More
-For full documentation, tutorials, and support, please visit the official SPM website: 🔗 https://www.fil.ion.ucl.ac.uk/spm/
+For full documentation, tutorials, and support, please visit the [official SPM website](https://www.fil.ion.ucl.ac.uk/spm/).
 
 ## Workspace Management
 - Save your work frequently
