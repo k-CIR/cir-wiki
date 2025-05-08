@@ -1,5 +1,5 @@
 ---
-title: Matlab
+title: Matlab and related tools
 ---
 
 MATLAB is a proprietary multi-paradigm programming language and numeric computing environment developed by MathWorks. 
@@ -47,6 +47,21 @@ matlab -nosplash     # Skip splash screen
 - Use `-nodesktop` for computationally intensive tasks
 - Close unnecessary GUI windows
 - Utilize server's computational resources efficiently
+
+## Matlab tools: SPM
+SPM (Statistical Parametric Mapping) is a widely used MATLAB-based software suite for the analysis of brain imaging data sequences. 
+The current release is designed for the analysis of fMRI, PET, SPECT, EEG and MEG.
+
+### Available Versions
+The following SPM versions are installed and available on the system:
+
+- SPM12: Located at `/usr/local/spm12`
+- SPM25: Located at `/usr/local/spm25`
+
+You can launch SPM from MATLAB by navigating to the corresponding directory or adding it to your MATLAB path.
+
+### Learn More
+For full documentation, tutorials, and support, please visit the [official SPM website](https://www.fil.ion.ucl.ac.uk/spm/).
 
 ## Workspace Management
 - Save your work frequently
