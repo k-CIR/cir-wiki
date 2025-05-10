@@ -11,3 +11,14 @@ source /opt/anaconda3/bin/activate
 conda init
 ```
 
+Next step is to set-up for installing environments locally
+
+```bash
+# Create directory for conda cache
+mkdir -p ~/.conda/pkgs/cache
+
+# Configure conda to use your directories
+conda config --add pkgs_dirs ~/.conda/pkgs
+conda config --add envs_dirs ~/.conda/envs
+```
+Now your new packages should be installed located in `~/.conda/envs`
