@@ -22,7 +22,7 @@ If a subject was scanned with three sequences at *2024-12-01*, *13:45:15* and gi
 There are different tools available to make data collected at MRC compliant with BIDS, these are collected in the following repositories:
 
 ## [MRC-DICOM-to-BIDS](https://github.com/k-CIR/MRC-DICOM-to-BIDS)
-Written to run on the MRC compute server nick-named Alvik. Gather DICOM data collected at MRC and convert to BIDS compliant naming and format. Designed to extract all sequences in the [CIR-protocol](https://github.com/k-CIR/CIR_wiki/wiki/CIR-MR%E2%80%90Protocol) for up to three sessions per subject and rename subjects to study specific ID.
+Written to run on the MRC compute server nick-named Alvik. Gather DICOM data collected at MRC and convert to BIDS compliant naming and format. Designed to extract all sequences in the [CIR-protocol](https://k-cir.github.io/cir-wiki/mrc/mrc-cir-protocol/) for up to three sessions per subject and rename subjects to study specific ID.
 
 Require [dcm2bids](https://unfmontreal.github.io/Dcm2Bids/3.2.0/) and [GNU parallel](https://www.gnu.org/software/parallel/) in your environment.
 
