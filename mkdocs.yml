@@ -103,6 +103,7 @@ nav:
       - Script tips: natmeg/server/script-tips/
       - Troubleshooting: natmeg/server/troubleshooting/
     - Cerberos: natmeg/cerberos/
+    - BIDS at NatMEG: natmeg/bids/
   - BMIC: 
     - BMIC: bmic/index.md
     - Getting Started: bmic/01_getting_started
@@ -122,4 +123,7 @@ nav:
     - About the server: server/index.md
     - Connect: server/connect/
     - Installed software: server/install-software/
+    - BIDS:
+      - BIDS at NatMEG: natmeg/bids/
+      - BIDS at BMIC: bmic/03_bmic_bids
   
