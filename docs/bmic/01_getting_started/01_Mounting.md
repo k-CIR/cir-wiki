@@ -22,7 +22,7 @@ title: Mounting Network Drives
     * **fluor18:** Map \\\\130.229.41.50\\fluor18 to another drive name (typically Y:)
       * This is the file server for software
     
-    * **matlab:** Map \\\\193.10.16.204\\matlab to another drive name (typically X:)
+    * **matlab:** Map \\\\193.10.17.91\\matlab to another drive name (typically X:)
       * This is the file server for MATLAB scripts, including Solena
       
 7. When prompted for username and password, enter your full KI email adddress and password respectively.
