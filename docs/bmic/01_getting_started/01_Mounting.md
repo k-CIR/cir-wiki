@@ -54,7 +54,7 @@ sudo apt-get install cifs-utils
 ```
 sudo mount -t cifs -o username=ZZZ,password=XXX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //130.229.41.50/alfred /mnt/alfred
 sudo mount -t cifs -o username=ZZZ,password=XXX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //130.229.41.50/fluor18 /mnt/fluor18
-sudo mount -t cifs -o username=ZZZ,password=XX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //193.10.16.204/matlab /mnt/matlab
+sudo mount -t cifs -o username=ZZZ,password=XX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //193.10.17.91/matlab /mnt/matlab
 ```
 
 4. *If* you ever need to un-mount, use e.g. `sudo umount -f /mnt/alfred` (and similarly for the other mounted file servers)
