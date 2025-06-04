@@ -22,7 +22,7 @@ title: Mounting Network Drives
     * **fluor18:** Map \\\\130.229.41.50\\fluor18 to another drive name (typically Y:)
       * This is the file server for software
     
-    * **matlab:** Map \\\\193.10.16.204\\matlab to another drive name (typically X:)
+    * **matlab:** Map \\\\193.10.17.91\\matlab to another drive name (typically X:)
       * This is the file server for MATLAB scripts, including Solena
       
 7. When prompted for username and password, enter your full KI email adddress and password respectively.
@@ -54,7 +54,7 @@ sudo apt-get install cifs-utils
 ```
 sudo mount -t cifs -o username=ZZZ,password=XXX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //130.229.41.50/alfred /mnt/alfred
 sudo mount -t cifs -o username=ZZZ,password=XXX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //130.229.41.50/fluor18 /mnt/fluor18
-sudo mount -t cifs -o username=ZZZ,password=XX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //193.10.16.204/matlab /mnt/matlab
+sudo mount -t cifs -o username=ZZZ,password=XX,vers=2.0,uid=$(id -u),gid=$(id -g),forceuid,forcegid //193.10.17.91/matlab /mnt/matlab
 ```
 
 4. *If* you ever need to un-mount, use e.g. `sudo umount -f /mnt/alfred` (and similarly for the other mounted file servers)
