@@ -13,9 +13,9 @@ Raw PET data and participant details are stored on Flexiview. Follow the instruc
   
 3. If you are not at BioClinicum, or not connected to the main Bioclinicum network, connect first to the KI VPN.
 
-4. The IP address of FlexiView should be 193.10.16.204. This needs to be set the first time Flexiview is run.  To set this, navigate as follows:
+4. The IP address of FlexiView should be 193.10.17.91. This needs to be set the first time Flexiview is run.  To set this, navigate as follows:
    * Database (top left) -> Preferences
-   * Set both fields (for the Database Server and File Server) to 193.10.16.204
+   * Set both fields (for the Database Server and File Server) to 193.10.17.91
   
   <br>
   

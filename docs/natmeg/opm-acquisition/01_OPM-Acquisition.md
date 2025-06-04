@@ -12,8 +12,11 @@ Some utility scripts that will be mentioned in this document can be find the pat
 
 If one wants to do an OPM recording in parallel with some recording with the MEG scan, it is important that when defining the preparation, the "internal active shielding" is off as internal active shielding interferes with the OPM system. To check so, click to "change" in Acquisition and check that the bottom checkbox called "internal active shielding" is off.
 
-![]({{ picture_path }}/OPM_support_and_sensorsout.png)
+![]({{ picture_path }}/OPM_support_and_sensorsout.png){ width="80%" }
+/// caption
 *Figure 1: left: Free-standing helmet mount. right: sensors pulled out to be flush with inner helmet surface.*
+///
+
 <!-- <div align="center">
   <img src="{{ picture_path }}/OPM_support_and_sensorsout.png" width="800">
   <p><em>Figure 1: *left:* Free-standing helmet mount. *right:* sensors pulled out to be flush with inner helmet surface. </em></p>
@@ -27,8 +30,10 @@ To turn on the system, you need to go behind the MEG room and find the Hedscan s
 
 In the figure the buttons that need to be turned on can be seen. However, it is important to follow the correct order.
 
-![]({{ picture_path }}/OPM-computer.jpg)
+![]({{ picture_path }}/OPM-computer.jpg){ width="40%" }
+/// caption
 *Figure 2: Hedscan system*
+///
 <!-- <div align="center">
   <img src="{{ picture_path }}/OPM-computer.jpg" width="400">
   <p><em>Figure 2: Hedscan system</em></p>
@@ -39,8 +44,10 @@ First, you needs to turn on the power button on the bottom left corner. Then, tu
 
 After that, you need to go back to the Hedscan host computer and open the Hedscan software (which you can find in the desktop). Once the software is open, it will detect that there is a HEDscan system that is on. If not, one may need to wait a few moments. Click on it and click to connect (see following figure). 
 
-![]({{ picture_path }}/OPM-start-screen.png)
+![]({{ picture_path }}/OPM-start-screen.png){ width="70%" }
+/// caption
 *Figure 3: Screenshot of Hedscan UI when connecting with a Hedscan system*
+///
 <!-- <div align="center">
   <img src="{{ picture_path }}/OPM-start-screen.png" width="500">
   <p><em>Figure 3: Screenshot of Hedscan UI when connecting with a Hedscan system</em></p>
@@ -54,8 +61,10 @@ To use Hedscan with your participant you will need to correctly position the hel
 
 When the software is connected, you will see all the channels that have a sensor connected to it in the different sensor cards. Other important cards we may want to pay attention to are "digital in" and "HPI". **Make sure to enable the HPI and digital input channels** by double-clicking on the respective symbols of: hpi217, 218, 219 and 220 and digital in (they turn blue when enabled).
 
-![]({{ picture_path }}/OPM-ui-channels1.png)
+![]({{ picture_path }}/OPM-ui-channels1.png){ width="100%"}
+/// caption
 *Figure 4: Screenshot of the UI when you first opens the software*
+///
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/583fc70d-0c19-4db7-89b4-63b749d60ae9" width="800">
   <p><em>Figure 4: Screenshot of the UI when you first opens the software</em></p>
@@ -82,7 +91,7 @@ Regarding the buttons, there are 8 buttons in you interface that are very import
 Also, in the bottom left corner (see number 4 in Figure 3) you can find the button to open the command window. 
 
 ### Restarting sensors
-When you first open the software, all the channels will be in orange color, which means that an OPM sensor is connected to that channel but not ready. If a channel is gray it means there is no sensor connected to the channel. You now need to go to "sensor select" to select all the channels and restart the sensors wired to those channels by clicking on "restart sensors". The channels will start blinking until they stop and change to green (may taKe a few minutes). If a channel turns red, it means that there was an error. You can go to sensor select and select all the red channels, or just directly click on the red channel you want to restart and click to restart. If the channel persistently turns red, it may be preferable to turn it off. To do so, select the red channels and press "Sensors off". 
+When you first open the software, all the channels will be in orange color, which means that an OPM sensor is connected to that channel but not ready. If a channel is gray it means there is no sensor connected to the channel. You now need to go to "sensor select" to select all the channels and restart the sensors wired to those channels by clicking on "restart sensors". The channels will start blinking until they stop and change to green (may taKe a few minutes). If a channel turns red, it means that there was an error. You can go to sensor select and select all the red channels, or just directly click on the red channel you want to restart and click to restart. If the channel persistently turns red, it may be preferable to turn it off. To do so, select the red channels and press "Sensors off". Note any channels that don't start in the "bad channels" spreadsheet on the desktop. 
 
 ### Initializing sensors
 Once all the channels are green (which means that there is a wired sensor ready but not initialized) you can click on "sensor select" to select the green channels and then click on initialize to initialize the sensors wired to those channels. 
@@ -91,8 +100,10 @@ It is important to mention that this process needs to be done with the MSR door 
 
 Again, the channels will start blinking until they stop and turn blue. If some channel still remains green, you can select it and initialize it again.  If the problem persists, you may turn off the channel in question so it will not interfere with its neighbors.
 
-![]({{ picture_path }}/OPM-ui-channels2.png)
+![]({{ picture_path }}/OPM-ui-channels2.png){ width="100%"}
+/// caption
 *Figure 5: Screenshot of the UI when the sensors are green and some of them red.*
+///
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/85b411f8-18c5-4e21-8594-6fd5bb24e122" width="800">
   <p><em>Figure 5: Screenshot of the UI when the sensors are green and some of them red.</em></p>
@@ -113,8 +124,10 @@ Once all of these names are provided, you can click on "Record". If you know the
 
 Probably, all the different recordings that you may want to record in a single session are related to the same project and participant. Thus, you can have the recording window open and just change the file name between recordings. 
 
-![]({{ picture_path }}/OPM-ui-rec-window.png)<br>
+![]({{ picture_path }}/OPM-ui-rec-window.png){width="75%"}
+/// caption
 *Figure 6: Screenshot of the recording window*
+///
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/37d8b41e-a9f8-4214-9141-e88029db6aa7" width="500">
   <p><em>Figure 6: Screenshot of the recording window</em></p>
@@ -123,13 +136,15 @@ Probably, all the different recordings that you may want to record in a single s
 
 ## Participant going inside the room
 
-In addition to the regular "conventional MEG preparation", make sure to always put an EEG cap. This is to provide additional thermal insulation (in participants with little hair) and avoid restricting air flow (in participants with a lot of hair). Once all the previous steps are done and the participant is prepared, the participant can already go inside the shielded room. Make sure to **turn off the sensors before opening the door**. 
+In addition to the regular "conventional MEG preparation", make sure to always put an EEG cap. This is to provide additional thermal insulation (in participants with little hair) and avoid restricting air flow (in participants with a lot of hair). Once all the previous steps are done and the participant is prepared, the participant can already go inside the shielded room. **Turn off the sensors before opening the door**. 
 
 Place the participant in the chair and connect all the necessary cables such as the HPI coils cable (which goes into the HEDscan connector, not the TRIUX), the ECG/EOG electrodes and (if applicable) the EEG cap. Put in ear-tubes if required by for the experiment and - if running EEG - add a hair net to avoid leaving EEG gel on the sensors. Then carefully lift the participant up into the helmet until they start feeling the top of the helmet. After that, the sensors can be pushed in, being careful about not applying too much pressure to the participant. To avoid unintentionally pushing the participants head to one side we advise to center their head at the start by pushing in a few sensors on both sides. 
 
 Be more careful with those sensors that can directly touch the skin (mainly in the ears). If that is the case, push the sensor a little out to avoid direct contact with the skin. 
 
-Once all sensors are in place, give to the participant the alarm bubble, and other stimulus/response equipment needed for the paradigm. Then, close the door and repeat the same procedure described in section 3. 
+Once all sensors are in place, give to the participant the alarm bubble, and other stimulus/response equipment needed for the paradigm. Then, close the door and **restart, initialize and localize the sensors** (as previously described).
+
+**If you have to open the MSR door at any point during the recording, make sure to re-initialize the sensors** as sensors may have unlocked from the large change in background field.
 
 
 ## HPI pre
@@ -144,22 +159,24 @@ After that, one can also run the check-hpi.py script to make sure that the recor
 
 ## Recording
 
-**Make sure to check free disk space before starting a recording:** *The Hedscan software does not raise an error if it runs out of storage space. It will appear to continue recording but no more data is saved and resulting in a corrupted file. As a rough rule of thumb, assume you need around 2 GB for every 10 minutes of recording. If there is not enough space, remove older recordings but make sure to back them up by copying to `/data/temp/` on cerberos before deleting if unsure or if they belong to another project.*
+**Make sure to check availabe disk space:** *The acquisition software does not raise an error if it runs out of storage space. It will appear to continue recording but no more data is saved resulting in a corrupted file. As a rough rule of thumb, assume you need around 2 GB for every 10 minutes of recording. If there is not enough space, remove older recordings but make sure to back them up by copying to `/data/temp/` on cerberos before deleting if unsure or if they belong to another project.*
 
 
 When all of the previous steps are done, you can actually start with the main recording and stop it whenever necessary. The data can be visualized in "Data Vis". 
 
 When starting the recording check that triggers show up as expected. The triggers should be seen in "Data Vis", in a channel called di38. Throughout the recording monitor the participant.
 
-*Unlike TRIUX system, Hedscan system saves longer recordings in a single file (it does not split them into 2 GB files). Since this can create problems for some storage filesystems, we recommend limiting file sizes by adding breaks in the paradigm every 10-15 minutes during which a recordings can be stopped and new ones started. If recording HEDSCAN and TRIUX simultaneously, we recommend starting/stopping both systems to make stitching the data together afterwards simpler.*
+*Unlike the conventional MEG system, the Hedscan system saves longer recordings in a single file (it does not split them into 2 GB files). Since this can create problems for some storage filesystems, we recommend limiting file sizes by adding breaks in the paradigm every 10-15 minutes during which a recordings can be stopped and new ones started. If recording HEDSCAN and TRIUX simultaneously, we recommend starting/stopping both systems to make stitching the data together afterwards simpler.*
 
 ## Data Visualization
 "Data Vis" can be used to display the data of those sensors that are correctly initialized and localized. Each row corresponds to the data of a sensor. When doing a recording of an experiment that sends triggers to the OPM recording system, you need to make sure that you see those triggers that you expect in the data as vertical lines. 
 
 On the top left part of the visualizer window you can find different icons. Some of the most relevant ones are mentioned below (see the image below).
 
-![]({{ picture_path }}/OPM-ui-visual.png)
+![]({{ picture_path }}/OPM-ui-visual.png){ width="80%" }
+/// caption
 *Figure 7: Data visualization buttons.*
+///
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/0f71c511-7259-4474-b1bc-ed9eddbe5ec1" width="200">
   <p><em>Figure 7: Data visualization buttons.</em></p>
@@ -168,8 +185,10 @@ On the top left part of the visualizer window you can find different icons. Some
 
 The second icon is used to apply some digital filters to the data. These filters are only for visualization purposes since those are not applied to the recorded data. This can help you to identify some specific patterns in your data. You need to select a filter (low pass, high pass...) and then you can choose the channel/s you will apply it to, the cut off frequency, the type and order (see the following figure). 
 
-![]({{ picture_path }}/OPM-ui-filter.png)
+![]({{ picture_path }}/OPM-ui-filter.png){ width="80%" }
+/// caption
 *Figure 8: Filter selection.*
+///
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/5c522565-6c6a-4db2-8b6b-df7aff0dd194" width="300">
   <p><em>Figure 8: Filter selection.</em></p>
@@ -179,8 +198,10 @@ The third icon can be used to open the online-FFT visualizer of your data. Choos
 
 The fourth one, can be used to change the scaling of the visualization of the data. You can increase or decrease the space between each row in graph spacing. The time discretization of the visualization can be changed "time" and the scaling of the amplitude of the data can be changed in "major grid scaling". 
 
-![]({{ picture_path }}/OPM-ui-scaling-settings.png)
+![]({{ picture_path }}/OPM-ui-scaling-settings.png){ width="80%" }
+/// caption
 *Figure 9: Scaling settings*
+///
 <!-- <div align="center">
   <img src="https://github.com/user-attachments/assets/1fb57af4-6ce9-4755-b2cf-59495f5307eb" width="300">
   <p><em>Figure 9: Scaling settings</em></p>
@@ -195,6 +216,10 @@ Moreover, the add-hpi script (or add-hpi-multi if there are multiple recordings)
 
 ## After the recording
 
-After finishing the recording, turn off the sensors and enter the MSR to let the participant out. Pull out the sensors _until the participant can pull their head out of the helmet_ and only then carefully lower them. Disconnect all the cables and let the participant out of the MSR for debriefing and changing back to their clothes. In the MSR, depending on whether someone will record OPM-MEG right after you, push all the sensors out to be flush with the inside of the helmet (if someone is recording OPM-MEG after you) or push them fully in for putting the system in the storage closet (if someone is recording SQUID-MEG after you). *Only move the helmet together with a second person* that takes care of the cables and *ask for help from an experienced OPM-MEG user* if you have not been trained in it.
+After finishing the recording, turn off the sensors and enter the MSR to let the participant out. Pull out the sensors _until the participant can pull their head out of the helmet_ and only then carefully lower them. Disconnect all the cables and let the participant out of the MSR for debriefing and changing back to their clothes.
+
+Optionally, record another empty room recording. 
+
+In the MSR, depending on whether someone will record OPM-MEG right after you, push all the sensors out to be flush with the inside of the helmet (if someone is recording OPM-MEG after you) or push them fully in for putting the system in the storage closet (if someone is recording SQUID-MEG after you). *Only move the helmet with a second person* that takes care of the cables and *ask for help from an experienced OPM-MEG user* if you have not been trained in it.
 
 Unless someone is recording right after you, make sure to turn off the OPM rack in reverse order from "Switching on the system".
