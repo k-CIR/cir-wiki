@@ -82,7 +82,7 @@ Regarding the buttons, there are 8 buttons in you interface that are very import
 Also, in the bottom left corner (see number 4 in Figure 3) you can find the button to open the command window. 
 
 ### Restarting sensors
-When you first open the software, all the channels will be in orange color, which means that an OPM sensor is connected to that channel but not ready. If a channel is gray it means there is no sensor connected to the channel. You now need to go to "sensor select" to select all the channels and restart the sensors wired to those channels by clicking on "restart sensors". The channels will start blinking until they stop and change to green (may taKe a few minutes). If a channel turns red, it means that there was an error. You can go to sensor select and select all the red channels, or just directly click on the red channel you want to restart and click to restart. If the channel persistently turns red, it may be preferable to turn it off. To do so, select the red channels and press "Sensors off". 
+When you first open the software, all the channels will be in orange color, which means that an OPM sensor is connected to that channel but not ready. If a channel is gray it means there is no sensor connected to the channel. You now need to go to "sensor select" to select all the channels and restart the sensors wired to those channels by clicking on "restart sensors". The channels will start blinking until they stop and change to green (may taKe a few minutes). If a channel turns red, it means that there was an error. You can go to sensor select and select all the red channels, or just directly click on the red channel you want to restart and click to restart. If the channel persistently turns red, it may be preferable to turn it off. To do so, select the red channels and press "Sensors off". Note any channels that don't start in the "bad channels" spreadsheet on the desktop. 
 
 ### Initializing sensors
 Once all the channels are green (which means that there is a wired sensor ready but not initialized) you can click on "sensor select" to select the green channels and then click on initialize to initialize the sensors wired to those channels. 
@@ -123,13 +123,15 @@ Probably, all the different recordings that you may want to record in a single s
 
 ## Participant going inside the room
 
-In addition to the regular "conventional MEG preparation", make sure to always put an EEG cap. This is to provide additional thermal insulation (in participants with little hair) and avoid restricting air flow (in participants with a lot of hair). Once all the previous steps are done and the participant is prepared, the participant can already go inside the shielded room. Make sure to **turn off the sensors before opening the door**. 
+In addition to the regular "conventional MEG preparation", make sure to always put an EEG cap. This is to provide additional thermal insulation (in participants with little hair) and avoid restricting air flow (in participants with a lot of hair). Once all the previous steps are done and the participant is prepared, the participant can already go inside the shielded room. **Turn off the sensors before opening the door**. 
 
 Place the participant in the chair and connect all the necessary cables such as the HPI coils cable (which goes into the HEDscan connector, not the TRIUX), the ECG/EOG electrodes and (if applicable) the EEG cap. Put in ear-tubes if required by for the experiment and - if running EEG - add a hair net to avoid leaving EEG gel on the sensors. Then carefully lift the participant up into the helmet until they start feeling the top of the helmet. After that, the sensors can be pushed in, being careful about not applying too much pressure to the participant. To avoid unintentionally pushing the participants head to one side we advise to center their head at the start by pushing in a few sensors on both sides. 
 
 Be more careful with those sensors that can directly touch the skin (mainly in the ears). If that is the case, push the sensor a little out to avoid direct contact with the skin. 
 
-Once all sensors are in place, give to the participant the alarm bubble, and other stimulus/response equipment needed for the paradigm. Then, close the door and repeat the same procedure described in section 3. 
+Once all sensors are in place, give to the participant the alarm bubble, and other stimulus/response equipment needed for the paradigm. Then, close the door and **restart, initialize and localize the sensors** (as previously described).
+
+**If you have to open the MSR door at any point during the recording, make sure to re-initialize the sensors** as sensors may have unlocked from the large change in background field.
 
 
 ## HPI pre
@@ -144,14 +146,14 @@ After that, one can also run the check-hpi.py script to make sure that the recor
 
 ## Recording
 
-**Make sure to check free disk space before starting a recording:** *The Hedscan software does not raise an error if it runs out of storage space. It will appear to continue recording but no more data is saved and resulting in a corrupted file. As a rough rule of thumb, assume you need around 2 GB for every 10 minutes of recording. If there is not enough space, remove older recordings but make sure to back them up by copying to `/data/temp/` on cerberos before deleting if unsure or if they belong to another project.*
+**Make sure to check availabe disk space:** *The acquisition software does not raise an error if it runs out of storage space. It will appear to continue recording but no more data is saved resulting in a corrupted file. As a rough rule of thumb, assume you need around 2 GB for every 10 minutes of recording. If there is not enough space, remove older recordings but make sure to back them up by copying to `/data/temp/` on cerberos before deleting if unsure or if they belong to another project.*
 
 
 When all of the previous steps are done, you can actually start with the main recording and stop it whenever necessary. The data can be visualized in "Data Vis". 
 
 When starting the recording check that triggers show up as expected. The triggers should be seen in "Data Vis", in a channel called di38. Throughout the recording monitor the participant.
 
-*Unlike TRIUX system, Hedscan system saves longer recordings in a single file (it does not split them into 2 GB files). Since this can create problems for some storage filesystems, we recommend limiting file sizes by adding breaks in the paradigm every 10-15 minutes during which a recordings can be stopped and new ones started. If recording HEDSCAN and TRIUX simultaneously, we recommend starting/stopping both systems to make stitching the data together afterwards simpler.*
+*Unlike the conventional MEG system, the Hedscan system saves longer recordings in a single file (it does not split them into 2 GB files). Since this can create problems for some storage filesystems, we recommend limiting file sizes by adding breaks in the paradigm every 10-15 minutes during which a recordings can be stopped and new ones started. If recording HEDSCAN and TRIUX simultaneously, we recommend starting/stopping both systems to make stitching the data together afterwards simpler.*
 
 ## Data Visualization
 "Data Vis" can be used to display the data of those sensors that are correctly initialized and localized. Each row corresponds to the data of a sensor. When doing a recording of an experiment that sends triggers to the OPM recording system, you need to make sure that you see those triggers that you expect in the data as vertical lines. 
@@ -195,6 +197,10 @@ Moreover, the add-hpi script (or add-hpi-multi if there are multiple recordings)
 
 ## After the recording
 
-After finishing the recording, turn off the sensors and enter the MSR to let the participant out. Pull out the sensors _until the participant can pull their head out of the helmet_ and only then carefully lower them. Disconnect all the cables and let the participant out of the MSR for debriefing and changing back to their clothes. In the MSR, depending on whether someone will record OPM-MEG right after you, push all the sensors out to be flush with the inside of the helmet (if someone is recording OPM-MEG after you) or push them fully in for putting the system in the storage closet (if someone is recording SQUID-MEG after you). *Only move the helmet together with a second person* that takes care of the cables and *ask for help from an experienced OPM-MEG user* if you have not been trained in it.
+After finishing the recording, turn off the sensors and enter the MSR to let the participant out. Pull out the sensors _until the participant can pull their head out of the helmet_ and only then carefully lower them. Disconnect all the cables and let the participant out of the MSR for debriefing and changing back to their clothes.
+
+Optionally, record another empty room recording. 
+
+In the MSR, depending on whether someone will record OPM-MEG right after you, push all the sensors out to be flush with the inside of the helmet (if someone is recording OPM-MEG after you) or push them fully in for putting the system in the storage closet (if someone is recording SQUID-MEG after you). *Only move the helmet with a second person* that takes care of the cables and *ask for help from an experienced OPM-MEG user* if you have not been trained in it.
 
 Unless someone is recording right after you, make sure to turn off the OPM rack in reverse order from "Switching on the system".
