@@ -125,5 +125,6 @@ nav:
     - Installed software: server/install-software/
     - BIDS:
       - BIDS at NatMEG: natmeg/bids/
-      - BIDS at BMIC: bmic/03_bmic_bids
+      - BIDS at BMIC: bmic/
+      - BIDS at MRC: mrc/mrc-bids.md
   
