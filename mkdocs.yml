@@ -79,11 +79,11 @@ extra:
   picture_path: /resources/wiki_images
   manuals_path: /resources/manuals
 
-
 nav:
   - Home: 
     - index.md
     - How to edit this wiki: edit-this-wiki.md
+    - Contribute to this wiki: contribute-to-wiki.md
   - NatMEG: 
     - natmeg/index.md
     - Preparation: natmeg/preparation/
