@@ -58,6 +58,12 @@ The navigation structure in the `mkdocs.yml` file. Found below specifiations for
 
 ## Add a page
 
+TBA
+
 ## Add an image
 
+TBA
+
 ## Add a section
+
+TBA
