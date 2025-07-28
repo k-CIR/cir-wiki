@@ -3,4 +3,4 @@ title: Cerberos
 tags: [NatMEG, analysis]
 ---
 
-TBA
+The in-lab computer used to syncronize data and run [preprocessing pipelines](../preprocessing/pipeline).

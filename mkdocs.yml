@@ -95,7 +95,10 @@ nav:
       - Other: natmeg/stimulus-equipment/other
     - Response Equipment: natmeg/response-equipment/
     - Presentation: natmeg/presentation/
-    - MaxFilter: natmeg/maxfilter/
+    - Preprocessing:
+      - Pipeline: natmeg/preprocessing/pipeline.md
+      # https://github.com/k-CIR/NatMEG-utils/blob/main/README.md
+      - About MaxFilter: natmeg/preprocessing/maxfilter
     - Other: natmeg/other/
     - NatMEG server:
       - Set-up connection: natmeg/server/set-up-connection/
@@ -103,7 +106,6 @@ nav:
       - Script tips: natmeg/server/script-tips/
       - Troubleshooting: natmeg/server/troubleshooting/
     - Cerberos: natmeg/cerberos/
-    - BIDS at NatMEG: natmeg/bids/
   - BMIC: 
     - BMIC: bmic/index.md
     - Getting Started: bmic/01_getting_started
