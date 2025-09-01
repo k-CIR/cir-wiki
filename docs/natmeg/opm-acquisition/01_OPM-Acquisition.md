@@ -8,9 +8,9 @@ title: OPM Manual
 
 This document explains the main steps you need to follow to run the Hedscan software.
 
-Some utility scripts that will be mentioned in this document can be find the path "~/opm-utility-scripts/". 
+Some utility scripts referenced in this guide can be found in the path "~/opm-utility-scripts/". 
 
-If one wants to do an OPM recording in parallel with some recording with the MEG scan, it is important that when defining the preparation, the "internal active shielding" is off as internal active shielding interferes with the OPM system. To check so, click to "change" in Acquisition and check that the bottom checkbox called "internal active shielding" is off.
+If you plan to do an OPM recording in parallel with some recording with the MEG scan, it is important to ensure that **internal active shielding** is turned **off** during preparation. This is because internal active shielding interferes with the OPM system. To verify this setting, go to **Acquisition**, click **Change**, and ensure the checkbox labeled _Internal active shielding_ is **unchecked**.
 
 ![]({{ picture_path }}/OPM_support_and_sensorsout.png){ width="80%" }
 /// caption
@@ -22,13 +22,13 @@ If one wants to do an OPM recording in parallel with some recording with the MEG
   <p><em>Figure 1: *left:* Free-standing helmet mount. *right:* sensors pulled out to be flush with inner helmet surface. </em></p>
 </div> -->
 
-Before starting make sure the OPM-MEG helmet is mounted and fully secured to the free-standing or chair mounted support and that all sensors are pushed out so that they are flush with the inside of the helmet. If you need to mount the helmet make sure to **always be at least two people**, with one taking care of the cables to avoid tension. **Ask for help from an experienced OPM user** if you have not been trained in how to mount the helmet. 
+Before starting, make sure that the OPM-MEG helmet is mounted and fully secured to the free-standing or chair mounted support and that all sensors are pushed out so that they are flush with the inside of the helmet. If you need to mount the helmet, make sure to **always be at least two people**, with one taking care of the cables to avoid tension. **Ask for help from an experienced OPM user** if you have not been trained in how to mount the helmet. 
 
 ## Switching on the system
 
-To turn on the system, you need to go behind the MEG room and find the Hedscan system.
+To turn on the system, go to the back of the MEG room where the Hedscan system is located.
 
-In the figure the buttons that need to be turned on can be seen. However, it is important to follow the correct order.
+The buttons that need to be turned on are shown in the Figure 2. However, it is important to follow the correct order when turning on the system.
 
 ![]({{ picture_path }}/OPM-computer.jpg){ width="40%" }
 /// caption
@@ -40,9 +40,9 @@ In the figure the buttons that need to be turned on can be seen. However, it is 
 </div> -->
 
 
-First, you needs to turn on the power button on the bottom left corner. Then, turn on the individual rack buttons (the ones on the right) one by one from top to bottom with ~3 seconds pause in between. 
+First, turn on the **main power button** located at the bottom left corner of the rack. Then, turn on the individual rack buttons (the ones on the right) one by one from top to bottom with ~3 seconds pause in between each. 
 
-After that, you need to go back to the Hedscan host computer and open the Hedscan software (which you can find in the desktop). Once the software is open, it will detect that there is a HEDscan system that is on. If not, one may need to wait a few moments. Click on it and click to connect (see following figure). 
+Once all components are powered on, go back to the Hedscan host computer and open the Hedscan software (which you can find in the desktop). The software should automatically detect the active HEDscan system. If not, one may need to wait a few moments. When the system appears, **click** on it, then click **Connect** (see the following figure). 
 
 ![]({{ picture_path }}/OPM-start-screen.png){ width="70%" }
 /// caption
@@ -72,7 +72,7 @@ When the software is connected, you will see all the channels that have a sensor
 
 The "digital in" receives triggers from the stimulation computer and can be enabled by double clicking on it. The "HPI" card shows the HPI channels and they can be turned on to enable the each channel by double clicking on them too. 
 
-Regarding the buttons, there are 8 buttons in you interface that are very important and useful and can be subdivided into 3 groups:
+Regarding the interface buttons, there are 8 important and frequently used buttons, which can be grouped into 3 main categories:
 
 1. The three buttons in the top left, which are the sequence for starting the system up (see number 1 in Figure 3):
    - "Restart sensors": button that restarts the sensors wired to those channels that are selected
