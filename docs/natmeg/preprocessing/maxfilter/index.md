@@ -1,5 +1,5 @@
 ---
-title: MaxFilter
+title: About MaxFilter
 ---
 
 MaxFilter™ is a software package developed by MEGIN for removing environmental noise and correcting for head movement in MEG data. It is widely used in the field of magnetoencephalography (MEG) research to enhance data quality and reliability.
