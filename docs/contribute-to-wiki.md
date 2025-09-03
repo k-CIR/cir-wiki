@@ -45,8 +45,37 @@ Running MkDocs in the terminal. Note the address where the wiki is running local
 
 If you use your favourite browser to now go to the address shown in the terminal (usually `http://127.0.0.1:8000/`), you will see your local version of the wiki, running on your computer.
 
+## Before changing anything
+Before making any changes, create your own git branch for the specific additions or modifications you plan to make. Use the command `git branch branch_name` to create a new branch, and then switch to it with `git checkout branch_name`. This keeps your work separate and organized, making it easier to track and review your changes before merging them.
+
 ## Make your life easier
-To make your life easier, use a purpose built text editor to work with the wiki. For example, using [Visual Studio Code](https://code.visualstudio.com/), you get syntax highlighting, source control integration (git) and can easily navigate between different documents. Open the **cir-wiki** folder in VS Code and you will see all the files and folders that make up the wiki.
+To make your life easier, use a purpose built text editor to work with the wiki. For example, using [Visual Studio Code](https://code.visualstudio.com/), you get syntax highlighting, source control integration (git) and can easily navigate between different documents. Open the **cir-wiki** folder in VS Code and you will see all the files and folders that make up the wiki. Of course, you can edit you markdown files in any text editor you choose.
+
+## Add a page
+The pages of the wiki live as separate markdown documents in the repository under `cir-wiki/docs/` which follows the general structure of the wikis web-page with each section of the wiki in a sub-folder. Adding a page to the wiki is as simple as navigating to the sub-folder corresponding to the section you want to add a page and creating a new markdown (`.md`) document. By default documents (or pages) are ordered alphabetically, if you want the pages in a specific order on the web-page, name your documents accordingly, i.e with a leading number to signify the order. Include a preample section that sepcify the documents `title:` and a descriptive first header `# Following one hashtag` to label the document/page and making it easy to find. Chapters (or sub-titles) on your page are created automatically for the sidebar based on the markdown-structure, i.e `## This is a chapter heading`.
+
+![Navigation structure]({{ picture_path }}/new_page_file.png){ width="600" }
+/// caption
+A new file name `00_Before.md` has been added with a title and first header under `docs/natmeg/preparation`
+///
+
+Having added your page you can check that it renders as expected in your local version of the wiki (usually `http://127.0.0.1:8000/`) as described above under [install and run MkDocs](https://k-cir.github.io/cir-wiki/contribute-to-wiki/#install-and-run-mkdocs). Leaving mkdocs running, it updates your local version continously. This is a good way to preview your additions and changes as you make them.
+
+When you are happy with your new page, commit and push them to your branch of the git repository.
+
+## Add an image
+PNG-images can be included but try to keep resolutions below ~1000 pixels to save on space and load times. All pictures for the wiki are collected in `cir-wiki/docs/resources/wiki_images/` save your image here and include it on your page by modifying the filename and caption and pasting this code snippet:
+
+```
+![Navigation structure]({{ picture_path }}/yourfilename.png){ width="600" }
+/// caption
+Replace this text with the caption for your image.
+///
+```
+
+## Add a section
+
+TBA
 
 ## The config file - mkdocs.yml
 The wiki is configured using a file called `mkdocs.yml` in the root of the repository. This file contains the configuration for the wiki, such as the title, theme, and navigation structure. You should only have to consider yourself with the navigation structure, which is defined under the `nav` key in the config file. The navigation structure is a list of pages and sections that will be displayed in the sidebar of the wiki.
@@ -55,15 +84,3 @@ The wiki is configured using a file called `mkdocs.yml` in the root of the repos
 /// caption
 The navigation structure in the `mkdocs.yml` file. Found below specifiations for the theme and plugins.
 ///
-
-## Add a page
-
-TBA
-
-## Add an image
-
-TBA
-
-## Add a section
-
-TBA
