@@ -25,7 +25,7 @@ The NatMEG pipeline includes an automated installation script that sets up every
 
 ```bash
 # Clone the repository
-git clone https://github.com/NatMEG/NatMEG-utils.git
+git clone git@github.com:k-CIR/NatMEG-utils.git
 cd NatMEG-utils
 
 # Run the installer
