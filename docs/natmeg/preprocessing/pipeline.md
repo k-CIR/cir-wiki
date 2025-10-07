@@ -25,7 +25,7 @@ The NatMEG pipeline includes an automated installation script that sets up every
 
 ```bash
 # Clone the repository
-git clone https://github.com/NatMEG/NatMEG-utils.git
+git clone git@github.com:k-CIR/NatMEG-utils.git
 cd NatMEG-utils
 
 # Run the installer
@@ -34,9 +34,10 @@ bash install.sh
 
 The installer will:
 - Detect your operating system (macOS/Linux) and conda installation
+- Create the conda environment `natmeg_utils`
 - Create a `natmeg` executable in `~/.local/bin/`
 - Add `~/.local/bin` to your PATH if needed
-- Guide you through conda environment setup
+- Guide you through conda environment setup 
 - Provide clear troubleshooting instructions
 
 After installation, you can use the pipeline from anywhere:
