@@ -96,6 +96,7 @@ nav:
     - Response Equipment: natmeg/response-equipment/
     - Presentation: natmeg/presentation/
     - Preprocessing:
+      - Using the GUI: natmeg/preprocessing/config_gui.md
       - Pipeline: natmeg/preprocessing/pipeline.md
       # https://github.com/k-CIR/NatMEG-utils/blob/main/README.md
       - About MaxFilter: natmeg/preprocessing/maxfilter
