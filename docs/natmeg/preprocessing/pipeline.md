@@ -4,11 +4,9 @@ title: NatMEG Processing Pipeline Utility Scripts
 
 # NatMEG Processing Pipeline
 
-Comprehensive MEG/EEG preprocessing pipeline for NatMEG data including BIDS conversion, MaxFilter processing, HPI coregistration, and data synchronization utilities.
+Comprehensive MEG/EEG preprocessing pipeline for NatMEG data including copying of data, MaxFilter processing, HPI coregistration, BIDS conversion, and data synchronization utilities.
 
-Note: The last step, to push project to the CIR-server, is not yet included. Also everything is in devlopment mode so feedback and improvements are welcome.
-
-Read full documentation on how to use the pipeline [here](https://k-cir.github.io/cir-wiki/natmeg/preprocessing)
+Scripts and further information can be found at the [NatMEG-utils GitHub repository](https://github.com/k-CIR/NatMEG-utils)
 
 ## Overview
 
@@ -17,27 +15,192 @@ This pipeline provides end-to-end processing for:
 - **OPM MEG** data from Kaptah/OPM systems  
 - **EEG** data collected through TRIUX
 
+## Key Features
+
+- **Interactive HTML Dashboard**: Generate comprehensive project reports with hierarchical file trees, local/remote comparison, and interactive filtering
+- **Server Synchronization**: Automated sync to CIR server with rsync, supporting include/exclude patterns and dry-run mode
+- **Enhanced CLI Interface**: Modular subcommands for individual pipeline steps (run, copy, hpi, maxfilter, bidsify, sync, report)
+- **Flexible Installation**: Improved install.sh script with conda/venv options and cross-platform support
+- **Automated Configuration**: Generate default config files with `natmeg create-config`
+
+
+## The config file by section
+
+### RUN
+The steps to include in `natmeg run --config <config_file.yml>`, toggle between true/false to include/exclude steps.
+```yml
+RUN:
+  Copy to Cerberos: true
+  Add HPI coregistration: true
+  Run Maxfilter: true
+  Run BIDS conversion: true
+  Sync to CIR: true
+```
+### Project
+General project paths and information. Make sure to set the correct paths for your data storage locations. 
+
+- If using GUI project Name and Root will update Raw and BIDS paths if not manually set.
+- Calibration and Crosstalk paths refer to in Project copies of these files, original locations are set in `copy_to_cerberos.py` script.
+- Since project names can differ between Sinuhe/Kaptah and local storage, set the correct paths for your project on both systems by replacing the place holders.
+```yml
+Project:
+  Name: ''
+  CIR-ID: ''
+  InstitutionName: Karolinska Institutet
+  InstitutionAddress: Nobels vag 9, 171 77, Stockholm, Sweden
+  InstitutionDepartmentName: Department of Clinical Neuroscience (CNS)
+  Description: project for MEG data
+  Tasks:
+  - ''
+  Sinuhe raw: /neuro/data/sinuhe/<project_path_on_sinuhe> 
+  Kaptah raw: /neuro/data/kaptah/<project_path_on_kaptah>
+  Root: /neuro/data/local/
+  Raw: /neuro/data/local/<project>/raw
+  BIDS: /neuro/data/local/<project>/BIDS
+  Calibration: /neuro/data/local/<project>/databases/sss/sss_cal.dat
+  Crosstalk: /neuro/data/local/<project>/databases/ctc/ct_sparse.fif
+  Logfile: pipeline_log.log
+```
+### OPM
+```yml
+OPM:
+  polhemus:
+  - ''
+  hpi_names:
+  - HPIpre
+  - HPIpost
+  - HPIbefore
+  - HPIafter
+  frequency: 33
+  downsample_to_hz: 1000
+  overwrite: false
+  plot: false
+```
+### MaxFilter
+Default settings. 
+
+- Add all files for which you want continous head positioning estimation in `trans_conditions`
+- If you do not have empty room files, leave the list empty `- ''`
+- Add project bad channels in `bad_channels` list, one per line, or leave empty `- ''`
+```yml
+MaxFilter:
+  standard_settings:
+    trans_conditions:
+    - ''
+    trans_option: continous
+    merge_runs: true
+    empty_room_files:
+    - empty_room_before.fif
+    - empty_room_after.fif
+    sss_files:
+    - ''
+    autobad: true
+    badlimit: '7'
+    bad_channels:
+    - ''
+    tsss_default: true
+    correlation: '0.98'
+    movecomp_default: true
+    subjects_to_skip:
+    - ''
+  advanced_settings:
+    force: false
+    downsample: false
+    downsample_factor: '4'
+    apply_linefreq: false
+    linefreq_Hz: '50'
+    maxfilter_version: /neuro/bin/util/maxfilter
+    MaxFilter_commands: ''
+    debug: false
+```
+### BIDS
+BIDS conversion settings. Make sure to set the correct paths for your files and project information. Example `participant_mapping_example.csv`.
+
+- The `bids_conversion.tsv` is generated if not already existing and controls the conversion. Edit task names and runs, and set status to `ok`. BIDS conversion will not be done if there are any file has status `check`.
+
+```yml
+BIDS:
+  Dataset_description: dataset_description.json
+  Participants: participants.tsv
+  Participants_mapping_file: participant_mapping_example.csv
+  Conversion_file: bids_conversion.tsv
+  Overwrite_conversion: false
+  Original_subjID_name: old_subject_id
+  New_subjID_name: new_subject_id
+  Original_session_name: old_session_id
+  New_session_name: new_session_id
+  overwrite: false
+  dataset_type: raw
+  data_license: ''
+  authors: ''
+  acknowledgements: ''
+  how_to_acknowledge: ''
+  funding: ''
+  ethics_approvals: ''
+  references_and_links: ''
+  doi: doi:<insert_doi>
+```
+
+## Pipeline Components
+
+### 1. Data Synchronization (`copy_to_cerberos.py`)
+Synchronizes raw data between storage systems (Sinuhe/Kaptah → Cerberos).
+
+### 2. HPI Coregistration (`add_hpi.py`)
+Performs head localization for OPM-MEG using HPI coils and Polhemus digitization.
+
+
+### 3. MaxFilter Processing (`maxfilter.py`)
+Applies Elekta MaxFilter with Signal Space Separation (SSS) and temporal extension (tSSS).
+
+
+### 4. BIDS Conversion (`bidsify.py`)
+Converts NatMEG data to BIDS format and organizes it into a BIDS-compliant folder structure.
+
+### 5. Server Synchronization (`sync_to_cir.py`)
+Synchronizes processed data to CIR server using `rsync` with include/exclude patterns and dry-run mode.
+
 ## Installation
 
 ### Automated Installation (Recommended)
 
 The NatMEG pipeline includes an automated installation script that sets up everything you need:
 
+#### Default Installation (Conda Environment)
 ```bash
 # Clone the repository
-git clone git@github.com:k-CIR/NatMEG-utils.git
+git clone https://github.com/NatMEG/NatMEG-utils.git
 cd NatMEG-utils
 
-# Run the installer
+# Run the installer (uses conda by default)
 bash install.sh
+
+# View all installer options
+bash install.sh --help
 ```
 
+#### Alternative Installation (Python Virtual Environment)
+
+Note: Does not work on all Linux distributions (e.g. Rocky/RHEL/CentOS) due to PyQt compatibility issues. Use default conda installation instead.
+
+```bash
+# Clone the repository
+git clone https://github.com/NatMEG/NatMEG-utils.git
+cd NatMEG-utils
+
+# Run the installer with venv flag
+bash install.sh --venv
+```**Benefits of conda installation (now default):**
+- **Better PyQt Compatibility**: Provides isolated Python environment that avoids system conflicts
+- **Linux Compatibility**: Works well on enterprise Linux distributions (Rocky/RHEL/CentOS)
+- **Dependency Isolation**: Prevents conflicts with system-installed Python packages
+- **Reliability**: More consistent installation experience across different systems
+
 The installer will:
-- Detect your operating system (macOS/Linux) and conda installation
-- Create the conda environment `natmeg_utils`
+- Detect your operating system (macOS/Linux) and conda installation  
 - Create a `natmeg` executable in `~/.local/bin/`
 - Add `~/.local/bin` to your PATH if needed
-- Guide you through conda environment setup 
+- Set up either Python venv or conda environment based on your choice
 - Provide clear troubleshooting instructions
 
 After installation, you can use the pipeline from anywhere:
@@ -51,22 +214,24 @@ natmeg --help                  # Show all options
 
 If you prefer manual setup:
 
-#### 1. Create Conda Environment
+#### Option 1: Conda Environment (Recommended for Linux Rocky)
 ```bash
-conda create -n natmeg_utils python=3.9 -y
+# Create basic conda environment
+conda create -n natmeg_utils python>=3.12 pip uv -y
 conda activate natmeg_utils
+
+# Install dependencies via pip (same as venv approach)
+pip install -r requirements.txt
 ```
 
-#### 2. Install Dependencies
+#### Option 2: Python Virtual Environment
 ```bash
-# Core dependencies
-conda install mne mne-bids numpy pandas matplotlib pyyaml
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 
-# Optional dependencies for advanced features
-pip install json5  # For JSON files with comments
-
-# Install pipeline in development mode
-pip install -e .
+# Install dependencies
+pip install -r requirements.txt
 ```
 
 #### 3. Add to PATH (Optional)
@@ -78,7 +243,7 @@ source ~/.zshrc
 
 ### Prerequisites
 
-- **Python 3.9+**: Required for all pipeline components
+- **Python 3.12+**: Required for all pipeline components
 - **Conda/Miniconda**: Recommended for environment management
 - **Git**: For cloning the repository
 - **Operating System**: macOS or Linux (Windows support coming soon)
@@ -92,223 +257,54 @@ source ~/.zshrc
 After installation, you can use the `natmeg` command from anywhere:
 
 ```bash
+
 # Launch GUI configuration interface
-natmeg gui
+natmeg gui # Loads a default configuration file if none specified
 
-# Run complete pipeline
-natmeg run --config config.yml
+# Create configuration file
+natmeg create-config --output my_config.yml  # Generate default config
 
-# Run specific components
-natmeg copy --config config.yml      # Data synchronization only
-natmeg hpi --config config.yml       # HPI coregistration only  
-natmeg maxfilter --config config.yml # MaxFilter processing only
-natmeg bidsify --config config.yml   # BIDS conversion only
+# Run complete pipeline with options
+natmeg run --config config.yml               # Complete pipeline
+natmeg run --config config.yml --dry-run     # Preview without execution
+natmeg run --config config.yml --no-report   # Skip final HTML report
+natmeg run --config config.yml --delete      # Delete remote files not in source
 
-# Show help
+# Run individual components
+natmeg copy --config config.yml              # Data synchronization only
+natmeg hpi --config config.yml               # HPI coregistration only  
+natmeg maxfilter --config config.yml         # MaxFilter processing only
+natmeg maxfilter --config config.yml --dry-run  # Show commands without execution
+natmeg bidsify --config config.yml           # BIDS conversion only
+
+# Server synchronization with advanced options
+natmeg sync --create-config                  # Generate example server config
+natmeg sync --server-config servers.yml --test      # Test server connection
+natmeg sync --directory /data/project        # Sync directory (default 'cir' server)  
+natmeg sync --config project_config.yml --dry-run   # Preview sync from project config
+natmeg sync --directory /data/project --delete      # Delete remote files not in source
+natmeg sync --directory /data/project --exclude "*.tmp" --include "*.fif"  # Pattern filtering
+
+# Generate project reports
+natmeg report --config config.yml            # Generate HTML dashboard
+
+# Show help for all commands
 natmeg --help
+natmeg run --help      # Detailed help for specific subcommand
 ```
-
-### Legacy Direct Script Usage
-
-You can still run scripts directly if needed:
-
-#### 1. GUI Configuration Interface
-Launch the unified configuration interface:
-```bash
-python run_config.py
-```
-This opens a tabbed GUI for setting up all pipeline components with integrated execution.
-
-#### 2. Complete Pipeline
-Run the entire pipeline programmatically:
-```bash
-python natmeg_pipeline.py --config config.yml
-```
-Or use the GUI to first edit the configuration and then execute the pipeline.
-```bash
-python natmeg_pipeline.py
-```
-
-#### 3. Individual Components
-Run specific processing steps:
-```bash
-# Data synchronization
-python copy_to_cerberos.py --config config.yml
-
-# HPI coregistration (OPM only)
-python add_hpi.py --config config.yml
-
-# MaxFilter processing
-python maxfilter.py --config config.yml
-
-# BIDS conversion
-python bidsify.py --config config.yml
-```
-
----
-
-## Configuration
-
-### Unified YAML Configuration
-All pipeline components use a single YAML configuration file:
-
-```yaml
-# Project and data paths
-project:
-  squidMEG: /neuro/data/sinuhe/project_name
-  opmMEG: /neuro/data/kaptah/project_name
-  BIDS: /neuro/data/local/project_name/bids
-  Calibration: /neuro/databases/sss/sss_cal.dat
-  Crosstalk: /neuro/databases/ctc/ct_sparse.fif
-  tasks: ["Noise", "RSEO", "RSEC", "AudOdd", "Phalanges"]
-
-# BIDS conversion settings
-bids:
-  Dataset_description: dataset_description.json
-  Participants: participants.tsv
-  Participants_mapping_file: participant_mapping.csv
-  Conversion_file: bids_conversion.tsv
-  Overwrite_conversion: false
-  Original_subjID_name: old_subject_id
-  New_subjID_name: new_subject_id
-  Original_session_name: old_session_id
-  New_session_name: new_session_id
-  dataset_type: raw
-  overwrite: false
-
-# MaxFilter processing
-maxfilter:
-  standard_settings:
-    project_name: project_name
-    trans_conditions: ["AudOdd", "Phalanges", "RSEO", "RSEC"]
-    trans_option: continous
-    merge_runs: true
-    empty_room_files: ["empty_room_before.fif", "empty_room_after.fif"]
-    autobad: true
-    badlimit: 7
-    tsss_default: true
-    correlation: 0.98
-    movecomp_default: true
-    data_path: /neuro/data/sinuhe
-  advanced_settings:
-    force: false
-    downsample: false
-    downsample_factor: 4
-    cal: /neuro/databases/sss/sss_cal.dat
-    ctc: /neuro/databases/ctc/ct_sparse.fif
-
-# OPM HPI coregistration
-opm:
-  polhemus: ["RestinState.fif"]
-  hpi_names: ["HPI01", "HPI02", "HPI03", "HPI04", "HPI05"]
-  hpifreq: 33.0
-  downsample_freq: 1000
-  overwrite: false
-  plot: true
-
-# Pipeline execution control
-RUN:
-  Copy to Cerberos: false
-  Add HPI coregistration: false
-  Run Maxfilter: false
-  Bidsify: true
-```
-
-### Legacy JSON Support
-Individual components still support legacy JSON configuration files for backward compatibility.
-
----
-
-## Pipeline Components
-
-### 1. Data Synchronization (`copy_to_cerberos.py`)
-
-Synchronizes raw data between storage systems (Sinuhe/Kaptah → Cerberos).
-
-**Features:**
-- Intelligent file comparison (size, timestamp, content)
-- FIF-specific handling for MEG/EEG data to split large files into 2GB chunks
-- Parallel processing for large datasets
-- Comprehensive logging and error handling
-
-**Usage:**
-```bash
-python copy_to_cerberos.py --config config.yml
-```
-
-### 2. HPI Coregistration (`add_hpi.py`)
-
-Performs head localization for OPM-MEG using HPI coils and Polhemus digitization.
-
-**Features:**
-- Sequential HPI coil activation and localization
-- Magnetic dipole fitting in device coordinates
-- Coordinate transformation using fiducial points
-- Quality control with goodness-of-fit metrics
-- 3D visualization of sensor arrays and coil positions
-- Parallel processing of multiple files
-
-**Key Functions:**
-- `find_hpi_fit()`: Localizes HPI coils using sequential activation
-- `process_single_file()`: Applies transformations to individual files
-- Quality threshold: Goodness of fit >0.9 for reliable localization
-
-**Usage:**
-```bash
-python add_hpi.py --config config.yml
-```
-
-### 3. MaxFilter Processing (`maxfilter.py`)
-
-Applies Elekta MaxFilter with Signal Space Separation (SSS) and temporal extension (tSSS).
-
-**Features:**
-- Continous head position averaging and movement compensation
-- Temporal SSS for interference suppression
-- Bad channel detection and correction
-- Empty room processing for noise estimation
-- Task-specific parameter configuration
-- Parallel processing across subjects/sessions
-
-**Key Processing Steps:**
-1. **Head Position Averaging**: Continuous HPI-based localization
-2. **Movement Compensation**: Correction of head movement artifacts
-3. **Temporal SSS**: Removal of external interference
-4. **Bad Channel Handling**: Detection and interpolation of bad channels
-5. **Empty Room Correction**: Estimation and subtraction of environmental noise
-
-**Usage:**
-```bash
-python maxfilter.py --config config.yml
-```
-
-### 4. BIDS Conversion (`bidsify.py`)
-
-Converts NatMEG data to BIDS format and organizes it into a BIDS-compliant folder structure.
-
-**Features:**
-- Automatic conversion of MEG, EEG, and OPM data to BIDS
-- Generation of BIDS metadata files (e.g., `dataset_description.json`, `participants.tsv`)
-- Flexible configuration for file mapping and naming
-- Integration with MNE-BIDS for robust BIDS compliance
-- Conversion table for tracking and managing file conversions define comprehensive task names and identify runs
-
-**Usage:**
-```bash
-python bidsify.py --config config.yml
-```
-
----
-
-## Special Features
-
-- EEG data will be placed in an `eeg` folder in the BIDS root directory according to BIDS specifications. However, as EEG data is collected through the TRIUX system a `.fif` file will be created and the `.json` sidecare will be copied to the `meg` folder.
-
----
 
 ## Troubleshooting
 
 ### Installation Issues
+
+**PyQt Issues on Linux Rocky/RHEL:**
+```bash
+# Default conda installation should work out of the box
+bash install.sh
+
+# If you previously used venv and had issues, conda is now default
+# Creates isolated Python environment avoiding system conflicts
+```
 
 **Conda not found:**
 ```bash
@@ -334,23 +330,49 @@ source ~/.zshrc
 
 **Environment activation fails:**
 ```bash
-# Check conda environments
+# For conda environments (default)
 conda env list
+conda env remove -n natmeg_utils -y  # Remove corrupted environment
+bash install.sh  # Recreate with conda (default)
 
-# Recreate environment if needed
-conda remove -n natmeg_utils --all -y
-conda create -n natmeg_utils python=3.9 -y
-conda activate natmeg_utils
-cd ~/Sites/NatMEG-utils
-pip install -e .
+# For virtual environments  
+rm -rf .venv  # Remove corrupted environment
+bash install.sh --venv  # Recreate with venv
 ```
+
+### Platform-Specific Issues
+
+**Linux Rocky/RHEL/CentOS - PyQt GUI Issues:**
+
+The GUI may fail to start on enterprise Linux distributions due to PyQt compatibility issues with system libraries. **Solution: Use conda installation**
+
+```bash
+# Recommended approach
+bash install.sh --conda
+
+# If already installed with pip/venv, switch to conda:
+cd ~/Sites/NatMEG-utils
+bash install.sh --conda  # This will replace the existing installation
+```
+
+**Why conda is now the default:**
+- Provides isolated Python environment separate from system Python
+- No conflicts with system-installed Python packages
+- Better compatibility across different operating systems and distributions
+- Same requirements.txt installation but in isolated conda environment
+- Resolves PyQt issues commonly seen with system Python installations
 
 ### Runtime Issues
 
 **Module import errors:**
 ```bash
-# Ensure you're in the correct environment
+# For conda environments
 conda activate natmeg_utils
+conda list  # Check installed packages
+
+# For virtual environments
+source .venv/bin/activate
+pip list  # Check installed packages
 
 # Install missing dependencies
 pip install mne mne-bids pyyaml
