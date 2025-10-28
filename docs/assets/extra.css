@@ -1,0 +1,22 @@
+/* Custom styles for admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: 1.0em; /* Make admonition text 10% larger than normal text */
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > .admonition-title {
+    font-size: 1.0em; /* Make admonition titles slightly larger */
+    font-weight: bold;
+}
+
+/* Optional: You can also target specific admonition types */
+/*
+.md-typeset .admonition.warning {
+    font-size: 1.2em;
+}
+
+.md-typeset .admonition.tip {
+    font-size: 1.2em;
+}
+*/
