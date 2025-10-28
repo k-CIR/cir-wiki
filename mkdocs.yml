@@ -49,9 +49,15 @@ theme:
       - navigation.footer
       - content.code.copy
       # - navigation.sections # Makes top level sections expandable
+
+extra_css:
+  - assets/extra.css
+
 markdown_extensions:
   - attr_list
   - sane_lists
+  - admonition
+  - pymdownx.details
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.superfences:
@@ -129,4 +135,9 @@ nav:
       - BIDS at NatMEG: natmeg/bids/
       - BIDS at BMIC: bmic/03_bmic_bids
       - BIDS at MRC: mrc/mrc-bids.md
+  - SPICE:
+    - SPICE/index.md
+    - How to connect: SPICE/01_how_to_connect.md
+    - Best practices for using SPICE: SPICE/02_best_practice.md
+    - Tips for using VScode: SPICE/03_Vscode_tips.md
   
