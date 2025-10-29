@@ -48,10 +48,16 @@ theme:
       - toc.integrate
       - navigation.footer
       - content.code.copy
-      # - navigation.sections # Makes top level sections expandable
+      - navigation.sections # Makes top level sections expandable
+
+extra_css:
+  - assets/extra.css
+
 markdown_extensions:
   - attr_list
   - sane_lists
+  - admonition
+  - pymdownx.details
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.superfences:
@@ -117,17 +123,32 @@ nav:
     - mrc/mrc-bids.md
     - mrc/mrc-cir-protocol.md
     # - mrc/mrc-cir-data-template.md
-    - MRC servers: 
-        - mrc/servers/index.md
-        - Connection and data transfer: mrc/servers/set-up-connection/
     - Response Equipment: 
         - mrc/response-equipment/
-  - Server:
-    - About the server: server/index.md
-    - Connect: server/connect/
-    - Installed software: server/install-software/
-    - BIDS:
-      - BIDS at NatMEG: natmeg/bids/
-      - BIDS at BMIC: bmic/03_bmic_bids
-      - BIDS at MRC: mrc/mrc-bids.md
-  
+  #- Server:
+   # - About the server: server/index.md
+    #- Connect: server/connect/
+    #- Installed software: server/install-software/
+    #- BIDS:
+    #  - BIDS at NatMEG: natmeg/bids/
+    #  - BIDS at BMIC: bmic/03_bmic_bids
+    #  - BIDS at MRC: mrc/mrc-bids.md
+  - SPICE:
+    - SPICE/index.md
+    - How to connect: SPICE/01_how_to_connect.md
+    - Best practices for using SPICE: SPICE/02_best_practice.md
+    - Tips for using VScode: SPICE/03_Vscode_tips.md
+    - Download your data: SPICE/04_download_your_data.md
+    - BIDS: SPICE/05_spiceBIDS.md
+    - Software:
+      - Anaconda: SPICE/software/01_anaconda.md
+      - FSL: SPICE/software/02_FSL.md
+      - FreeSurfer: SPICE/software/03_freesurfer.md
+      - Matlab: SPICE/software/04_Matlab.md
+      - R: SPICE/software/05_R.md
+    - Singularity containers:
+      - SPICE/singularity_containers/index.md
+      - fMRIPrep: SPICE/singularity_containers/01_fmriprep.md
+      - Heudiconv: SPICE/singularity_containers/02_heudiconv.md
+      - Halfpipe: SPICE/singularity_containers/03_halfpipe.md
+      - MRIQC: SPICE/singularity_containers/04_mriqc.md
