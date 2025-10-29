@@ -21,8 +21,6 @@ This pipeline provides end-to-end processing for:
 - **Server Synchronization**: Automated sync to CIR server with rsync, supporting include/exclude patterns and dry-run mode
 - **Enhanced CLI Interface**: Modular subcommands for individual pipeline steps (run, copy, hpi, maxfilter, bidsify, sync, report)
 - **Flexible Installation**: Improved install.sh script with conda/venv options and cross-platform support
-- **Automated Configuration**: Generate default config files with `natmeg create-config`
-
 
 ## The config file by section
 
@@ -39,8 +37,8 @@ RUN:
 ### Project
 General project paths and information. Make sure to set the correct paths for your data storage locations. 
 
-- If using GUI project Name and Root will update Raw and BIDS paths if not manually set.
-- Calibration and Crosstalk paths refer to in Project copies of these files, original locations are set in `copy_to_cerberos.py` script.
+- If using GUI project Name and Root will update Raw and BIDS paths if not manually changed.
+- Calibration and Crosstalk paths refer to in Project copies of these files, original locations are set in `copy_to_cerberos.py` script. This is used for BIDS conversion and MaxFilter processing.
 - Since project names can differ between Sinuhe/Kaptah and local storage, set the correct paths for your project on both systems by replacing the place holders.
 ```yml
 Project:
@@ -79,7 +77,7 @@ OPM:
 ### MaxFilter
 Default settings. 
 
-- Add all files for which you want continous head positioning estimation in `trans_conditions`
+- Add all files for which you want continuous head positioning estimation in `trans_conditions`
 - If you do not have empty room files, leave the list empty `- ''`
 - Add project bad channels in `bad_channels` list, one per line, or leave empty `- ''`
 ```yml
@@ -87,7 +85,7 @@ MaxFilter:
   standard_settings:
     trans_conditions:
     - ''
-    trans_option: continous
+    trans_option: continuous
     merge_runs: true
     empty_room_files:
     - empty_room_before.fif
@@ -117,6 +115,8 @@ MaxFilter:
 BIDS conversion settings. Make sure to set the correct paths for your files and project information. Example `participant_mapping_example.csv`.
 
 - The `bids_conversion.tsv` is generated if not already existing and controls the conversion. Edit task names and runs, and set status to `ok`. BIDS conversion will not be done if there are any file has status `check`.
+
+- A `description.tsv` file is also generated in the BIDS derivatives/preprocessing folder with descriptions of all processing tags.
 
 ```yml
 BIDS:
