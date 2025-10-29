@@ -5,6 +5,12 @@ title: Best practices for using SPICE
 ## Data organization
 Raw imaging data collected at CIR are generally gathered in the corresponding project folder under `/data/projects/<project_name>/raw/`. While every user manage their own home directory and may store exploratory results or experimental analysis here, it is recommended that processed data and analysis results are stored in the **project** folder. This ensures that all data related to a project are centralized and accessible to all project members and unnecessary duplication of data is avoided.
 
+CIR support all projects in using [BIDS](https://bids.neuroimaging.io/), and provide assistance and resources to make your data BIDS-compliant.
+
+See [BIDS on SPICE](05_spiceBIDS.md) for details on how different imaging modalities are organized in BIDS.
+
+BIDS provides a consistent and structured way to organize and describe neuroimaging data, making it easier to share, analyze, and reproduce research findings. Many neuroimaging analysis tools support BIDS data, which will streamline your analysis workflow.
+
 ## Version control
 Using [Git](https://git-scm.com/) for version control of analysis scripts is highly recommended. It allows you to keep track of changes, collaborate with others, and revert to previous versions if needed. It also makes your analysis, and research, traceable and reproducible.
 

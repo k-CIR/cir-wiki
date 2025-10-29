@@ -20,7 +20,7 @@ There are three ways to connnect to SPICE using secure shell ([SSH](https://en.w
     You have to be connected to the [KI VPN](https://staff.ki.se/tools-and-support/it-and-telephony/tools-for-working-off-campus/vpn-service-ki-vpn) to access SPICE.
 
 ## In terminal
-Open a Terminal (Linux/macOS) or PowerShell (Windows).
+Open a Terminal (Linux/macOS) or Command Prompt (Windows). Note,  windows _power shell_ does not support SSH by default, seach for `cmd` or `command prompt` in the start menu to find the correct application.
 
 With your username, type the following command:
   ```
