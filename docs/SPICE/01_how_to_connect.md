@@ -2,8 +2,14 @@
 title: How to connect
 ---
 
-After you have received your user credentials (username and password) via email, you can connect to SPICE.
+To get access to SPICE you need to be a member of a research group that has an active project at CIR. Fill out the [the webform on the KI web page](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/request-to-access-the-cir-server)  to request a new user account. Access is granted after approval by the projects PI. Your user credentials (username and password) will be sent to you in the email address you provided in the form.
 
+!!! warning "Password security"
+    Your first course of action after receiving your credentials should be to change your password to something only you know. Use the command `passwd` after logging in for the first time and follow the prompts.
+
+    Obviously - create a unique and strong password that you do not use anywhere else and never share your password with anyone. Best practice is to use a [password manager](https://staff.ki.se/tools-and-support/it-and-telephony/accounts-and-passwords#heading-6) to generate and store strong passwords.
+
+## Connecting to SPICE
 There are three ways to connnect to SPICE using secure shell ([SSH](https://en.wikipedia.org/wiki/Secure_Shell)).
 
 - In a terminal, useful for running occasional commands or processing jobs from command line.
@@ -61,7 +67,7 @@ You are now connected to SPICE and can open folders, files and run code on the s
 Finally, be sure to check out the [tips for using VScode](./02_Vscode_tips.md) to be more productive and make your life easier.
 
 ## Using remote desktop
-You can use a remote desktop client to connect to SPICE. This is useful if you need to use a graphical interface on the server, but is generally a bit more clunky than using VScode or a terminal. If your connection is slow, try lowering the display resolution and color depth in the remote desktop client settings.
+Using a remote desktop client is useful if you need to use a graphical interface on the server but is generally a bit more clunky than using VScode or a terminal. If your connection is slow, try lowering the display resolution and color depth in the remote desktop client settings.
 
 Most windows installations have the Remote Desktop Client pre-installed. On macOS, download the "Windows App" from the [App Store](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
 
@@ -74,7 +80,6 @@ Open the Remote Desktop Client and create a new connection to `compute.kcir.se` 
 
 !!! note "Log out to log in"
     If you previously logged in using terminal or VScode your user session may be active without a grapical interface. In this case, you need to log out from your active session before connecting with Remote Desktop. You can log out by running the command `pkill -u <username>` in a terminal where `<username>` is your SPICE username.
-
 
 
 ...
