@@ -138,6 +138,7 @@ nav:
     - Best practices for using SPICE: SPICE/02_best_practice.md
     - Tips for using VScode: SPICE/03_Vscode_tips.md
     - Download your data: SPICE/04_download_your_data.md
+    - BIDS: SPICE/05_spiceBIDS.md
     - Software:
       - Anaconda: SPICE/software/01_anaconda.md
       - FSL: SPICE/software/02_FSL.md
