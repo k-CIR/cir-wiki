@@ -4,6 +4,9 @@ repo_url: https://github.com/k-CIR/cir-wiki
 repo_name: Show on GitHub
 edit_uri: blob/dev/docs/
 site_url: https://www.kcir.se
+watch:
+  - docs
+  - mkdocs.yml
 
 theme: 
   name: material
@@ -53,11 +56,17 @@ theme:
 extra_css:
   - assets/extra.css
 
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 markdown_extensions:
   - attr_list
   - sane_lists
   - admonition
   - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.superfences:
@@ -93,7 +102,9 @@ nav:
   - NatMEG: 
     - natmeg/index.md
     - Preparation: natmeg/preparation/
-    - SQUID Acquisition: natmeg/squid-acquisition/
+    - SQUID Acquisition: 
+      - natmeg/squid-acquisition/index.md
+      - natmeg/squid-acquisition/
     - OPM Acquisition: natmeg/opm-acquisition/
     - Stimulus Equipment:
       - Audio: natmeg/stimulus-equipment/audio
@@ -107,7 +118,11 @@ nav:
       # https://github.com/k-CIR/NatMEG-utils/blob/main/README.md
       - About MaxFilter: natmeg/preprocessing/maxfilter
     - Other: natmeg/other/
-    - NatMEG server:
+    - MEEG-analyis: 
+      - natmeg/MEEG-analysis/index.md
+      - Tips and tricks: natmeg/MEEG-analysis/tips-and-tricks/
+    - NatMEG server (legacy):
+      - natmeg/server/index.md
       - Set-up connection: natmeg/server/set-up-connection/
       - Install software: natmeg/server/install-software/
       - Script tips: natmeg/server/script-tips/
