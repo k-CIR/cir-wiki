@@ -22,11 +22,11 @@ The standard setup of electrodes includes:
 
 1. Place the participant in the wooden chair
 2. Use abrasive gel to scrub where Electrodes will be placed. Usually a pie-sized portion on a cotton pad is enough for all electrodes, and 3-5 circular wipes will do.
-> ! Be careful and check with the participant so it does not hurt
+!!! warning "Be careful and check with the participant so it does not hurt"
 3. Wipe with alcohol swaps to remove gel. Also wipe positions of the HPI coils.
-> ! Warn participant that if might sting a bit
+!!! note "Warn participant that if might sting a bit"
 4. After letting the alcohol dry a few seconds attach the electrodes at the location indicated by the picture.
-> ! You can cut away part of the electrode (not too much!) to avoid participant getting it in the eye.
+!!! tip "You can cut away part of the electrode (not too much!) to avoid participant getting it in the eye."
 
 ![Electrode placement map]({{ picture_path }}/electrods-palcement.png)
 

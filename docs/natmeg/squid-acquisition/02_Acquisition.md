@@ -8,18 +8,26 @@ Acquisition is the main program you need for running the MEG-recording.
 
 ## Before measurement
 
-Open: Menu -> Neuromag -> Acquisition
-> ! Always check for error messages in the top and check that gantry position is automatically detected. If not, se [How to restart acquisition](#how-to-restart-acquisition)
+**1. Open: Menu -> Neuromag -> Acquisition**
 
-1. Load project
-2. Load settings
-> If you use STI channels it is recommended that you add all STI channels, even if you only use some of them. This is because of how the composite channels (STI101, STI102) is configured.
-3. Add participant (as Patient)
+!!! warning "Check for error messages"
+    Always check for error messages in the top and check that gantry position is automatically detected. If not, se [How to restart acquisition](#how-to-restart-acquisition)
+
+**2. Load project**
+
+**3. Load settings**
+!!! note "STI channels"
+    If you use STI channels it is recommended that you add all STI channels, even if you only use some of them. This is because of how the composite channels (STI101, STI102) is configured.
+**4. Add participant (as Patient)**
+
+!!! tip "Save preparation before digitisation to transfer settings to digitisation computer"
 
 > Do [Digitisation](../preparation/02_Digitization-hpi.md) (save preparation)
 
-1. Load preparation
-2. Always load the settings again, after loading preparation. If the same settings are not applied on the digitisation computer settings are unloaded.
+**5. Load preparation**
+
+!!! warning "Double check the settings"
+    Always double check that the correct settings are loaded, especially if you have multiple projects or participants or did not save the preparation before digitisation.
 
 ## During measurement
 
@@ -27,7 +35,7 @@ Use acquisition to handle the recording
 
 1. Press  **GO!**  to start recording buffer
 
-> ! Don't forget to [check channels](04_Check-channels.md)
+!!! warning "Don't forget to [check channels](04_Check-channels.md)"
 
 1. Check  **cHPI**  to record continuous head position
 2. Check  **Record raw**  to record raw file(s)
@@ -36,8 +44,9 @@ Use acquisition to handle the recording
 ## After measurement
 1. Save data files
 
-> ! If Average box was checked, the first file to save will be the average file, then the raw file<p>
-> ! Make sure to have a structured way of naming the files
+!!! warning "Average and raw files"
+    If Average box was checked, the first file to save will be the average file, then the raw file.
+    Also make sure to have a structured way of [naming the files](../other/File-naming.md).
 
 ## Issues
 

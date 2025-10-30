@@ -30,7 +30,27 @@ Already connected to SPICE, paste the key by running the following terminal comm
 /// 
 
 /// tab | Local Linux/macOS
+Use the terminal and run:
+  ```
+  ssh-keygen -t ed25519 -C "youremail@mail.com"
+  ```
 
+You will be prompted to enter a file in which to save the key. You can press enter to accept the default location. You will also be prompted to enter a passphrase, which is optional and defeats the purpose of setting up SSH keys without password. Press enter to continue without a passphrase.
+
+**Option 1 - Using ssh-copy-id (recommended):**
+Now, copy the public key to SPICE using `ssh-copy-id`:
+  ```
+  ssh-copy-id -i ~/.ssh/id_ed25519.pub yourusername@compute.kcir.se
+  ```
+You will be prompted to enter your SPICE password one last time. After this, the key will be automatically added to `~/.ssh/authorized_keys` on SPICE and you can connect without a password.
+
+**Option 2 - Manually copy the key:**
+Go to the file where the key was saved (default is `~/.ssh`) and open the file `id_ed25519.pub` with a text editor. This is the public part of your SSH key-pair. Copy the entire contents of the file to your clipboard.
+
+When connected to SPICE, paste the key by running the following terminal command:
+  ```
+  echo "paste the contents of your clipboard here" >> ~/.ssh/authorized_keys
+  ```
 /// 
 
 ## Version control with Git

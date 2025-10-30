@@ -17,7 +17,7 @@ Using [Git](https://git-scm.com/) for version control of analysis scripts is hig
 !!! tip "Recommended read"
     [Coderefinery](https://coderefinery.github.io/git-intro/motivation/) offers some excellent motivation and use cases, highlighting the benefits of using Git for version control.
 
-Use a remote repository hosting service like [GitHub](github.com) or [GitLab](gitlab.com) to enable collaboration and provide backup for your code.
+Use a remote repository hosting service like [GitHub](https://www.github.com) or [GitLab](https://www.gitlab.com) to enable collaboration and provide backup for your code.
 
 Comment and document your code thoroughly to make it easier for your future self (and others) to understand its purpose and functionality. With the AI tools available today, there really is no excuse for not having well documented code!
 

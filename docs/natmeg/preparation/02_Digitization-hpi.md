@@ -32,7 +32,8 @@ mneHeadPos
 
 The head position is read from the latest HPI fit. Click" Reload HPI" to update the view.
 
-> ! Be aware that the head position tool does not show the actual participants head. The head is a template head and should only be used as an approximation of the participant's real head position in the MEG helmet.
+!!! warning "Head position tool"
+    Be aware that the head position tool does not show the actual participants head. The head is a template head and should only be used as an approximation of the participant's real head position in the MEG helmet.
 
 ## During measurement
 
@@ -42,13 +43,12 @@ You can rotate the head in the head position tool using the buttons on the GUI o
 
 To view the head position from a previous file (e.g. for comparison) open a new terminal window and type:
 
-> /data/MNE/mne_visualize_hpi_file *your_file_name*
-
-The *your_file_name* is the filename of the file you want to read including the full path
+```bash
+/data/MNE/mne_visualize_hpi_file <your_file_name>
+```
 
 ## After measurement
 Close head position tool
-
 
 ## Issues
 ### Acquisition does not ask about measuring HPI
@@ -58,21 +58,22 @@ Close head position tool
 
 <u>Solution</u>: load the correct preparation with the digitized HPI coil locations
 
-> ! Note that every time you click start in Acquisition, it saves a new preparation, so make sure that you note the time you saved the preparation with the digitized HPI on the digitization PC.
+!!! note 
+    Every time you click start in Acquisition, it saves a new preparation, so make sure that you note the time you saved the preparation with the digitized HPI on the digitization PC.
 
 ### HPI errors
-
 
 ![HPI results]({{ picture_path }}/hpi-results_small.jpg)
 
 _(HPI results window showing successful HPI fit)_
 
-<u>Problem</u>: Errors with HPI. It gives an error message or Suggestion in HPI results window (screenshot) is "redo HPI" as opposed to "Accept" (like in the screenshot).
+!!! failure "Problem"
+    Errors with HPI. It gives an error message or Suggestion in HPI results window (screenshot) is "redo HPI" as opposed to "Accept" (like in the screenshot).
 
-<u>Solution</u>:
-1. Make sure the correct preparation is loaded with the digitized HPI coil locations.
-2. Check that the HPI cable is connected to the panel at the side of the scanner.
-3. Click "Try again" to see if the fit has improved.
-4. Make sure that all HPI coils on the participant's head is inside the helmet. If possible, reposition the participant, so at least three HPI coils are inside the helmet. Click "Try again" to see if the fit has improved. If not, proceed to step six.
-5. Check for loose coils that might have come off. Do not try to re-attach them; go to step six.
-6. Redo HPI/isotrak fit: Get the participant out of the scanner to the preparation area. Then reposition/re-attach HPI coils and redo the digitization.
+!!! success "Solution"
+   1. Make sure the correct preparation is loaded with the digitized HPI coil locations.
+   2. Check that the HPI cable is connected to the panel at the side of the scanner.
+   3. Click "Try again" to see if the fit has improved.
+   4. Make sure that all HPI coils on the participant's head is inside the helmet. If possible, reposition the participant, so at least three HPI coils are inside the helmet. Click "Try again" to see if the fit has improved. If not, proceed to step six.
+   5. Check for loose coils that might have come off. Do not try to re-attach them; go to step six.
+   6. Redo HPI/isotrak fit: Get the participant out of the scanner to the preparation area. Then reposition/re-attach HPI coils and redo the digitization.

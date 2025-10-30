@@ -64,7 +64,7 @@ Add new remote in the remote explorer tab.
 
 You are now connected to SPICE and can open folders, files and run code on the server. Open a terminal by going to Terminal -> New Terminal or open a folder by going to File -> Open Folder.
 
-Finally, be sure to check out the [tips for using VScode](./02_Vscode_tips.md) to be more productive and make your life easier.
+Finally, be sure to check out the [tips for using VScode](03_Vscode_tips.md) to be more productive and make your life easier.
 
 ## Using remote desktop
 Using a remote desktop client is useful if you need to use a graphical interface on the server but is generally a bit more clunky than using VScode or a terminal. If your connection is slow, try lowering the display resolution and color depth in the remote desktop client settings.
