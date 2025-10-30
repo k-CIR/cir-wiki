@@ -77,7 +77,7 @@ OPM:
 ### MaxFilter
 Default settings. 
 
-- Add all files for which you want continuous head positioning estimation in `trans_conditions`
+- Add all files for which you want continous head positioning estimation in `trans_conditions`
 - If you do not have empty room files, leave the list empty `- ''`
 - Add project bad channels in `bad_channels` list, one per line, or leave empty `- ''`
 ```yml
@@ -85,7 +85,7 @@ MaxFilter:
   standard_settings:
     trans_conditions:
     - ''
-    trans_option: continuous
+    trans_option: continous
     merge_runs: true
     empty_room_files:
     - empty_room_before.fif
