@@ -61,6 +61,8 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
+  - toc:
+        toc_depth: 2
   - attr_list
   - sane_lists
   - admonition
@@ -90,6 +92,7 @@ plugins:
       # add _dep_ beginning of filename to ignore it in nav
       file_pattern: '^(?!.*_dep*)' 
   - macros
+  - drawio
 extra:
   picture_path: /resources/wiki_images
   manuals_path: /resources/manuals
