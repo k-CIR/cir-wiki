@@ -28,6 +28,9 @@ No action required
 Open: Menu -> Neuromag -> Squiddler
 
 ![Squiddler]({{ picture_path }}/squiddler_small.jpg)
+/// caption
+Squiddler interface for heating channels.
+///
 
 
 In Squiddler:

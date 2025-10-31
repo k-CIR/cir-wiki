@@ -1,5 +1,5 @@
 ---
-title: NatMEG Processing Pipeline Utility Scripts
+title: NatMEG Processing Pipeline
 ---
 
 # NatMEG Processing Pipeline
@@ -11,30 +11,41 @@ Scripts and further information can be found at the [NatMEG-utils GitHub reposit
 ## Overview
 
 This pipeline provides end-to-end processing for:
+
 - **TRIUX/SQUID MEG** data from Elekta systems
 - **OPM MEG** data from Kaptah/OPM systems  
 - **EEG** data collected through TRIUX
 
+
+![NatMEG Pipeline Overview]({{ picture_path }}/NatMEG-pipeline.drawio.png){ width="600" }
+/// caption
+Pipeline overview showing the main components and data flow.
+///
+
 ## Key Features
 
-- **Interactive HTML Dashboard**: Generate comprehensive project reports with hierarchical file trees, local/remote comparison, and interactive filtering
-- **Server Synchronization**: Automated sync to CIR server with rsync, supporting include/exclude patterns and dry-run mode
-- **Enhanced CLI Interface**: Modular subcommands for individual pipeline steps (run, copy, hpi, maxfilter, bidsify, sync, report)
-- **Flexible Installation**: Improved install.sh script with conda/venv options and cross-platform support
+- **GUI Configuration Interface**: User-friendly GUI for setting up project parameters and pipeline options 
+- **Data Synchronization**: Automated copying of raw data from SQUID/OPM computers to central processing computer [`copy_to_cerberos.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/copy_to_cerberos.py)
+- **HPI Coregistration**: Automated head position indicator (HPI) coregistration for OPM-MEG data using Polhemus digitization [`add_hpi.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/add_hpi.py)
+- **Batch MaxFilter Processing**: Integration with Elekta MaxFilter for Signal Space Separation (SSS) and temporal extension (tSSS) [`maxfilter.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/maxfilter.py)
+- **BIDS Conversion**: Converts NatMEG data to BIDS format with customizable task and run mapping [`bidsify.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/bidsify.py)
+- **Server Synchronization**: Sync processed data to CIR server with advanced filtering options [`sync_to_cir.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/sync_to_cir.py)
+- **HTML Reporting**: Generate interactive HTML reports summarizing processing steps and data status [`report.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/render_report.py)
+- **Logging and Error Handling**: Comprehensive logging for tracking processing steps and troubleshooting
+- **Other utilities**: Additional scripts for specific tasks as needed
 
-## The config file by section
+## Configurations
 
-### RUN
-The steps to include in `natmeg run --config <config_file.yml>`, toggle between true/false to include/exclude steps.
-```yml
-RUN:
-  Copy to Cerberos: true
-  Add HPI coregistration: true
-  Run Maxfilter: true
-  Run BIDS conversion: true
-  Sync to CIR: true
-```
-### Project
+### Using the GUI
+
+![Alt text]({{ picture_path }}/natmeg_gui.gif)
+/// caption
+Configuration GUI for setting up NatMEG pipeline parameters.
+///
+
+### Configuration File details
+/// tab | Project
+
 General project paths and information. Make sure to set the correct paths for your data storage locations. 
 
 - If using GUI project Name and Root will update Raw and BIDS paths if not manually changed.
@@ -59,7 +70,10 @@ Project:
   Crosstalk: /neuro/data/local/<project>/databases/ctc/ct_sparse.fif
   Logfile: pipeline_log.log
 ```
-### OPM
+///
+
+/// tab | OPM
+
 ```yml
 OPM:
   polhemus:
@@ -74,7 +88,9 @@ OPM:
   overwrite: false
   plot: false
 ```
-### MaxFilter
+///
+
+/// tab | Maxfilter
 Default settings. 
 
 - Add all files for which you want continous head positioning estimation in `trans_conditions`
@@ -111,7 +127,9 @@ MaxFilter:
     MaxFilter_commands: ''
     debug: false
 ```
-### BIDS
+///
+
+/// tab | BIDS
 BIDS conversion settings. Make sure to set the correct paths for your files and project information. Example `participant_mapping_example.csv`.
 
 - The `bids_conversion.tsv` is generated if not already existing and controls the conversion. Edit task names and runs, and set status to `ok`. BIDS conversion will not be done if there are any file has status `check`.
@@ -140,31 +158,26 @@ BIDS:
   references_and_links: ''
   doi: doi:<insert_doi>
 ```
+///
 
-## Pipeline Components
+/// tab | RUN
 
-### 1. Data Synchronization (`copy_to_cerberos.py`)
-Synchronizes raw data between storage systems (Sinuhe/Kaptah → Cerberos).
+The steps to include in `natmeg run --config <config_file.yml>`, toggle between true/false to include/exclude steps.
+```yml
+RUN:
+  Copy to Cerberos: true
+  Add HPI coregistration: true
+  Run Maxfilter: true
+  Run BIDS conversion: true
+  Sync to CIR: true
+```
+///
 
-### 2. HPI Coregistration (`add_hpi.py`)
-Performs head localization for OPM-MEG using HPI coils and Polhemus digitization.
+## Quick Start
 
+The NatMEG pipeline includes an automated installation script that sets up everything you need. Install the pipeline using `bash install.sh` (see [Manual installation](#manual-installation) section below for more details)
 
-### 3. MaxFilter Processing (`maxfilter.py`)
-Applies Elekta MaxFilter with Signal Space Separation (SSS) and temporal extension (tSSS).
-
-
-### 4. BIDS Conversion (`bidsify.py`)
-Converts NatMEG data to BIDS format and organizes it into a BIDS-compliant folder structure.
-
-### 5. Server Synchronization (`sync_to_cir.py`)
-Synchronizes processed data to CIR server using `rsync` with include/exclude patterns and dry-run mode.
-
-## Installation
-
-### Automated Installation (Recommended)
-
-The NatMEG pipeline includes an automated installation script that sets up everything you need:
+/// tab | Using conda (default)
 
 #### Default Installation (Conda Environment)
 ```bash
@@ -178,6 +191,9 @@ bash install.sh
 # View all installer options
 bash install.sh --help
 ```
+///
+
+/// tab | Using virtual environment
 
 #### Alternative Installation (Python Virtual Environment)
 
@@ -209,48 +225,7 @@ natmeg gui                     # Launch GUI
 natmeg run --config config.yml # Run pipeline
 natmeg --help                  # Show all options
 ```
-
-### Manual Installation
-
-If you prefer manual setup:
-
-#### Option 1: Conda Environment (Recommended for Linux Rocky)
-```bash
-# Create basic conda environment
-conda create -n natmeg_utils python>=3.12 pip uv -y
-conda activate natmeg_utils
-
-# Install dependencies via pip (same as venv approach)
-pip install -r requirements.txt
-```
-
-#### Option 2: Python Virtual Environment
-```bash
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-#### 3. Add to PATH (Optional)
-```bash
-# Add repository to PATH for global access
-echo 'export PATH="$HOME/Sites/NatMEG-utils:$PATH"' >> ~/.zshrc  # or ~/.bashrc
-source ~/.zshrc
-```
-
-### Prerequisites
-
-- **Python 3.12+**: Required for all pipeline components
-- **Conda/Miniconda**: Recommended for environment management
-- **Git**: For cloning the repository
-- **Operating System**: macOS or Linux (Windows support coming soon)
-
-## Quick Start
-
-> **Note**: Install the pipeline first using `bash install.sh` (see [Installation](#installation) section above)
+///
 
 ### Using the natmeg Command
 
@@ -293,6 +268,44 @@ natmeg --help
 natmeg run --help      # Detailed help for specific subcommand
 ```
 
+### Manual Installation
+
+If you prefer manual setup:
+
+#### Option 1: Conda Environment
+```bash
+# Create basic conda environment
+conda create -n natmeg_utils python>=3.12 pip uv -y
+conda activate natmeg_utils
+
+# Install dependencies via pip (same as venv approach)
+uv pip install -r requirements.txt
+```
+
+#### Option 2: Python Virtual Environment
+```bash
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+
+# Install dependencies
+uv pip install -r requirements.txt
+```
+
+#### 3. Add to PATH (Optional)
+```bash
+# Add repository to PATH for global access
+echo 'export PATH="$HOME/Sites/NatMEG-utils:$PATH"' >> ~/.zshrc  # or ~/.bashrc
+source ~/.zshrc
+```
+
+### Prerequisites
+
+- **Python 3.12+**: Required for all pipeline components
+- **Conda/Miniconda**: Recommended for environment management
+- **Git**: For cloning the repository
+- **Operating System**: macOS or Linux (Windows support coming soon)
+
 ## Troubleshooting
 
 ### Installation Issues
@@ -307,16 +320,23 @@ bash install.sh
 ```
 
 **Conda not found:**
+
+/// tab | macOS
+
 ```bash
 # Install conda first
-# macOS:
 brew install miniconda
 # or download from: https://docs.conda.io/en/latest/miniconda.html
+```
+///
 
-# Linux:
+/// tab | Linux
+```bash
+# Install conda first
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
+///
 
 **natmeg command not found:**
 ```bash
