@@ -92,7 +92,6 @@ plugins:
       # add _dep_ beginning of filename to ignore it in nav
       file_pattern: '^(?!.*_dep*)' 
   - macros
-  - drawio
 extra:
   picture_path: /resources/wiki_images
   manuals_path: /resources/manuals
