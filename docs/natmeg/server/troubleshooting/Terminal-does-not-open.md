@@ -23,8 +23,10 @@ In your local putty (Win) or Terminal (MacOS, Linux) once connected to the serve
 6. Reset local environment variable 'export LIBGL_ALWAYS_INDIRECT=1'
 
 7. (MacOS) Open zshrc on your local computer ("nano ~/.zshrc"), add the following lines, save, then close and reopen terminal:
-   "export LC_ALL=en_US.UTF-8
-   export LANG=en_US.UTF-8"
+
+   `export LC_ALL=en_US.UTF-8`
+   
+   `export LANG=en_US.UTF-8`
 
 If any error messages contact NatMEG core team.
 
