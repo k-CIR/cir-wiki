@@ -82,4 +82,10 @@ Open the Remote Desktop Client and create a new connection to `compute.kcir.se` 
     If you previously logged in using terminal or VScode your user session may be active without a grapical interface. In this case, you need to log out from your active session before connecting with Remote Desktop. You can log out by running the command `pkill -u <username>` in a terminal where `<username>` is your SPICE username.
 
 
-...
+### Speeding up Remote Desktop
+To improve performance when using Remote Desktop, you can click "Show options", navigate to the "Experience" tab and choose a slower connection speed like "Modem (56 Kbps)". This will automatically disable some visual effects and improve responsiveness.
+
+![VScode-extensions]({{ picture_path }}/rdc_settings.png){ width="500" }
+/// caption
+The Remote Desktop Client options for improved responsiveness.
+///
