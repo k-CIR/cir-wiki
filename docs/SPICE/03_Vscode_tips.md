@@ -3,7 +3,9 @@ title: Tips for using VScode
 ---
 
 ## Login without password
-You can set up [an SSH key pair in VScode](https://code.visualstudio.com/docs/remote/ssh#_using-ssh-keys) to avoid having to enter your password every time you connect. To do this, you need to generate an SSH key pair (one private and one public key) on your local machine and add the public key to the `~/.ssh/authorized_keys` file on SPICE.
+You can set up [an SSH key pair in VScode](https://code.visualstudio.com/docs/remote/ssh#_using-ssh-keys) to avoid having to enter your password every time you connect. To do this, you need to generate an SSH key pair (one private and one public key) on your local machine and add the public key to the `~/.ssh/authorized_keys` file on SPICE. 
+
+It's called a key-pair, but really you can think of it as a lock (public key) and a key (private key). You generate a key pair, put the lock (public key) on the service you want to access and keep the key (private key) on your local machine. When you connect, the server checks if you have the right key to unlock the lock.
 
 !!! warning "SSH key security"
     An SSH key-pair provide the same access to SPICE as your username and password, so keep your private key (file) secure and do not share it with anyone. The key is saved on your local machine, make sure it is at least as secure as you need your access to SPICE to be.
