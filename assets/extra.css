@@ -1,0 +1,41 @@
+/* Custom styles for admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: 1.0em; /* Make admonition text 10% larger than normal text */
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > .admonition-title {
+    font-size: 1.0em; /* Make admonition titles slightly larger */
+    font-weight: bold;
+}
+
+/* Navigation section styling */
+.md-nav__item--section > .md-nav__link {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: var(--md-default-fg-color);
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+}
+
+/* Add spacing between sections */
+.md-nav__item--section {
+    margin-top: 1rem;
+}
+
+.md-nav__item--section:first-child {
+    margin-top: 0;
+}
+
+/* Optional: You can also target specific admonition types */
+/*
+.md-typeset .admonition.warning {
+    font-size: 1.2em;
+}
+
+.md-typeset .admonition.tip {
+    font-size: 1.2em;
+}
+*/
