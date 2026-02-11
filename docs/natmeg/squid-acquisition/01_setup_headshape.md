@@ -1,5 +1,5 @@
 ---
-title: Acquisition
+title: Set-up and record headshape
 ---
 
 # Acquisition
@@ -16,37 +16,32 @@ Acquisition is the main program you need for running the MEG-recording.
 **2. Load project**
 
 **3. Load settings**
+
+1. If you only need the headshape: Turn off all channels except one EEG channel and potentially any bio-channels or STI channels you want to record in parallel with the OPM-system.
+
+!!! warning "For parallel recordings **Internal active shielding** MUST be un-checked"
+
 !!! note "STI channels"
     If you use STI channels it is recommended that you add all STI channels, even if you only use some of them. This is because of how the composite channels (STI101, STI102) is configured.
+
 **4. Add participant (as Patient)**
 
 !!! tip "Save preparation before digitisation to transfer settings to digitisation computer"
 
-> Do [Digitisation](../preparation/02_Digitization-hpi.md) (save preparation)
+> Do [Digitisation](../../preparation/02_Digitization-hpi.md) (save preparation)
 
 **5. Load preparation**
 
 !!! warning "Double check the settings"
     Always double check that the correct settings are loaded, especially if you have multiple projects or participants or did not save the preparation before digitisation.
 
-## During measurement
-
-Use acquisition to handle the recording
+## Headshape measurement
 
 1. Press  **GO!**  to start recording buffer
-
-!!! warning "Don't forget to [check channels](04_Check-channels.md)"
-
-1. Check  **cHPI**  to record continuous head position
 2. Check  **Record raw**  to record raw file(s)
-3. Check  **Average**  to record average evoked file(s)
+3. wait ~10 seconds **Stop**
+4. Save file as `headshape`, `coreg` or any [reasonable own choice](../../other/File-naming.md) but be consistent across recordings
 
-## After measurement
-1. Save data files
-
-!!! warning "Average and raw files"
-    If Average box was checked, the first file to save will be the average file, then the raw file.
-    Also make sure to have a structured way of [naming the files](../other/File-naming.md).
 
 ## Issues
 
