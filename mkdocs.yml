@@ -104,10 +104,16 @@ nav:
   - NatMEG: 
     - natmeg/index.md
     - Preparation: natmeg/preparation/
+    - OPM Acquisition:
+      # - natmeg/opm-acquisition/index.md
+      - natmeg/opm-acquisition/01_OPM-Acquisition.md
+      - natmeg/opm-acquisition/02_OPM-specs.md
+      - natmeg/opm-acquisition/03_known-issues.md
     - SQUID Acquisition: 
-      - natmeg/squid-acquisition/index.md
-      - natmeg/squid-acquisition/
-    - OPM Acquisition: natmeg/opm-acquisition/
+      - Record headshape: natmeg/squid-acquisition/01_setup_headshape.md
+      - EEG: natmeg/squid-acquisition/05_EEG-specs.md
+      - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
+      - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
     - Stimulus Equipment:
       - Audio: natmeg/stimulus-equipment/audio
       - Visual: natmeg/stimulus-equipment/visual
@@ -123,13 +129,14 @@ nav:
     - MEEG-analyis: 
       - natmeg/MEEG-analysis/index.md
       - Tips and tricks: natmeg/MEEG-analysis/tips-and-tricks/
-    - NatMEG server (legacy):
+    - Cerberos: natmeg/cerberos/
+    - Legacy documentation:
       - natmeg/server/index.md
+      - Acquisition: natmeg/squid-acquisition/acquisition-manual
       - Set-up connection: natmeg/server/set-up-connection/
       - Install software: natmeg/server/install-software/
       - Script tips: natmeg/server/script-tips/
       - Troubleshooting: natmeg/server/troubleshooting/
-    - Cerberos: natmeg/cerberos/
   - BMIC: 
     - BMIC: bmic/index.md
     - Getting Started: bmic/01_getting_started
