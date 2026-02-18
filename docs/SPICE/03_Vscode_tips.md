@@ -1,9 +1,9 @@
 ---
-title: Tips for using VScode
+title: Tips for using VS Code
 ---
 
 ## Login without password
-You can set up [an SSH key pair in VScode](https://code.visualstudio.com/docs/remote/ssh#_using-ssh-keys) to avoid having to enter your password every time you connect. To do this, you need to generate an SSH key pair (one private and one public key) on your local machine and add the public key to the `~/.ssh/authorized_keys` file on SPICE. 
+You can set up [an SSH key pair in VS Code](https://code.visualstudio.com/docs/remote/ssh#_using-ssh-keys) to avoid having to enter your password every time you connect. To do this, you need to generate an SSH key pair (one private and one public key) on your local machine and add the public key to the `~/.ssh/authorized_keys` file on SPICE. 
 
 It's called a key-pair, but really you can think of it as a lock (public key) and a key (private key). You generate a key pair, put the lock (public key) on the service you want to access and keep the key (private key) on your local machine. When you connect, the server checks if you have the right key to unlock the lock.
 
@@ -56,14 +56,14 @@ When connected to SPICE, paste the key by running the following terminal command
 /// 
 
 ## Version control with Git
-Using [Git](https://git-scm.com/) for version control is highly recommended when working with code. VScode has built-in support for Git and makes it easy to manage your repositories and compare changes.
+Using [Git](https://git-scm.com/) for version control is highly recommended when working with code. VS Code has built-in support for Git and makes it easy to manage your repositories and compare changes.
 
 ## AI assisted coding
-Use the github copilot extension in VScode for AI assisted coding. This can help you write code faster and with fewer errors. See the [GitHub Copilot documentation](https://docs.github.com/en/copilot/getting-started-with-github-copilot/about-github-copilot) for more information on how to use it.
+Use the github copilot extension in VS Code for AI assisted coding. This can help you write code faster and with fewer errors. See the [GitHub Copilot documentation](https://docs.github.com/en/copilot/getting-started-with-github-copilot/about-github-copilot) for more information on how to use it.
 
 ![VScode-extensions]({{ picture_path }}/github_copilot.png){ width="500" }
 /// caption
-The github copilot extension in VScode.
+The github copilot extension in VS Code.
 ///
 
 
