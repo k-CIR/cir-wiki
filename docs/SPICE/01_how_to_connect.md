@@ -41,15 +41,15 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 Type `yes` and press enter to continue.
 
-## Connecting in VsCode
+## Connecting in VS Code
 1. Install [Visual Studio Code](https://code.visualstudio.com/) and the extension: Remote - SSH.
 
 ![VScode-extensions]({{ picture_path }}/vscode_extensions.png){ width="500" }
 /// caption
-Navigate to the extensions tab in VScode, search for and install the extension "Remote-SSH".
+Navigate to the extensions tab in VS Code, search for and install the extension "Remote-SSH".
 ///
 
-2. You can now go to the Remote Explorer tab in VScode and add a "new remote".
+2. You can now go to the Remote Explorer tab in VS Code and add a "new remote".
 
 ![VScode-extensions]({{ picture_path }}/remote_explorer.png){ width="500" }
 /// caption
@@ -64,10 +64,10 @@ Add new remote in the remote explorer tab.
 
 You are now connected to SPICE and can open folders, files and run code on the server. Open a terminal by going to Terminal -> New Terminal or open a folder by going to File -> Open Folder.
 
-Finally, be sure to check out the [tips for using VScode](03_Vscode_tips.md) to be more productive and make your life easier.
+Finally, be sure to check out the [tips for using VS Code](03_Vscode_tips.md) to be more productive and make your life easier.
 
 ## Using remote desktop
-Using a remote desktop client is useful if you need to use a graphical interface on the server but is generally a bit more clunky than using VScode or a terminal. If your connection is slow, try lowering the display resolution and color depth in the remote desktop client settings.
+Using a remote desktop client is useful if you need to use a graphical interface on the server but is generally a bit more clunky than using VS Code or a terminal. If your connection is slow, try lowering the display resolution and color depth in the remote desktop client settings.
 
 Most windows installations have the Remote Desktop Client pre-installed. On macOS, download the "Windows App" from the [App Store](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
 
@@ -79,7 +79,7 @@ The Remote Desktop Client and login screen.
 Open the Remote Desktop Client and create a new connection to `compute.kcir.se` or the server IP: `193.10.16.5`. Use your username and password when prompted.
 
 !!! note "Log out to log in"
-    If you previously logged in using terminal or VScode your user session may be active without a grapical interface. In this case, you need to log out from your active session before connecting with Remote Desktop. You can log out by running the command `pkill -u <username>` in a terminal where `<username>` is your SPICE username.
+    If you previously logged in using terminal or VS Code your user session may be active without a grapical interface. In this case, you need to log out from your active session before connecting with Remote Desktop. You can log out by running the command `pkill -u <username>` in a terminal where `<username>` is your SPICE username.
 
 
 ### Speeding up Remote Desktop
