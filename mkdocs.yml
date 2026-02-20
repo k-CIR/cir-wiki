@@ -99,8 +99,9 @@ extra:
 nav:
   - Home: 
     - index.md
-    - How to edit this wiki: edit-this-wiki.md
-    - Contribute to this wiki: contribute-to-wiki.md
+    - Collecting data at CIR: 01_data_collection.md
+    - How to edit this wiki: 02_how_to_edit_wiki.md
+    - Contribute to this wiki: 03_contribute_to_wiki.md
   - NatMEG: 
     - natmeg/index.md
     - Preparation: natmeg/preparation/
