@@ -1,6 +1,6 @@
 # Welcome to Centre for Imaging Research (CIR) Documentation
 
-Here is documentation regarding the core facilities under CIR at Karolinska Instiutet.
+Here is the documentation regarding the core facilities under CIR at Karolinska Instiutet.
 
 It contains practical advice of how to work in the labs, and how to use the server and other resources.
 

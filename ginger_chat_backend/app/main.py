@@ -8,8 +8,11 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+import secrets
+
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 from .config import Settings, get_settings
 from .llm import AzureWikiChatClient
@@ -21,7 +24,12 @@ from .wiki_index import SearchResult, WikiIndex
 logger = logging.getLogger(__name__)
 
 _CITATION_RE = re.compile(r"\[(\d+)\]")
-_FEEDBACK_LOG = Path(__file__).resolve().parents[1] / "eval" / "feedback.jsonl"
+# /home is the only path on Azure App Service that persists across restarts and
+# redeployments. Fall back to a local path when running outside Azure.
+_AZURE_HOME = Path("/home/ginger")
+_LOCAL_FALLBACK = Path(__file__).resolve().parents[1] / "eval"
+_FEEDBACK_DIR = _AZURE_HOME if _AZURE_HOME.parent.exists() else _LOCAL_FALLBACK
+_FEEDBACK_LOG = _FEEDBACK_DIR / "feedback.jsonl"
 
 
 def _anchor_text(item: SourceItem) -> str:
@@ -111,6 +119,7 @@ def _plan_to_model(plan: QueryPlan | None) -> QueryPlanModel | None:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    _FEEDBACK_DIR.mkdir(parents=True, exist_ok=True)
     settings = get_settings()
     wiki_index = WikiIndex.build(
         docs_root=settings.docs_root,
@@ -236,3 +245,24 @@ async def feedback(request: FeedbackRequest) -> None:
     }
     with _FEEDBACK_LOG.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+@app.get("/api/feedback/download")
+async def feedback_download(token: str = Query(default="")) -> FileResponse:
+    """Download the accumulated feedback log as a JSONL file.
+
+    Requires the GINGER_CHAT_DOWNLOAD_TOKEN app setting to be set in Azure.
+    Pass the token as a query parameter: ?token=<value>
+    """
+    current_settings: Settings = app.state.settings
+    if not current_settings.download_token:
+        raise HTTPException(status_code=503, detail="Download endpoint is not configured (no token set).")
+    if not secrets.compare_digest(token, current_settings.download_token):
+        raise HTTPException(status_code=401, detail="Invalid token.")
+    if not _FEEDBACK_LOG.exists() or _FEEDBACK_LOG.stat().st_size == 0:
+        raise HTTPException(status_code=404, detail="No feedback has been recorded yet.")
+    return FileResponse(
+        path=_FEEDBACK_LOG,
+        media_type="application/x-ndjson",
+        filename="ginger-feedback.jsonl",
+    )
