@@ -1,7 +1,7 @@
 .ginger-chat {
     position: fixed;
-    right: 1rem;
-    bottom: 1rem;
+    right: 2rem;
+    bottom: 8rem; /* clears the MkDocs Material bottom navigation bar (~3.6rem tall) */
     z-index: 999;
     display: flex;
     flex-direction: column;
@@ -10,15 +10,16 @@
 }
 
 .ginger-chat__toggle {
-    border: 0;
+    border: 3px solid #F7980D;
     border-radius: 999px;
     background: var(--md-primary-fg-color);
     color: var(--md-primary-bg-color);
     box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font: inherit;
+    font-size: 1rem;
     font-weight: 600;
-    padding: 0.85rem 1.1rem;
+    padding: 1rem 1rem;
 }
 
 .ginger-chat__panel {
@@ -540,7 +541,7 @@
 @media screen and (max-width: 44.9375em) {
     .ginger-chat {
         right: 0.75rem;
-        bottom: 0.75rem;
+        bottom: 4.5rem; /* clears the MkDocs Material bottom navigation bar on mobile too */
         left: 0.75rem;
     }
 
