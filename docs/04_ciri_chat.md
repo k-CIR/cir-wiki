@@ -1,8 +1,8 @@
-# Ginger chat assistant
+# CIRI (CIR Information Retrieval Interface)
 
-Ginger is the CIR wiki chat assistant. It answers questions using content from this wiki and is intended to help users find the right page, section, or workflow more quickly.
+CIRI is the CIR wiki chat assistant. It answers questions using content from this wiki and is intended to help users find the right page, section, or workflow more quickly.
 
-## What Ginger does
+## What CIRI does
 
 - answers questions about CIR wiki content
 - grounds answers in indexed documentation when possible
@@ -25,15 +25,15 @@ The widget is currently configured to enable itself automatically on local devel
 
 ### Grounded answers
 
-When Ginger finds relevant wiki content, it returns an answer based on the indexed documentation. Citation markers are converted into inline Markdown links that open the relevant wiki page in a new tab.
+When CIRI finds relevant wiki content, it returns an answer based on the indexed documentation. Citation markers are converted into inline Markdown links that open the relevant wiki page in a new tab.
 
 ### Clarification answers
 
-If a question is too broad, Ginger may ask the user to choose between several categories first. These options are rendered as clickable links to the corresponding wiki sections.
+If a question is too broad, CIRI may ask the user to choose between several categories first. These options are rendered as clickable links to the corresponding wiki sections.
 
 ### No grounded answer
 
-If Ginger cannot find a confident grounded answer, it marks the response as ungrounded and shows a short prompt linking to the page for contributing to the wiki:
+If CIRI cannot find a confident grounded answer, it marks the response as ungrounded and shows a short prompt linking to the page for contributing to the wiki:
 
 - `/03_contribute_to_wiki/`
 
@@ -61,7 +61,7 @@ Each feedback entry contains:
 - feedback type (`good` or `bad`)
 - optional comment
 
-Contributors should treat this file as development data and review its handling carefully before enabling Ginger in broader environments.
+Contributors should treat this file as development data and review its handling carefully before enabling CIRI in broader environments.
 
 ## Architecture overview
 
@@ -99,7 +99,7 @@ Main endpoints:
 - `POST /api/chat`
 - `POST /api/feedback`
 
-## Running Ginger locally
+## Running CIRI locally
 
 ### 1. Install backend dependencies
 
@@ -124,7 +124,7 @@ From the repository root:
 mkdocs serve
 ```
 
-Open the local MkDocs URL in a browser. On local hosts, the Ginger button should be visible.
+Open the local MkDocs URL in a browser. On local hosts, the CIRI button should be visible.
 
 ## Configuration
 
@@ -166,7 +166,7 @@ Supported runtime keys in the current implementation are:
 
 ## Content and answer formatting
 
-Ginger formats answers in a few specific ways:
+CIRI formats answers in a few specific ways:
 
 - Markdown in answers is rendered with `marked`
 - citation markers such as `[N]` are normalized into inline Markdown links in the backend
@@ -182,7 +182,7 @@ Ginger formats answers in a few specific ways:
 
 ## Validation checklist
 
-When changing Ginger, verify at least the following:
+When changing CIRI, verify at least the following:
 
 1. local MkDocs pages load the chat widget
 2. `POST /api/chat` returns answers and renders Markdown correctly

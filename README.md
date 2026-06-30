@@ -38,9 +38,9 @@ nav:
 
 See [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) for more options on navigation and theme
 
-## Ginger chat assistant
+## CIRI (CIR Information Retrieval Interface)
 
-The wiki includes a local chat assistant called Ginger.
+The wiki includes a local chat assistant called CIRI.
 
 - Frontend files live in `docs/javascripts/ginger-chat.js` and `docs/assets/ginger-chat.css`.
 - The backend lives in `ginger_chat_backend/` and serves `POST /api/chat` and `POST /api/feedback`.
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-For full user-facing and developer documentation, see `docs/04_ginger_chat.md`.
+For full user-facing and developer documentation, see `docs/04_ciri_chat.md`.
 
 ## How to contribute to the wiki
 You can contribute in two ways:  
