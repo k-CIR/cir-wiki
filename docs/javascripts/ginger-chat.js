@@ -7,7 +7,7 @@
   const localHosts = new Set(["127.0.0.1", "localhost"]);
   const isLocal = localHosts.has(window.location.hostname);
   const runtimeConfig = {
-    assistantName: "Ginger",
+    assistantName: "CIRI",
     apiBaseUrl: isLocal ? "http://127.0.0.1:8000" : "",
     enabled: isLocal,
     maxHistoryMessages: 6,
@@ -113,7 +113,7 @@
     }
 
     if (!runtimeConfig.apiBaseUrl) {
-      state.error = "Ginger is not configured with a backend API URL.";
+      state.error = "CIRI is not configured with a backend API URL.";
       render();
       return;
     }
@@ -153,7 +153,7 @@
         ? "Answer generated from CIR wiki content."
         : "No confident grounded answer was found in the wiki.";
     } catch (error) {
-      state.error = error instanceof Error ? error.message : "Unexpected Ginger chat error.";
+      state.error = error instanceof Error ? error.message : "Unexpected CIRI chat error.";
     } finally {
       setSending(false);
     }

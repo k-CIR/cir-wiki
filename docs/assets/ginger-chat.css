@@ -1,16 +1,19 @@
 .ginger-chat {
     position: fixed;
-    right: 2rem;
-    bottom: 8rem; /* clears the MkDocs Material bottom navigation bar (~3.6rem tall) */
+    right: 3rem;
+    bottom: 2.75rem; /* clears the MkDocs Material bottom navigation bar (~3.6rem tall) */
     z-index: 999;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 0.75rem;
+    /* Ensure the widget never overflows the visible viewport on any browser/OS */
+    max-height: calc(100vh - 3.5rem);
+    max-height: calc(100dvh - 3.5rem); /* dvh: dynamic viewport height, fixes Safari/Mac toolbar clipping */
 }
 
 .ginger-chat__toggle {
-    border: 3px solid #F7980D;
+    border: 3px solid #98C9A3;
     border-radius: 999px;
     background: var(--md-primary-fg-color);
     color: var(--md-primary-bg-color);
@@ -24,7 +27,13 @@
 
 .ginger-chat__panel {
     width: min(26rem, calc(100vw - 2rem));
+    /* Use dvh (dynamic viewport height) so the panel shrinks when browser chrome
+       is visible (e.g. Safari on Mac/iOS with toolbars). Falls back to vh for
+       older browsers. The panel is also capped by the parent's max-height so it
+       can never overflow the visible area on any screen size or zoom level. */
     height: min(38rem, calc(100vh - 6rem));
+    height: min(38rem, calc(100dvh - 6rem));
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -543,11 +552,15 @@
         right: 0.75rem;
         bottom: 4.5rem; /* clears the MkDocs Material bottom navigation bar on mobile too */
         left: 0.75rem;
+        max-height: calc(100vh - 5rem);
+        max-height: calc(100dvh - 5rem);
     }
 
     .ginger-chat__panel {
         width: 100%;
         height: min(34rem, calc(100vh - 5.5rem));
+        height: min(34rem, calc(100dvh - 5.5rem));
+        max-height: 100%;
     }
 
     .ginger-chat__toggle {
