@@ -1,0 +1,569 @@
+.ginger-chat {
+    position: fixed;
+    right: 3rem;
+    bottom: 2.75rem; /* clears the MkDocs Material bottom navigation bar (~3.6rem tall) */
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    /* Ensure the widget never overflows the visible viewport on any browser/OS */
+    max-height: calc(100vh - 3.5rem);
+    max-height: calc(100dvh - 3.5rem); /* dvh: dynamic viewport height, fixes Safari/Mac toolbar clipping */
+}
+
+.ginger-chat__toggle {
+    border: 3px solid #98C9A3;
+    border-radius: 999px;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+}
+
+.ginger-chat__panel {
+    width: min(26rem, calc(100vw - 2rem));
+    /* Use dvh (dynamic viewport height) so the panel shrinks when browser chrome
+       is visible (e.g. Safari on Mac/iOS with toolbars). Falls back to vh for
+       older browsers. The panel is also capped by the parent's max-height so it
+       can never overflow the visible area on any screen size or zoom level. */
+    height: min(38rem, calc(100vh - 6rem));
+    height: min(38rem, calc(100dvh - 6rem));
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 1rem;
+    background: var(--md-default-bg-color);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.ginger-chat__panel[hidden] {
+    display: none;
+}
+
+.ginger-chat__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1rem 0.75rem;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ginger-chat__title {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.ginger-chat__subtitle {
+    margin: 0.15rem 0 0;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.75rem;
+}
+
+.ginger-chat__close {
+    border: 0;
+    background: transparent;
+    color: var(--md-default-fg-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.ginger-chat__messages {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.ginger-chat__message {
+    max-width: 90%;
+    padding: 0.75rem 0.9rem;
+    border-radius: 1rem;
+    font-size: 0.73rem;
+    line-height: 1.5;
+    word-break: break-word;
+    animation: ginger-fadein 0.22s ease both;
+}
+
+.ginger-chat__message--assistant {
+    align-self: flex-start;
+    background: var(--md-code-bg-color);
+}
+
+.ginger-chat__message--user {
+    align-self: flex-end;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    white-space: pre-wrap;
+}
+
+.ginger-chat__content p {
+    margin: 0 0 0.6em;
+}
+
+.ginger-chat__content p:last-child {
+    margin-bottom: 0;
+}
+
+.ginger-chat__content h1,
+.ginger-chat__content h2,
+.ginger-chat__content h3,
+.ginger-chat__content h4 {
+    margin: 0.9em 0 0.35em;
+    color: var(--md-default-fg-color);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.ginger-chat__content h1:first-child,
+.ginger-chat__content h2:first-child,
+.ginger-chat__content h3:first-child {
+    margin-top: 0;
+}
+
+.ginger-chat__content h1 {
+    font-size: 1.1em;
+}
+
+.ginger-chat__content h2 {
+    font-size: 1em;
+}
+
+.ginger-chat__content h3 {
+    font-size: 0.95em;
+}
+
+.ginger-chat__content ul,
+.ginger-chat__content ol {
+    margin: 0.4em 0 0.7em;
+    padding-left: 1.4em;
+}
+
+.ginger-chat__content li {
+    margin: 0.25em 0;
+}
+
+.ginger-chat__content strong {
+    font-weight: 700;
+}
+
+.ginger-chat__content em {
+    font-style: italic;
+}
+
+.ginger-chat__content code {
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    background: var(--md-code-bg-color);
+    color: var(--md-code-fg-color);
+    font-family: var(--md-code-font, monospace);
+    font-size: 0.85em;
+}
+
+.ginger-chat__content pre {
+    margin: 0.6em 0;
+    overflow-x: auto;
+    border-radius: 6px;
+    background: var(--md-code-bg-color);
+    padding: 0.75em 1em;
+}
+
+.ginger-chat__content pre code {
+    padding: 0;
+    background: none;
+    font-size: 0.82em;
+}
+
+.ginger-chat__content blockquote {
+    margin: 0.6em 0;
+    border-left: 3px solid var(--md-accent-fg-color);
+    border-radius: 0 4px 4px 0;
+    background: var(--md-code-bg-color);
+    padding: 0.4em 0.8em;
+    color: var(--md-default-fg-color--light);
+    font-style: italic;
+}
+
+.ginger-chat__content a {
+    color: var(--md-typeset-a-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.ginger-chat__content a:hover {
+    opacity: 0.8;
+}
+
+.ginger-chat__citation {
+    color: var(--md-accent-fg-color);
+    text-decoration: none;
+    font-size: 0.78em;
+    font-weight: 600;
+    vertical-align: super;
+    line-height: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.ginger-chat__citation:hover {
+    text-decoration: underline;
+}
+
+.ginger-chat__citation-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 14rem;
+    max-width: 20rem;
+    background: var(--md-default-bg-color);
+    opacity: 1;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-left: 3px solid var(--md-accent-fg-color);
+    border-radius: 0.4rem;
+    padding: 0.5rem 0.65rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    font-size: 0.72rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4;
+    color: var(--md-default-fg-color);
+    white-space: normal;
+    z-index: 1000;
+    pointer-events: none;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+
+.ginger-chat__citation-tooltip strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.2em;
+    color: var(--md-default-fg-color);
+}
+
+.ginger-chat__citation-tooltip span {
+    display: block;
+    color: var(--md-default-fg-color--light);
+    margin-top: 0.15em;
+}
+
+.ginger-chat__citation-tooltip span + span {
+    margin-top: 0.25em;
+    font-size: 0.9em;
+    line-height: 1.35;
+}
+
+.ginger-chat__citation:hover .ginger-chat__citation-tooltip,
+.ginger-chat__citation:focus .ginger-chat__citation-tooltip {
+    display: block;
+}
+
+.ginger-chat__content hr {
+    margin: 0.8em 0;
+    border: 0;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ginger-chat__sources {
+    margin-top: 0.7rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-left: 3px solid var(--md-accent-fg-color);
+    border-radius: 0.5rem;
+    background: var(--md-default-bg-color);
+    padding: 0.55rem 0.7rem;
+    font-size: 0.72rem;
+}
+
+.ginger-chat__sources-title {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--md-default-fg-color--light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ginger-chat__sources ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.25rem 0 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.ginger-chat__sources li a {
+    color: var(--md-typeset-a-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.ginger-chat__sources li a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.ginger-chat__composer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ginger-chat__input {
+    width: 100%;
+    min-height: 3rem;
+    max-height: 9rem;
+    resize: none;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.75rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font: inherit;
+    font-size: 0.73rem;
+    padding: 0.8rem 0.9rem;
+    overflow-y: auto;
+}
+
+.ginger-chat__input:focus {
+    outline: none;
+    border-color: var(--md-accent-fg-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-accent-fg-color) 20%, transparent);
+}
+
+.ginger-chat__submit {
+    align-self: end;
+    border: 0;
+    border-radius: 0.75rem;
+    background: var(--md-accent-fg-color);
+    color: var(--md-primary-bg-color);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+}
+
+.ginger-chat__submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.ginger-chat__status {
+    padding: 0 1rem 1rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.72rem;
+}
+
+.ginger-chat__status-msg--error {
+    color: var(--md-typeset-a-color);
+}
+
+.ginger-chat__feedback-bar {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.55rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ginger-chat__feedback-btn {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0.15rem 0.2rem;
+    border-radius: 4px;
+    opacity: 0.45;
+    transition: opacity 0.15s, background 0.15s;
+}
+
+.ginger-chat__feedback-btn:hover {
+    opacity: 1;
+    background: var(--md-default-fg-color--lightest);
+}
+
+.ginger-chat__feedback-btn--active {
+    opacity: 1;
+}
+
+.ginger-chat__feedback-form {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ginger-chat__feedback-form[hidden] {
+    display: none;
+}
+
+.ginger-chat__feedback-label {
+    font-size: 0.7rem;
+    color: var(--md-default-fg-color--light);
+}
+
+.ginger-chat__feedback-textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.5rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font: inherit;
+    font-size: 0.72rem;
+    padding: 0.5rem 0.65rem;
+}
+
+.ginger-chat__feedback-textarea:focus {
+    outline: none;
+    border-color: var(--md-accent-fg-color);
+}
+
+.ginger-chat__feedback-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.ginger-chat__feedback-submit {
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--md-accent-fg-color);
+    color: var(--md-primary-bg-color);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+}
+
+.ginger-chat__feedback-cancel {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+}
+
+.ginger-chat__contribute-nudge {
+    margin: 0.55rem 0 0;
+    font-size: 0.68rem;
+    font-style: italic;
+    color: var(--md-default-fg-color--light);
+}
+
+.ginger-chat__contribute-nudge a {
+    color: var(--md-typeset-a-color);
+    text-decoration: none;
+}
+
+.ginger-chat__contribute-nudge a:hover {
+    text-decoration: underline;
+}
+
+.ginger-chat__log-notice {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.65rem;
+    color: var(--md-default-fg-color--lighter, rgba(0, 0, 0, 0.35));
+    font-style: italic;
+}
+
+.ginger-chat__typing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 4px;
+}
+
+.ginger-chat__typing span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--md-default-fg-color--light);
+    animation: ginger-typing 1.3s infinite ease-in-out;
+}
+
+.ginger-chat__typing span:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.ginger-chat__typing span:nth-child(3) {
+    animation-delay: 0.36s;
+}
+
+.ginger-chat__messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.ginger-chat__messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ginger-chat__messages::-webkit-scrollbar-thumb {
+    background: var(--md-default-fg-color--lighter, rgba(0, 0, 0, 0.15));
+    border-radius: 3px;
+}
+
+@keyframes ginger-typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.45;
+    }
+
+    30% {
+        transform: translateY(-6px);
+        opacity: 1;
+    }
+}
+
+@keyframes ginger-fadein {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 44.9375em) {
+    .ginger-chat {
+        right: 0.75rem;
+        bottom: 4.5rem; /* clears the MkDocs Material bottom navigation bar on mobile too */
+        left: 0.75rem;
+        max-height: calc(100vh - 5rem);
+        max-height: calc(100dvh - 5rem);
+    }
+
+    .ginger-chat__panel {
+        width: 100%;
+        height: min(34rem, calc(100vh - 5.5rem));
+        height: min(34rem, calc(100dvh - 5.5rem));
+        max-height: 100%;
+    }
+
+    .ginger-chat__toggle {
+        margin-left: auto;
+    }
+}
