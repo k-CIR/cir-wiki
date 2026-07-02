@@ -1,0 +1,5 @@
+---
+title: Script Tips
+---
+
+See [Tips and tricks](../../MEEG-analysis/tips-and-tricks/index.md)

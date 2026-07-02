@@ -49,9 +49,9 @@ Record [HPIbefore](../opm-acquisition/01_OPM-Acquisition.md#hpi-post-optional)
 
 
 ??? failure "Acquisition does not ask about measuring HPI"
-    [Acquisition](../squid-acquisition/acquisition-manual/02_Acquisition.md) will automatically ask if you want to do/redo HPI fit every time you click START or RESTART. If you pressed Skip but want to do the HPI fit anyway, you need to restart the recording.
+    [Acquisition](../_legacy/acquisition-manual/02_Acquisition.md) will automatically ask if you want to do/redo HPI fit every time you click START or RESTART. If you pressed Skip but want to do the HPI fit anyway, you need to restart the recording.
 
-    If [Acquisition](../squid-acquisition/acquisition-manual/02_Acquisition.md) does not ask about measuring HPI, it might be because it has not registered the HPI digitization. You can check if HPI is digitized in the [Acquisition](../squid-acquisition/acquisition-manual/02_Acquisition.md) main window. It will either specify the time the HPI was digitized or say "HPI: not digitized!"
+    If [Acquisition](../_legacy/acquisition-manual/02_Acquisition.md) does not ask about measuring HPI, it might be because it has not registered the HPI digitization. You can check if HPI is digitized in the [Acquisition](../_legacy/acquisition-manual/02_Acquisition.md) main window. It will either specify the time the HPI was digitized or say "HPI: not digitized!"
 
     !!! success ""
         Load the correct preparation with the digitized HPI coil locations

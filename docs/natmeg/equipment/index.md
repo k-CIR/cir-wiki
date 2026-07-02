@@ -21,6 +21,7 @@ NatMEG provides equipment for stimulus presentation, participant response collec
 |---|---|---|
 | Stimulus equipment | Deliver auditory, visual, tactile, olfactory, or electrical stimuli | [Audio](#audio), [Visual](#visual), [Other stimulus equipment](#other-stimulus-equipment) |
 | Response equipment | Record behavioural or physiological responses | [Eye-tracker](./response-equipment/Eye-tracker.md), [Psychophysiology](./response-equipment/Psychophysiology-specs.md), [Audiometer](./response-equipment/Audiometer.md) |
+| Recording infrastructure | Run preprocessing and in-lab data synchronization workflows | [Cerberos](./cerberos/index.md) |
 | Other equipment | Support recording, monitoring, timing, and room setup | [Triggers](./other/Triggers-specs.md), [MSR](./other/MSR-specs.md), [VideoMEG](./other/VideoMEG.md), [Monitors](./other/Monitors.md) |
 
 ## Stimulus equipment
@@ -71,12 +72,19 @@ For timing, room setup, monitoring, and general recording support.
 - [Triggers](./other/Triggers-specs.md) - trigger routing and specifications.
 - [VideoMEG](./other/VideoMEG.md) - video recording support.
 
+## Recording infrastructure
+
+For in-lab computing used to synchronize data and run preprocessing workflows.
+
+- [Cerberos](./cerberos/index.md) - in-lab computer for synchronization and preprocessing support.
+
 ## Planning an experiment
 
 When preparing a study, it is often useful to combine pages from several sections:
 
 - **Stimulus delivery**: audio, visual, or other stimulus equipment
 - **Response collection**: eye-tracker, psychophysiology, or audiometer
+- **Recording infrastructure**: Cerberos
 - **Timing and synchronization**: triggers
 - **Room and recording context**: MSR, monitors, and VideoMEG
 
