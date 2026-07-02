@@ -118,12 +118,14 @@ nav:
       - OPM Acquisition:
         - natmeg/opm-acquisition/index.md
         - natmeg/opm-acquisition/01_OPM-Acquisition.md
-        - natmeg/opm-acquisition/03_known-issues.md
+        - natmeg/opm-acquisition/03_issues.md
       - SQUID Acquisition: 
+        - natmeg/squid-acquisition/index.md
         - Record headshape: natmeg/squid-acquisition/01_setup_headshape.md
         - EEG: natmeg/squid-acquisition/05_EEG-specs.md
         - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
         - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
+      - File naming: natmeg/other/file-naming.md
     - Equipment: 
       - natmeg/equipment/index.md
       - Stimulus Equipment:
@@ -132,26 +134,31 @@ nav:
         - Other: natmeg/equipment/stimulus-equipment/other
       - Response Equipment: natmeg/equipment/response-equipment/
       - Other: natmeg/equipment/other/
-    - Presentation: natmeg/presentation/
-    - Preprocessing:
-      - natmeg/preprocessing/index.md
-      - About MaxFilter: natmeg/preprocessing/maxfilter
-    - BIDS: natmeg/bids
+      - Cerberos:
+        - natmeg/equipment/cerberos/index.md
+        - natmeg/equipment/cerberos/issues.md
+    - Software:
+      - natmeg/software/index.md
+      - SESHAT: natmeg/software/seshat.md
+      - MaxFilter: natmeg/software/maxfilter.md
+      - BIDS: natmeg/software/bids.md
+      - MNE-Python: natmeg/software/mne-python.md
+      - FieldTrip: natmeg/software/fieldtrip.md
+      - Beyond Compare: natmeg/software/beyond-compare.md
+      - Presentation:
+        - natmeg/presentation/index.md
+        - natmeg/presentation/01_Presentation.md
+        - natmeg/presentation/02_Presentation-script-tips.md
+        - natmeg/presentation/03_Ports.md
+        - Examples:
+          - natmeg/presentation/Examples/Presentation-code-example-Auditory-oddball-paradigm.md
+          - natmeg/presentation/Examples/Presentation‐code‐example‐Resting‐state‐paradigm.md
     - MEEG-analyis: 
       - natmeg/MEEG-analysis/index.md
       - Tips and tricks: natmeg/MEEG-analysis/tips-and-tricks/
-    - Cerberos:
-      - natmeg/cerberos/index.md
-      - natmeg/cerberos/seshat.md
-      - natmeg/other/Beyond-compare.md
-      - natmeg/cerberos/issues.md
+      - Troubleshooting: natmeg/MEEG-analysis/troubleshooting
     - Legacy documentation:
-      - natmeg/server/index.md
-      - Acquisition: natmeg/squid-acquisition/acquisition-manual
-      - Set-up connection: natmeg/server/set-up-connection/
-      - Install software: natmeg/server/install-software/
-      - Script tips: natmeg/server/script-tips/
-      - Troubleshooting: natmeg/server/troubleshooting/
+      - natmeg/_legacy/
   - BMIC: 
     - BMIC: bmic/index.md
     - Working on SPICE: bmic/02_bmic_spice

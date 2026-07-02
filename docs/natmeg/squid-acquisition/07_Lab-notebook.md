@@ -23,11 +23,12 @@ Make sure all notes have been added and close the Lab notebook
 
 ## Issues
 
-### Lab Notebook does not start
+??? failure "Lab Notebook does not start"
+    If you cannot open Lab Notebook and get and error message saying Firefox is already running.
 
-<u>Problem</u>: If you cannot open Lab Notebook and get and error message saying Firefox is already running.
-<u>Solution</u>: Open a new terminal and type:
+    !!! success ""
+        Open a new terminal and type:
 
-> pkill -f firefox
+        `pkill -f firefox`
 
-This shuts down all Firefox processes. Then open the notebook server and the notebook from the desktop.
+        This shuts down all Firefox processes. Then open the notebook server and the notebook from the desktop.
