@@ -16,34 +16,38 @@ Plan in advance how you want to name your files. You may have different conditio
 ## Multiple recordings of same task/condition
 
 ### On SQUID acquisition computer
-If you need to split a recording into multiple files, add a suffix (eg. `A`, `B` or `1`, `2`). Note that if using the [preprocessing pipelines](../cerberos/index.md), MaxFilter will be applied to each file separately, but continuous head movement estimation will be done across files if merge option is set. In the BIDS conversion, the files will be flagged for check and you have the option to add a run number.
+If you need to split a recording into multiple files, add a suffix (eg. `A`, `B` or `1`, `2`). Note that if using the [preprocessing pipelines](../software/seshat.md), MaxFilter will be applied to each file separately, but continuous head movement estimation will be done across files if merge option is set. In the BIDS conversion, the files will be flagged for check and you have the option to add a run number.
 
 ### On OPM acquisition computer
-As a timestamp added to each file, there is no need to add a suffix. If using the [preprocessing pipelines](../cerberos/index.md), the `copy_to_cerberos.py` script will add suffix `_dupX` to files with the same name after removing the timestamp. In the BIDS conversion, the files will be flagged for check and you have the option to add a run number.
+As a timestamp added to each file, there is no need to add a suffix. If using the [preprocessing pipelines](../software/seshat.md), the `copy_to_cerberos.py` script will add suffix `_dupX` to files with the same name after removing the timestamp. In the BIDS conversion, the files will be flagged for check and you have the option to add a run number.
 
 If possible, check and rename files right after the recording session to avoid confusion later. There are several options to do this, see below.
 
 ## Issues
-### Fixing wrong filenames of recordings
 
-<u>Problem</u>: One or more recording is saved with a wrong filename
+??? failure "Fixing wrong filenames of recordings"
+    One or more recordings are saved with a wrong filename.
 
-<u>Solution</u>: rename filenames (three ways)
+    !!! success ""
+        Rename filenames in one of these three ways:
 
-1. Open a terminal
-  > 1. cd to data folder (replace *text* with the text that applies your project):
-  >> /neuro/data/sinhue/*your_project_name*/NatMEG_*number*/*YYMMDD*
-  > 2. Rename the file:
-  >> mv *old_filename.fif* *new_filename.fif*
-  > 3. Press enter.
+        1. Open a terminal.
+            1. Go to the data folder (replace *text* with the text that applies to your project):
+                `/neuro/data/sinhue/*your_project_name*/NatMEG_*number*/*YYMMDD*`
+            2. Rename the file:
+                `mv *old_filename.fif* *new_filename.fif*`
+            3. Press Enter.
 
-> ! Be aware that if a file with the new filename already exists, it will be overwritten with no option to recover the lost data. Rename any overlapping named file first.
+        !!! warning ""
+            Be aware that if a file with the new filename already exists, it will be overwritten with no option to recover the lost data. Rename any overlapping named file first.
 
-2. Open folder window
-  >1. Go to /neuro/data/sinhue/*your_project_name*
-  >2. Right click and rename file
+        2. Open a folder window.
+            1. Go to `/neuro/data/sinhue/*your_project_name*`.
+            2. Right click and rename the file.
 
-3. Open [BeyondCompare](Beyond-compare.md)
-  >1. Open your project path
-  >2. Right click and rename file
-> ! Using BeyondCompare on DANA you can also rename files you have uploaded to Archive
+        3. Open [BeyondCompare](../software/beyond-compare.md).
+            1. Open your project path.
+            2. Right click and rename the file.
+
+        !!! note ""
+            Using BeyondCompare on DANA you can also rename files you have uploaded to Archive.

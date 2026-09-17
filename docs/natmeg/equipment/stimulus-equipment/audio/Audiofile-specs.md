@@ -14,6 +14,6 @@ Always check the sound quality and levels before starting the experiment.
 
 ## Troubleshooting
 
-!!! failure "Sound is distorted"
-    !!! success "Solution"
+??? failure "Sound is distorted"
+    !!! success ""
         Restart AudioFile unit by unplugging and re-plugging the USB cable. Try from both the Stimulus PC and from the back of the AudioFile unit.

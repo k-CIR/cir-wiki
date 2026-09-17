@@ -61,8 +61,12 @@ The Eye tracker settings are aligned to the projector, so that the projector ini
 
 ## Issues
 
-### The eye-tracking program is beeping and blinking
-The eye-tracker has been disconnected from the cables in the MSR. Reconnect the eye-tracker or close the eye-tracking program.
+??? failure "The eye-tracking program is beeping and blinking"
+    The eye-tracker has been disconnected from the cables in the MSR.
 
-### Eyes look blurry and the pupils are not detected.
-Check that the participant's hands or paddings are not blocking the camera.
+    !!! success ""
+        Reconnect the eye-tracker or close the eye-tracking program.
+
+??? failure "Eyes look blurry and the pupils are not detected"
+    !!! success ""
+        Check that the participant's hands or paddings are not blocking the camera.
