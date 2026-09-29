@@ -101,7 +101,9 @@ Before the proccess of opening SPICE to external users is completed remote deskt
 
 Once logged in, go to [https://localhost:8443/spice/](https://localhost:8443/spice/) in your local browser and log in to the remote desktop with your SPICE credentials.
 
-Once the migration of SPICE is complete, you will be able to access the remote desktop directly via https://spice.kcir.se without having to set up a tunnel. But sometimes you have to make things a little more complicated to make them a lot simpler in the long run, thank you for your patience!
+Once the migration of SPICE is complete, you will be able to access the remote desktop directly via https://spice.kcir.se without having to set up a tunnel. Before this can be done, every active user have to be moved to use TOTP for authentication and SPICE pass a full security audit. We hope to have this process done as asap as possible. <!-- I put the asap error here to see if it will annoy Guusje -->
+
+Sometimes you have to make things a little more complicated to make them a lot simpler in the long run, thank you for your patience!
 
 ![My SPICE Keys]({{ picture_path }}/thunar.png){ width="400" }
 /// caption
