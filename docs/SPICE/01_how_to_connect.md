@@ -2,104 +2,111 @@
 title: How to connect
 ---
 
-To get access to SPICE you need to be a member of a research group that has an active project at CIR. Fill out the [the webform on the KI web page](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/request-to-access-the-cir-server)  to request a new user account. Access is granted after approval by the projects PI. Your user credentials (username and password) will be sent to you in the email address you provided in the form.
-
 If you already have a user account on SPICE and received access to a new project, you need to log out and back in <br>again with: `pkill -u yourusername` for your permissions to be updated.
 
-!!! warning "Password security"
-    Your first course of action after receiving your credentials should be to change your password to something only you know. Use the command `passwd` after logging in for the first time and follow the prompts.
+On your first connection to SPICE you will be prompted to change your password and set up two-factor authentication (TOTP). See the [New user guide](02_new_user.md) for detailed instructions on how to do this.
 
-    Obviously - create a unique and strong password that you do not use anywhere else and never share your password with anyone. Best practice is to use a [password manager](https://staff.ki.se/tools-and-support/it-and-telephony/accounts-and-passwords#heading-6) to generate and store strong passwords.
+## Terminal access
+Open a terminal (Linux/macOS) or Command Prompt (Windows):material-help-circle-outline:{ .hint title="Press ⊞ + R on your keyboard, type cmd and press Enter to open" }
 
-## Connecting to SPICE
-There are three ways to connnect to SPICE using secure shell ([SSH](https://en.wikipedia.org/wiki/Secure_Shell)).
+    ssh yourusername@compute.kcir.se
 
-- In a terminal, useful for running occasional commands or processing jobs from command line.
-- Using an [Integrated development environment](https://en.wikipedia.org/wiki/Integrated_development_environment), like [VScode](https://code.visualstudio.com/) or [Spyder](https://www.spyder-ide.org/). This is useful for editing code (with AI assistance), developing analysis and running scripts. Preferred for most tasks and the recommended way to work with SPICE.
-- Using a remote desktop client, useful if you need to use a graphical interface on the server.
+You are prompted for your password and then a 6-digit code from your authenticator app. Enter these correctly and you are in!
 
-!!! note "KI Network"
-    You have to be on the KI network to access SPICE. That means either a wired connection at KI campus or connected to the VPN on a [KI Karyon client](https://staff.ki.se/tools-and-support/it-and-telephony/order-it-and-telephony-services/ki-client-karyon-your-standard-computer-at-ki).
+## SSH key access
+Make your life easier by setting up SSH key access to SPICE. This way you won't have to enter your password and 6-digit code every time you log in. To do this, you need to generate an SSH key pair on your local machine and add the public key to your SPICE account.
 
-    No, just being connected to the "KI-Staff" wi-fi is not enough.
+It's called a key-pair, but really you can think of it as a lock (public key) and a key (private key). You generate a key pair, put the lock (public key) on the service you want to access and keep the key (private key) on your local machine. When you connect, the server checks if you have the right key to unlock the lock.
+
+!!! warning "SSH key security"
+    An SSH key-pair provide the same access to SPICE as your username and password+TOTP, so keep your private key (file) secure and do not share it with anyone. The key is saved on your local machine, make sure it is at least as secure as you need your access to SPICE to be.
+
+First, generate an SSH key pair on your local machine by running this command, with your email address, in your terminal:
+
+  ```
+  ssh-keygen -t ed25519 -C "youremail@mail.com"
+  ```
+
+You will be prompted to enter a file in which to save the key. You can press enter to accept the default location, but should pay attention to where on your local machine the key will be saved. You will also be prompted to enter a passphrase, which is optional and defeats the purpose of setting up SSH keys without password. Simply press enter to continue without a passphrase.
+
+Your computer runs an SSH agent in the background that keep tracks of your keys. Add your new key to the SSH agent by running this command:
+
+/// tab | Windows
+in git bash:
+```sh
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+///
+
+/// tab | Mac
+
+```sh
+eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+///
+
+/// tab | Linux
+
+```sh
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+///
+
+??? warning "~/.ssh/id_ed25519 already exists - Overwrite?"
+
+    If you have created other SSH keys on your machine (e.g. for github or accessing other servers) you may already have a key-pair with the standard name `id_ed25519` and `id_ed25519.pub`. You will then encounter a warning that says:
+
+        /home/you/.ssh/id_ed25519 already exists.
+        Overwrite (y/n)?
+
+    In this case, you can either overwrite the existing key-pair (not recommended) or save the new key-pair with a different name, e.g. `id_ed25519_spice` and `id_ed25519_spice.pub`. To keep track of which key is used for which service, use a descriptive name for the key-pair. Create a config file for your SSH client to tell it which key to use for SPICE. Create a file called `config` (no file extension, edit in any text editor) in the same folder as your keys and add the following lines, replacing the placeholder with your username and `id_ed25519_spice` with the name of your key-pair:
+
+        Host yourusername-SPICE
+            HostName compute.kcir.se
+            User yourusername
+            IdentityFile ~/.ssh/id_ed25519_spice
+            IdentitiesOnly yes
+
+    With this config file in place, you connect to SPICE with the command `ssh yourusername-SPICE` instead of `ssh yourusername@compute.kcir.se`. You can include as many `Host` entries in the config file as you want, for example if you have multiple key-pairs for different services. This way you explicitly tell your SSH client which key to use for which service instead of it trying all keys in your SSH agent until it finds one that works.
+
+Go to the file where the key was saved (default is `~\.ssh\`) and open the file `id_ed25519.pub` with a text editor. This is the public part of your SSH key-pair, your private, top-secret, key will be in the file `id_ed25519`. Copy the entire contents of the public `id_ed25519.pub` file to your clipboard.
+
+In a terminal, logged in to SPICE, run the command:
     
-    Unfortunately the [KI VPN](https://staff.ki.se/tools-and-support/it-and-telephony/tools-for-working-off-campus/vpn-service-ki-vpn) is being phased out by central IT, limiting options for access for external partners.
+    my-SPICE-keys
 
-## In terminal
-Open a Terminal (Linux/macOS) or Command Prompt (Windows). Note,  windows _power shell_ does not support SSH by default, seach for `cmd` or `command prompt` in the start menu to find the correct application.
+This will open an interactive menu that you can use to add your public key to your SPICE account.
 
-With your username, type the following command:
-  ```
-  ssh <username>@compute.kcir.se
-  ```
-
-Enter your password when asked. You are now connected to the CIR computing server, located in your home directory.
-
-### First time?
-The first time you connect to the server, you will be asked to confirm the server's fingerprint:
-
-```
-The authenticity of host 'compute.kcir.se (193.10.16.5) can't be established.
-ECDSA key fingerprint is SHA256:...
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-```
-
-Type `yes` and press enter to continue.
-
-## Connecting in VS Code
-1. Install [Visual Studio Code](https://code.visualstudio.com/) and the extension: Remote - SSH.
-
-![VScode-extensions]({{ picture_path }}/vscode_extensions.png){ width="500" }
+![My SPICE Keys]({{ picture_path }}/my-SPICE-keys1.png){ width="600" }
 /// caption
-Navigate to the extensions tab in VS Code, search for and install the extension "Remote-SSH".
+The interactive menu of the `my-SPICE-keys` command. You can add, remove and list your SSH keys here. Here the user *cirtest3* is adding a new key to key slot 1 and naming it "HP-laptop".
 ///
 
-2. You can now go to the Remote Explorer tab in VS Code and add a "new remote".
+You may be used to storing public keys in the `~/.ssh/authorized_keys` file on the server. Now, the `my-SPICE-keys` command is used to manage your keys centrally. Your keys are stored in the same authentication system that manages your username, password and TOTP. This is a security measure that allows CIR to limit the number of keys per user, revoke keys if they are compromised and retire old keys.
 
-![VScode-extensions]({{ picture_path }}/remote_explorer.png){ width="500" }
+Each user can have up to 3 keys simultaneous keys, i.e. access SPICE via SSH from up to 3 different devices. Keys are retired after 1 year, but you can add/update a new key at any time. If a key expires you simply have to log in with your username and password+TOTP and add a new key to your account.
+
+![My SPICE Keys]({{ picture_path }}/my-SPICE-keys2.png){ width="600" }
 /// caption
-Add new remote in the remote explorer tab.
+The my-SPICE-keys command will show you a list of your keys and their expiration date. Here the user *cirtest3* has 1 key that expire 2027-09-27. 
 ///
 
-3. Enter the SSH connection command, your username and the remote adress like: `ssh <username>@compute.kcir.se`
-4. Choose the SSH configuration file to update (usually the default is fine).
-5. "compute.kcir.se" will now show up in the list of configured remotes. Click the arrow to connect in current window.
-6. The first time you connect, you are prompted for the platform of the remote host, choose Linux. 
-7. You are prompted for your password, enter it and press enter.
+## Remote desktop access
+Before the proccess of opening SPICE to external users is completed remote desktop has to be accessed via a remote SSH tunnel you set up yourself. To open the tunnel, open a terminal **on your local machine** and run this command, replacing `yourusername` with your SPICE username:
 
-You are now connected to SPICE and can open folders, files and run code on the server. Open a terminal by going to Terminal -> New Terminal or open a folder by going to File -> Open Folder.
+    ssh -L 8443:127.0.0.1:443 yourusername@193.10.16.5
 
-Finally, be sure to check out the [tips for using VS Code](03_Vscode_tips.md) to be more productive and make your life easier.
+Once logged in, go to [https://localhost:8443/spice/](https://localhost:8443/spice/) in your local browser and log in to the remote desktop with your SPICE credentials.
 
-## Using remote desktop
-Using a remote desktop client is useful if you need to use a graphical interface on the server but is generally a bit more clunky than using VS Code or a terminal. If your connection is slow, try lowering the display resolution and color depth in the remote desktop client settings.
+Once the migration of SPICE is complete, you will be able to access the remote desktop directly via https://spice.kcir.se without having to set up a tunnel. But sometimes you have to make things a little more complicated to make them a lot simpler in the long run, thank you for your patience!
 
-Most windows installations have the Remote Desktop Client pre-installed. On macOS, download the "Windows App" from the [App Store](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
-
-macOS setup:
-
-1. Open the Windows App and select "Add PC" (+) in Devices.
-2. Enter compute.kcir.se (or 193.10.16.5) as the PC name.
-3. Leave the user account as "Ask when required", or "Add Credentials" to save your login details. 
-4. Save the connection and double-click the newly added PC to connect.
-5. Enter your SPICE username and password when prompted.
-
-![VScode-extensions]({{ picture_path }}/remote_desktop.png){ width="500" }
+![My SPICE Keys]({{ picture_path }}/thunar.png){ width="400" }
 /// caption
-The Remote Desktop Client and login screen.
+The first time you navigate on the remote desktop you will be prompted to select a default file manager. We recommend the faster more lightweight Thunar file manager.
 ///
 
-Open the Remote Desktop Client and create a new connection to `compute.kcir.se` or the server IP: `193.10.16.5`. Use your username and password when prompted.
-
-!!! note "Log out to log in"
-    If you previously logged in using terminal or VS Code your user session may be active without a grapical interface. In this case, you need to log out from your active session before connecting with Remote Desktop. You can log out by running the command `pkill -u <username>` in a terminal where `<username>` is your SPICE username.
-
-
-### Speeding up Remote Desktop
-To improve performance when using Remote Desktop, you can click "Show options", navigate to the "Experience" tab and choose a slower connection speed like "Modem (56 Kbps)". This will automatically disable some visual effects and improve responsiveness.
-
-![VScode-extensions]({{ picture_path }}/rdc_settings.png){ width="500" }
-/// caption
-The Remote Desktop Client options for improved responsiveness.
-///
+## Change password/TOTP
+Logged in to SPICE, you can change your password interactively with the command `passwd`. This does **not** change your TOTP, but you can reset your TOTP by running the command `reset-totp`. This will generate a new QR code that you can scan with your authenticator app to set up a new TOTP.

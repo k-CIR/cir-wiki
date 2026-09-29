@@ -51,6 +51,7 @@ theme:
       - toc.integrate
       - navigation.footer
       - content.code.copy
+      - content.tooltips # Hover/focus tooltips for title="..." attributes
       - navigation.sections # Makes top level sections expandable
 
 extra_css:
@@ -68,6 +69,8 @@ markdown_extensions:
   - toc:
         toc_depth: 2
   - attr_list
+  - abbr
+  - md_in_html
   - sane_lists
   - admonition
   - pymdownx.details
@@ -181,13 +184,13 @@ nav:
   - SPICE:
     - SPICE/index.md
     - How to connect: SPICE/01_how_to_connect.md
-    - Legacy Documentation: 
-      - SPICE/legacy-docs/index.md
-      - How to connect: SPICE/01_how_to_connect.md
-      - Best practices for using SPICE: SPICE/02_best_practice.md
-      - Tips for using VScode: SPICE/03_Vscode_tips.md
-      - Download your data: SPICE/04_download_your_data.md
-      - BIDS: SPICE/05_spiceBIDS.md
+    - New user guide: SPICE/02_new_user.md
+    - BIDS: SPICE/03_spiceBIDS.md
+    - Download your data: SPICE/04_download_your_data.md
+#    - Legacy Documentation: 
+#      - How to connect: SPICE/legacy-docs/01_how_to_connect_legacy.md
+#      - Best practices for using SPICE: SPICE/legacy-docs/06_best_practice.md
+#      - Tips for using VScode: SPICE/legacy-docs/05_Vscode_tips.md
     - Software:
       - Anaconda: SPICE/software/01_anaconda.md
       - FSL: SPICE/software/02_FSL.md
