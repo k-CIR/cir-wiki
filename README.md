@@ -92,7 +92,7 @@ You can install the necessary dependencies using either pip or conda:
 
 **Using pip:**
 ```bash
-pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
+pip install -r requirements.txt
 ```
 
 **Using conda:**

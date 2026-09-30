@@ -3,83 +3,88 @@ title: SESHAT
 tags: [NatMEG, analysis]
 ---
 
+# SESHAT 
 
-See [SESHAT](https://github.com/k-CIR/NatMEG-utils)
+![SESHAT logo]({{ picture_path }}/seshat_white_small.jpg){align="right"}
+Scripts for Extraction, Synchronisation, HPI + Analog alignment and Transfer
 
-# NatMEG Processing Pipeline
-
-Comprehensive MEG/EEG preprocessing pipeline for NatMEG data including copying of data, MaxFilter processing, HPI coregistration, BIDS conversion, and data synchronization utilities.
-
-Scripts and further information can be found at the [NatMEG-utils GitHub repository](https://github.com/k-CIR/NatMEG-utils)
-
-## Overview
-
-This pipeline provides end-to-end processing for:
-
-- **TRIUX/SQUID MEG** data from Elekta systems
-- **OPM MEG** data from Kaptah/OPM systems  
-- **EEG** data collected through TRIUX
+SESHAT is the NatMEG MEG/EEG preprocessing pipeline. It copies raw data from the acquisition computers, adds HPI coregistration for OPM-MEG, synchronizes processed data to the CIR server, and generates HTML reports. It is used through a GUI or, equivalently, through the `seshat` command line tool.
 
 
-![NatMEG Pipeline Overview]({{ picture_path }}/NatMEG-pipeline.drawio.png){ width="600" }
+
+!!! info "Full documentation"
+    This page only covers the essentials for day-to-day use. For installation details, the complete CLI reference, pipeline internals, and developer documentation, see the source repository: [k-CIR/SESHAT](https://github.com/k-CIR/SESHAT) and its [docs folder](https://github.com/k-CIR/SESHAT/tree/main/docs).
+
+
+## Pipeline stages
+
+Each `seshat run` executes the stages enabled in the `RUN` section of the config, in this order:
+
+1. **Copy raw data** – copies project data from the lab computers (SQUID/OPM systems) to the central processing computer, ensuring a consistent project structure.
+2. **OPM preprocessing** – adds HPI coregistration to OPM-MEG recordings using Polhemus digitization and renames analog channels. More details [here](https://github.com/k-CIR/opm_utility_scripts)
+3. **Sync to server** – synchronizes processed data to the SPICE server, with filtering and optional deletion of remote files not present in the source.
+4. **BIDS** – is done on the SPICE server via an ssh tunnel [See BIDS](../../SPICE/05_spiceBIDS.md)
+
+![NatMEG Pipeline Overview]({{ picture_path }}/NatMEG-pipeline.drawio.png){ width="400" }
 /// caption
 Pipeline overview showing the main components and data flow.
 ///
 
-## Key Features
+## Using the GUI
 
-- **GUI Configuration Interface**: User-friendly GUI for setting up project parameters and pipeline options 
-- **Data Synchronization**: Automated copying of raw data from SQUID/OPM computers to central processing computer [`copy_to_cerberos.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/copy_to_cerberos.py)
-- **HPI Coregistration**: Automated head position indicator (HPI) coregistration for OPM-MEG data using Polhemus digitization [`add_hpi.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/add_hpi.py)
-- **Batch MaxFilter Processing**: Integration with Elekta MaxFilter for Signal Space Separation (SSS) and temporal extension (tSSS) [`maxfilter.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/maxfilter.py)
-- **BIDS Conversion**: Converts NatMEG data to BIDS format with customizable task and run mapping [`bidsify.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/bidsify.py)
-- **Server Synchronization**: Sync processed data to CIR server with advanced filtering options [`sync_to_cir.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/sync_to_cir.py)
-- **HTML Reporting**: Generate interactive HTML reports summarizing processing steps and data status [`report.py`](https://github.com/k-CIR/NatMEG-utils/blob/main/render_report.py)
-- **Logging and Error Handling**: Comprehensive logging for tracking processing steps and troubleshooting
-- **Other utilities**: Additional scripts for specific tasks as needed
+The GUI is the recommended way to configure and run the pipeline.
 
-## Configurations
-
-### Using the GUI
+```bash
+seshat gui
+```
 
 ![Alt text]({{ picture_path }}/natmeg_gui.gif)
 /// caption
-Configuration GUI for setting up NatMEG pipeline parameters.
+Configuration GUI for setting up and running the NatMEG pipeline.
 ///
 
-### Configuration File details
+The GUI loads a default configuration file (or one you point it to), lets you edit every setting below, and runs the selected pipeline stages without needing to touch a config file by hand.
+
+### Configuration sections
+
 /// tab | Project
 
-General project paths and information. Make sure to set the correct paths for your data storage locations. 
+General project paths and information. Make sure to set the correct paths for your data storage locations.
 
-- If using GUI project Name and Root will update Raw and BIDS paths if not manually changed.
-- Calibration and Crosstalk paths refer to in Project copies of these files, original locations are set in `copy_to_cerberos.py` script. This is used for BIDS conversion and MaxFilter processing.
-- Since project names can differ between Sinuhe/Kaptah and local storage, set the correct paths for your project on both systems by replacing the place holders.
+- If using the GUI, Project Name and Root will update the Raw and BIDS paths automatically if not manually changed.
+- Calibration and Crosstalk paths refer to the in-project copies of these files; the original locations are set during the copy stage. These are used for BIDS conversion and MaxFilter processing.
+- Since project names can differ between Sinuhe/Kaptah and local storage, set the correct paths for your project on both systems by replacing the placeholders.
+
 ```yml
 Project:
-  Name: ''
-  CIR-ID: ''
-  InstitutionName: Karolinska Institutet
-  InstitutionAddress: Nobels vag 9, 171 77, Stockholm, Sweden
-  InstitutionDepartmentName: Department of Clinical Neuroscience (CNS)
-  Description: project for MEG data
-  Tasks:
-  - ''
-  Sinuhe raw: /neuro/data/sinuhe/<project_path_on_sinuhe> 
-  Kaptah raw: /neuro/data/kaptah/<project_path_on_kaptah>
-  Root: /neuro/data/local/
-  Raw: /neuro/data/local/<project>/raw
-  BIDS: /neuro/data/local/<project>/BIDS
-  Calibration: /neuro/data/local/<project>/databases/sss/sss_cal.dat
-  Crosstalk: /neuro/data/local/<project>/databases/ctc/ct_sparse.fif
-  Logfile: pipeline_log.log
+  Name: '',
+  cir_id: '',
+  InstitutionName: 'Karolinska Institutet',
+  InstitutionAddress: 'Nobels vag 9, 171 77, Stockholm, Sweden',
+  InstitutionDepartmentName: 'Department of Clinical Neuroscience (CNS)',
+  Description: 'project for MEG data',
+  Tasks: 
+  - '',
+  sinuhe_raw: '/neuro/data/sinuhe/<project_path_on_sinuhe>',
+  kaptah_raw: '/neuro/data/kaptah/<project_path_on_kaptah>',
+  stimulus:   '/neuro/data/stimulus/<project_path_on_stimulus>',
+  Polhemus:   '/neuro/data/polhemus/<project>',
+  Root: default_path,
+  Raw:  f'{default_path}/<project>/raw',
+  BIDS: f'{default_path}/<project>/BIDS',
+  Calibration: f'{default_path}/<project>/triux_files/sss/sss_cal.dat',
+  Crosstalk:   f'{default_path}/<project>/triux_files/ctc/ct_sparse.fif',
+  logfile: 'pipeline_log.log'
 ```
 ///
 
 /// tab | OPM
 
+Settings for OPM-MEG HPI coregistration using Polhemus digitization.
+
 ```yml
 OPM:
+  rename_analog_channels: true
   polhemus:
   - ''
   hpi_names:
@@ -89,367 +94,80 @@ OPM:
   - HPIafter
   frequency: 33
   downsample_to_hz: 1000
+  noise_reffile: ''
   overwrite: false
   plot: false
 ```
 ///
 
-/// tab | Maxfilter
-Default settings. 
-
-- Add all files for which you want continous head positioning estimation in `trans_conditions`
-- If you do not have empty room files, leave the list empty `- ''`
-- Add project bad channels in `bad_channels` list, one per line, or leave empty `- ''`
-```yml
-MaxFilter:
-  standard_settings:
-    trans_conditions:
-    - ''
-    trans_option: continous
-    merge_runs: true
-    empty_room_files:
-    - empty_room_before.fif
-    - empty_room_after.fif
-    sss_files:
-    - ''
-    autobad: true
-    badlimit: '7'
-    bad_channels:
-    - ''
-    tsss_default: true
-    correlation: '0.98'
-    movecomp_default: true
-    subjects_to_skip:
-    - ''
-  advanced_settings:
-    force: false
-    downsample: false
-    downsample_factor: '4'
-    apply_linefreq: false
-    linefreq_Hz: '50'
-    maxfilter_version: /neuro/bin/util/maxfilter
-    MaxFilter_commands: ''
-    debug: false
-```
-///
-
-/// tab | BIDS
-BIDS conversion settings. Make sure to set the correct paths for your files and project information. Example `participant_mapping_example.csv`.
-
-- The `bids_conversion.tsv` is generated if not already existing and controls the conversion. Edit task names and runs, and set status to `ok`. BIDS conversion will not be done if there are any file has status `check`.
-
-- A `description.tsv` file is also generated in the BIDS derivatives/preprocessing folder with descriptions of all processing tags.
-
-```yml
-BIDS:
-  Dataset_description: dataset_description.json
-  Participants: participants.tsv
-  Participants_mapping_file: participant_mapping_example.csv
-  Conversion_file: bids_conversion.tsv
-  Overwrite_conversion: false
-  Original_subjID_name: old_subject_id
-  New_subjID_name: new_subject_id
-  Original_session_name: old_session_id
-  New_session_name: new_session_id
-  overwrite: false
-  dataset_type: raw
-  data_license: ''
-  authors: ''
-  acknowledgements: ''
-  how_to_acknowledge: ''
-  funding: ''
-  ethics_approvals: ''
-  references_and_links: ''
-  doi: doi:<insert_doi>
-```
-///
-
 /// tab | RUN
 
-The steps to include in `natmeg run --config <config_file.yml>`, toggle between true/false to include/exclude steps.
+The stages to include when running the pipeline. Toggle between `true`/`false` in the GUI (or the config file) to include/exclude each step.
+
 ```yml
 RUN:
   Copy to Cerberos: true
   Add HPI coregistration: true
-  Run Maxfilter: true
-  Run BIDS conversion: true
   Sync to CIR: true
 ```
 ///
 
-## Quick Start
+Once the configuration looks right, save it from the GUI and start the run from the same window, or run it from the command line as shown below.
 
-The NatMEG pipeline includes an automated installation script that sets up everything you need. Install the pipeline using `bash install.sh` (see [Manual installation](#manual-installation) section below for more details)
+## Using the CLI
 
-/// tab | Using conda (default)
+The `seshat` command exposes the same functionality as the GUI, useful for scripting or headless machines.
 
-#### Default Installation (Conda Environment)
+**MaxFilter processing** *(legacy, CLI only)* – applies SSS/tSSS to TRIUX/SQUID data. See [MaxFilter](maxfilter.md).
+
 ```bash
-# Clone the repository
-git clone https://github.com/NatMEG/NatMEG-utils.git
-cd NatMEG-utils
+# Create a configuration file
+seshat create-config --output my_config.yml
 
-# Run the installer (uses conda by default)
+# Run the full pipeline
+seshat run --config config.yml
+seshat run --config config.yml --dry-run     # preview without execution
+seshat run --config config.yml --no-report   # skip final HTML report
+
+# Run individual stages
+seshat copy --config config.yml              # data synchronization only
+seshat opm-preprocess --config config.yml    # HPI coregistration only
+seshat maxfilter --config config.yml         # legacy MaxFilter (CLI only)
+
+# Sync processed data to a server
+seshat sync --create-config
+seshat sync --server-config servers.yml --test
+seshat sync --directory /data/project
+seshat sync --directory /data/project --delete
+
+# Generate an HTML report
+seshat report --config config.yml
+
+# Help
+seshat --help
+seshat run --help
+```
+
+## Quick installation
+
+Install SESHAT once per machine, then use the GUI or CLI to run the pipeline.
+
+```bash
+git clone --recurse-submodules git@github.com:k-CIR/SESHAT.git
+cd SESHAT
 bash install.sh
-
-# View all installer options
-bash install.sh --help
-```
-///
-
-/// tab | Using virtual environment
-
-#### Alternative Installation (Python Virtual Environment)
-
-Note: Does not work on all Linux distributions (e.g. Rocky/RHEL/CentOS) due to PyQt compatibility issues. Use default conda installation instead.
-
-```bash
-# Clone the repository
-git clone https://github.com/NatMEG/NatMEG-utils.git
-cd NatMEG-utils
-
-# Run the installer with venv flag
-bash install.sh --venv
-```**Benefits of conda installation (now default):**
-- **Better PyQt Compatibility**: Provides isolated Python environment that avoids system conflicts
-- **Linux Compatibility**: Works well on enterprise Linux distributions (Rocky/RHEL/CentOS)
-- **Dependency Isolation**: Prevents conflicts with system-installed Python packages
-- **Reliability**: More consistent installation experience across different systems
-
-The installer will:
-- Detect your operating system (macOS/Linux) and conda installation  
-- Create a `natmeg` executable in `~/.local/bin/`
-- Add `~/.local/bin` to your PATH if needed
-- Set up either Python venv or conda environment based on your choice
-- Provide clear troubleshooting instructions
-
-After installation, you can use the pipeline from anywhere:
-```bash
-natmeg gui                     # Launch GUI
-natmeg run --config config.yml # Run pipeline
-natmeg --help                  # Show all options
-```
-///
-
-### Using the natmeg Command
-
-After installation, you can use the `natmeg` command from anywhere:
-
-```bash
-
-# Launch GUI configuration interface
-natmeg gui # Loads a default configuration file if none specified
-
-# Create configuration file
-natmeg create-config --output my_config.yml  # Generate default config
-
-# Run complete pipeline with options
-natmeg run --config config.yml               # Complete pipeline
-natmeg run --config config.yml --dry-run     # Preview without execution
-natmeg run --config config.yml --no-report   # Skip final HTML report
-natmeg run --config config.yml --delete      # Delete remote files not in source
-
-# Run individual components
-natmeg copy --config config.yml              # Data synchronization only
-natmeg hpi --config config.yml               # HPI coregistration only  
-natmeg maxfilter --config config.yml         # MaxFilter processing only
-natmeg maxfilter --config config.yml --dry-run  # Show commands without execution
-natmeg bidsify --config config.yml           # BIDS conversion only
-
-# Server synchronization with advanced options
-natmeg sync --create-config                  # Generate example server config
-natmeg sync --server-config servers.yml --test      # Test server connection
-natmeg sync --directory /data/project        # Sync directory (default 'cir' server)  
-natmeg sync --config project_config.yml --dry-run   # Preview sync from project config
-natmeg sync --directory /data/project --delete      # Delete remote files not in source
-natmeg sync --directory /data/project --exclude "*.tmp" --include "*.fif"  # Pattern filtering
-
-# Generate project reports
-natmeg report --config config.yml            # Generate HTML dashboard
-
-# Show help for all commands
-natmeg --help
-natmeg run --help      # Detailed help for specific subcommand
 ```
 
-### Manual Installation
+This installs a global `seshat` command for your user account (no `sudo`, conda, or manual virtual environment required). Open a new terminal afterwards and confirm it works with `seshat --help`. Full prerequisites and troubleshooting are in [docs/installation.md](https://github.com/k-CIR/SESHAT/blob/main/docs/installation.md).
 
-If you prefer manual setup:
+!!! note ""
+    The `natmeg` command still works as a deprecated alias for `seshat`.
 
-#### Option 1: Conda Environment
-```bash
-# Create basic conda environment
-conda create -n natmeg_utils python>=3.12 pip uv -y
-conda activate natmeg_utils
+## Further reading
 
-# Install dependencies via pip (same as venv approach)
-uv pip install -r requirements.txt
-```
+For installation on other platforms, full CLI reference, and developer documentation, see the SESHAT repository:
 
-#### Option 2: Python Virtual Environment
-```bash
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-
-# Install dependencies
-uv pip install -r requirements.txt
-```
-
-#### 3. Add to PATH (Optional)
-```bash
-# Add repository to PATH for global access
-echo 'export PATH="$HOME/Sites/NatMEG-utils:$PATH"' >> ~/.zshrc  # or ~/.bashrc
-source ~/.zshrc
-```
-
-### Prerequisites
-
-- **Python 3.12+**: Required for all pipeline components
-- **Conda/Miniconda**: Recommended for environment management
-- **Git**: For cloning the repository
-- **Operating System**: macOS or Linux (Windows support coming soon)
-
-## Troubleshooting
-
-### Installation Issues
-
-??? failure "PyQt Issues on Linux Rocky/RHEL"
-    !!! success ""
-        ```bash
-        # Default conda installation should work out of the box
-        bash install.sh
-
-        # If you previously used venv and had issues, conda is now default
-        # Creates isolated Python environment avoiding system conflicts
-        ```
-
-??? failure "Conda not found"
-    !!! success ""
-        /// tab | macOS
-
-        ```bash
-        # Install conda first
-        brew install miniconda
-        # or download from: https://docs.conda.io/en/latest/miniconda.html
-        ```
-        ///
-
-        /// tab | Linux
-        ```bash
-        # Install conda first
-        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-        bash Miniconda3-latest-Linux-x86_64.sh
-        ```
-        ///
-
-??? failure "natmeg command not found"
-    !!! success ""
-        ```bash
-        # Check if ~/.local/bin is in PATH
-        echo $PATH
-
-        # If not, add it to your shell config
-        echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc  # or ~/.bashrc
-        source ~/.zshrc
-        ```
-
-??? failure "Environment activation fails"
-    !!! success ""
-        ```bash
-        # For conda environments (default)
-        conda env list
-        conda env remove -n natmeg_utils -y  # Remove corrupted environment
-        bash install.sh  # Recreate with conda (default)
-
-        # For virtual environments
-        rm -rf .venv  # Remove corrupted environment
-        bash install.sh --venv  # Recreate with venv
-        ```
-
-### Platform-Specific Issues
-
-??? failure "Linux Rocky/RHEL/CentOS - PyQt GUI Issues"
-    The GUI may fail to start on enterprise Linux distributions due to PyQt compatibility issues with system libraries.
-
-    !!! success ""
-        Use conda installation:
-
-        ```bash
-        # Recommended approach
-        bash install.sh --conda
-
-        # If already installed with pip/venv, switch to conda:
-        cd ~/Sites/NatMEG-utils
-        bash install.sh --conda  # This will replace the existing installation
-        ```
-
-    !!! note "Why conda is now the default"
-        - Provides isolated Python environment separate from system Python
-        - No conflicts with system-installed Python packages
-        - Better compatibility across different operating systems and distributions
-        - Same requirements.txt installation but in isolated conda environment
-        - Resolves PyQt issues commonly seen with system Python installations
-
-### Runtime Issues
-
-??? failure "Module import errors"
-    !!! success ""
-        ```bash
-        # For conda environments
-        conda activate natmeg_utils
-        conda list  # Check installed packages
-
-        # For virtual environments
-        source .venv/bin/activate
-        pip list  # Check installed packages
-
-        # Install missing dependencies
-        pip install mne mne-bids pyyaml
-        ```
-
-??? failure "Permission errors"
-    !!! success ""
-        ```bash
-        # Make natmeg executable
-        chmod +x ~/.local/bin/natmeg
-
-        # Check file permissions
-        ls -la ~/.local/bin/natmeg
-        ```
-
-??? failure "Terminal crashes"
-    The natmeg script includes safety checks to prevent terminal crashes. If issues persist:
-
-    !!! success ""
-        ```bash
-        # View the generated script
-        cat ~/.local/bin/natmeg
-
-        # Regenerate with latest safety checks
-        cd ~/Sites/NatMEG-utils
-        bash install.sh
-        ```
-
----
-
-## Contributions
-
-Improvements are welcomed! The pipeline includes robust installation and execution scripts that work across different environments.
-
-**Development Guidelines:**
-- Do not change scripts locally for personal use
-- Follow GitHub conventions: create branches or fork the repository
-- Make pull requests for any modifications
-- Test installation script on both macOS and Linux before submitting changes
-- Ensure compatibility with different conda installations and shell environments
-
-**Testing the Installation:**
-```bash
-# Test on clean environment
-bash install.sh
-
-# Verify functionality
-natmeg --help
-natmeg gui
-```
+- [SESHAT repository](https://github.com/k-CIR/SESHAT)
+- [Installation guide](https://github.com/k-CIR/SESHAT/blob/main/docs/installation.md)
+- [User guide](https://github.com/k-CIR/SESHAT/tree/main/docs/user-guide)
+- [Developer documentation](https://github.com/k-CIR/SESHAT/tree/main/docs/developer)
