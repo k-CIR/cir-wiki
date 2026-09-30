@@ -6,7 +6,7 @@ To download your data from SPICE to your local machine, you can use the SFTP (Se
 
 The are two ways to download your data. Select either method A or B depending on your needs in setup step 3 below.
 
-**A)** Quick and easy setup, with your password and TOTP, keeping one connection kept open for occasionally downloading up to ~10GB of data. <br>
+**A)** Quick and easy setup, with your password and TOTP, keeping one connection open. This is suitable for occasionally downloading up to ~10GB of data. <br>
 **B)** Setting up FileZilla with your SSH key, which allows FileZilla to open multiple simultaneous connections which speed up the download of large datasets. This is the recommended method if you have a lot of data to download or need to download data frequently.
 
 1. In both cases start by opening FileZilla and open the Site Manager (File -> Site Manager).

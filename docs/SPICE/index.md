@@ -4,7 +4,9 @@ title: SPICE
 !!! note "SPICE is being made accessible to external users"
     During Q4 2026, the SPICE server is being updated to provide access to external users. That is, research partners and collaborators not neccesarily located at KI.
 
-    Previously, access to SPICE required users to be connected to the KI network, either physically or via VPN. Now, SPICE will be made accessible to its users from any location, provided they have the necessary credentials - a registered user account, password and a two-factor authentication (2FA) or SSH key.
+    Access to SPICE require users to be connected to the KI network, either physically or via VPN. Soon, SPICE will be made accessible to its users from any location, provided they have the necessary credentials - a registered user account, password and a two-factor authentication (2FA) or SSH key.
+
+    **Until further notice, during the transition period, being connected to the KI network is still required.**
 
     Remote desktop access to SPICE will be provided via a secure web portal. Terminal access and data download via SFTP is available as usual with the addition of 2FA or SSH key authentication.
 

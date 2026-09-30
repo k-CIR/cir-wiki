@@ -2,6 +2,15 @@
 title: New user guide
 ---
 
+!!! note "KI network"
+    During Q4 2026, the SPICE server is being updated to provide access to external users. That is, research partners and collaborators not neccesarily located at KI.
+
+    **Until further notice, during the transition period, being connected to the KI network is still required.**
+
+    That means either a wired connection at KI campus or connected to the VPN on a [KI Karyon client](https://staff.ki.se/tools-and-support/it-and-telephony/order-it-and-telephony-services/ki-client-karyon-your-standard-computer-at-ki).
+
+    No, just being connected to the "KI-Staff" wi-fi is not enough.
+
 Having requested a user account you will have received an email that looks something like this:
 
 ``` { .text .wrap }
@@ -9,7 +18,7 @@ Hello User, a user account has been created for you on SPICE (Shared Platform fo
 
 See this page for instructions on how to connect: https://k-cir.github.io/cir-wiki/SPICE/
 
-At first login you will be prompted to change your password and set up two-factor authentication (TOTP). After that, you can log in via the web portal or SSH using the same credentials.
+At first login you will be prompted to change your password and set up TOTP (Time-based One-Time Password) for two-factor authentication. After that, you can log in via the web portal or SSH using the same credentials.
 
 username: myusername
 password: G9nT5I0F#

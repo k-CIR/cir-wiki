@@ -4,7 +4,16 @@ title: How to connect
 
 If you already have a user account on SPICE and received access to a new project, you need to log out and back in <br>again with: `pkill -u yourusername` for your permissions to be updated.
 
-On your first connection to SPICE you will be prompted to change your password and set up two-factor authentication (TOTP). See the [New user guide](02_new_user.md) for detailed instructions on how to do this.
+!!! note "KI network"
+    During Q4 2026, the SPICE server is being updated to provide access to external users. That is, research partners and collaborators not neccesarily located at KI.
+
+    **Until further notice, during the transition period, being connected to the KI network is still required.**
+
+    That means either a wired connection at KI campus or connected to the VPN on a [KI Karyon client](https://staff.ki.se/tools-and-support/it-and-telephony/order-it-and-telephony-services/ki-client-karyon-your-standard-computer-at-ki).
+
+    No, just being connected to the "KI-Staff" wi-fi is not enough.
+
+On your first connection to SPICE you will be prompted to change your password and set up TOTP (Time-based One-Time Password) for two-factor authentication. See the [New user guide](02_new_user.md) for detailed instructions on how to do this.
 
 ## Terminal access
 Open a terminal (Linux/macOS) or Command Prompt (Windows):material-help-circle-outline:{ .hint title="Press ⊞ + R on your keyboard, type cmd and press Enter to open" }
@@ -101,6 +110,8 @@ Before the proccess of opening SPICE to external users is completed remote deskt
 
 Once logged in, go to [https://localhost:8443/spice/](https://localhost:8443/spice/) in your local browser and log in to the remote desktop with your SPICE credentials.
 
+On first connection your browser may complain about the security certificate of the SPICE server. This is because the certificate is self-signed and not issued by a trusted certificate authority. You can safely ignore this warning and proceed to the remote desktop.
+
 Once the migration of SPICE is complete, you will be able to access the remote desktop directly via https://spice.kcir.se without having to set up a tunnel. Before this can be done, every active user have to be moved to use TOTP for authentication and SPICE pass a full security audit. We hope to have this process done as asap as possible. <!-- I put the asap error here to see if it will annoy Guusje -->
 
 Sometimes you have to make things a little more complicated to make them a lot simpler in the long run, thank you for your patience!
@@ -111,4 +122,4 @@ The first time you navigate on the remote desktop you will be prompted to select
 ///
 
 ## Change password/TOTP
-Logged in to SPICE, you can change your password interactively with the command `passwd`. This does **not** change your TOTP, but you can reset your TOTP by running the command `reset-totp`. This will generate a new QR code that you can scan with your authenticator app to set up a new TOTP.
+Logged in to SPICE, you can change your password interactively with the command `passwd`. This does **not** change your TOTP, but you can reset your TOTP by running the command `sudo totp-ssh-enroll`. This will generate a new QR code that you can scan with your authenticator app to set up a new TOTP.
