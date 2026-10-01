@@ -36,7 +36,7 @@ Type the following command to connect to SPICE, replacing `myusername` with the 
 
 You will be prompted for your password. Enter the password you received in the email to log in.
 
-On your first login, you will immediately be prompted to change your password by entering your current password (again) and then a new password of your choice.
+On your first login, you will immediately be prompted to change your password by entering your current password (that you received in the email - again) and then a new password of your choice.
 
 Make sure to choose a strong password that you do not use anywhere else and never share your password with anyone. Best practice is to use a [password manager](https://staff.ki.se/tools-and-support/it-and-telephony/accounts-and-passwords#heading-6) to generate and store strong passwords.
 
