@@ -110,7 +110,12 @@ Before the proccess of opening SPICE to external users is completed remote deskt
 
 Once logged in, go to [https://localhost:8443/spice/](https://localhost:8443/spice/) in your local browser and log in to the remote desktop with your SPICE credentials.
 
-On first connection your browser may complain about the security certificate of the SPICE server. This is because the certificate is self-signed and not issued by a trusted certificate authority. You can safely ignore this warning and proceed to the remote desktop.
+![My SPICE Keys]({{ picture_path }}/SSL_cert.png){ width="600" }
+/// caption
+Your browser will warn you that you are serving yourself a page, and it doesn't know who you are. You'll have to convince it you trust yourself.
+///
+
+On first connection your browser may complain about the security certificate of the SPICE server. This is because the certificate is self-signed and not issued by a trusted certificate authority. You can safely ignore this warning and proceed to the remote desktop, find the button saying "continue anyway" or similar. Sometimes this option hides behind an "Advanced" button or "Learn more.." depending on your browser.
 
 Once the migration of SPICE is complete, you will be able to access the remote desktop directly via https://spice.kcir.se without having to set up a tunnel. Before this can be done, every active user have to be moved to use TOTP for authentication and SPICE pass a full security audit. We hope to have this process done as asap as possible. <!-- I put the asap error here to see if it will annoy Guusje -->
 
