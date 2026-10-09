@@ -1,0 +1,92 @@
+/* Custom styles for admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: 1.0em; /* Make admonition text 10% larger than normal text */
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > .admonition-title {
+    font-size: 1.0em; /* Make admonition titles slightly larger */
+    font-weight: bold;
+}
+
+/* Navigation section styling */
+.md-nav__item--section > .md-nav__link {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: var(--md-default-fg-color);
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+}
+
+/* Add spacing between sections */
+.md-nav__item--section {
+    margin-top: 1rem;
+}
+
+.md-nav__item--section:first-child {
+    margin-top: 0;
+}
+
+/* Optional: You can also target specific admonition types */
+/*
+.md-typeset .admonition.warning {
+    font-size: 1.2em;
+}
+
+.md-typeset .admonition.tip {
+    font-size: 1.2em;
+}
+*/
+
+/* Inline hint icon: small superscript marker that shows a tooltip on hover/focus.
+   Usage in markdown:
+   :material-help-circle-outline:{ .hint title="Explanatory text here" } */
+.md-typeset .hint {
+    cursor: help;
+    vertical-align: super;
+    line-height: 1;
+}
+
+.md-typeset .hint svg,
+.md-typeset .hint img {
+    height: 0.85em;
+    width: 0.85em;
+    fill: var(--md-accent-fg-color);
+}
+
+/* Tooltip bubble: larger, more readable text.
+   Material 9.6 renders title-based tooltips as .md-tooltip2, whose inner box
+   defaults to font-size 0.5rem. The legacy .md-tooltip is used by annotations. */
+.md-tooltip2[role="tooltip"] > .md-tooltip2__inner {
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0.4rem 0.6rem;
+}
+
+.md-tooltip .md-tooltip__inner {
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+/* Opt-in word wrapping for a code block.
+   Usage in markdown: ``` { .text .wrap } ... ``` */
+.md-typeset .wrap code,
+.md-typeset code.wrap,
+.md-typeset pre.wrap > code {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Float image+caption box to the right with text wrap */
+figure.float-right-box {
+    float: right;
+    clear: right;
+    margin: 0 0 1rem 1.5rem;
+    border: 1px solid rgb(185, 185, 185);
+    padding: 0.5rem;
+    max-width: 400px;
+}
