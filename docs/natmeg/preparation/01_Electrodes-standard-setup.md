@@ -7,11 +7,12 @@ title: Electrodes (standard setup)
 **This is the first part of the preparation which is followed by the [Digitization](02_Digitization-hpi.md)**
 
 The standard setup of electrodes includes:
+
 - 2 horizontal EOG
 - 2 vertical EOG
 - 2 ECG
-- 1 Reference
-- 1 Ground
+- (1 Reference) only when running EEG
+- (1 Ground) only when running EEG
 
 
 ## Material
@@ -21,11 +22,11 @@ The standard setup of electrodes includes:
 ## Step-by-step guide
 
 1. Place the participant in the wooden chair
-2. Use abrasive gel to scrub where Electrodes will be placed. Usually a pie-sized portion on a cotton pad is enough for all electrodes, and 3-5 circular wipes will do.
-!!! warning "Be careful and check with the participant so it does not hurt"
-3. Wipe with alcohol swaps to remove gel. Also wipe positions of the HPI coils.
+2. Use abrasive gel to scrub where Electrodes will be placed. Usually a pea-sized portion on a cotton pad is enough for all electrodes, and 3-5 circular wipes will do.
+!!! warning "Be firm but check with the participant so it does not hurt"
+1. Wipe with alcohol swaps to remove gel.
 !!! note "Warn participant that if might sting a bit"
-4. After letting the alcohol dry a few seconds attach the electrodes at the location indicated by the picture.
+1. After letting the alcohol dry a few seconds attach the electrodes at the location indicated by the picture.
 !!! tip "You can cut away part of the electrode (not too much!) to avoid participant getting it in the eye."
 
 ![Electrode placement map]({{ picture_path }}/electrods-palcement.png)

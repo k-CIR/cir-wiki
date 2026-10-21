@@ -1,0 +1,175 @@
+[
+  {
+    "question": "What response equipment is available on NatMEG?",
+    "expected_subtree": "natmeg/equipment/response-equipment",
+    "expected_source_urls": [
+      "/natmeg/equipment/",
+      "/natmeg/equipment/response-equipment/Eye-tracker/",
+      "/natmeg/equipment/response-equipment/Audiometer/",
+      "/natmeg/equipment/response-equipment/Psychophysiology-specs/"
+    ],
+    "intent": "inventory"
+  },
+  {
+    "question": "What audio stimulus equipment is available on NatMEG?",
+    "expected_subtree": "natmeg/equipment/stimulus-equipment/audio",
+    "expected_source_urls": [
+      "/natmeg/equipment/",
+      "/natmeg/equipment/stimulus-equipment/audio/Speakers-specs/",
+      "/natmeg/equipment/stimulus-equipment/audio/Audio-mixer/"
+    ],
+    "intent": "inventory"
+  },
+  {
+    "question": "What visual stimulus equipment is available on NatMEG?",
+    "expected_subtree": "natmeg/equipment/stimulus-equipment/visual",
+    "expected_source_urls": [
+      "/natmeg/equipment/",
+      "/natmeg/equipment/stimulus-equipment/visual/Screen-and-projector/",
+      "/natmeg/equipment/stimulus-equipment/visual/Showing-visual-stimuli-on-the-screen/"
+    ],
+    "intent": "inventory"
+  },
+  {
+    "question": "What other equipment is available on NatMEG?",
+    "expected_subtree": "natmeg/equipment/other",
+    "expected_source_urls": [
+      "/natmeg/equipment/",
+      "/natmeg/equipment/other/VideoMEG/",
+      "/natmeg/equipment/other/Triggers-specs/"
+    ],
+    "intent": "inventory"
+  },
+  {
+    "question": "What software is available on SPICE?",
+    "expected_subtree": "SPICE",
+    "expected_source_urls": [
+      "/SPICE/",
+      "/SPICE/software/01_anaconda/",
+      "/SPICE/software/04_Matlab/"
+    ],
+    "intent": "inventory"
+  },
+  {
+    "question": "How do I connect to SPICE?",
+    "expected_subtree": "SPICE",
+    "expected_source_urls": [
+      "/SPICE/01_how_to_connect/"
+    ],
+    "intent": "procedural"
+  },
+  {
+    "question": "How do I download my data from SPICE?",
+    "expected_subtree": "SPICE",
+    "expected_source_urls": [
+      "/SPICE/04_download_your_data/"
+    ],
+    "intent": "procedural"
+  },
+  {
+    "question": "How do I run MaxFilter?",
+    "expected_subtree": "natmeg/preprocessing",
+    "expected_source_urls": [
+      "/natmeg/preprocessing/maxfilter/"
+    ],
+    "intent": "procedural"
+  },
+  {
+    "question": "How do I show visual stimuli on the screen?",
+    "expected_subtree": "natmeg/equipment/stimulus-equipment/visual",
+    "expected_source_urls": [
+      "/natmeg/equipment/stimulus-equipment/visual/Showing-visual-stimuli-on-the-screen/"
+    ],
+    "intent": "procedural"
+  },
+  {
+    "question": "How do I set up the eye-tracker?",
+    "expected_subtree": "natmeg/equipment/response-equipment",
+    "expected_source_urls": [
+      "/natmeg/equipment/response-equipment/Eye-tracker/"
+    ],
+    "intent": "procedural"
+  },
+  {
+    "question": "What is OPM?",
+    "expected_subtree": "natmeg/opm-acquisition",
+    "expected_source_urls": [
+      "/natmeg/opm-acquisition/"
+    ],
+    "intent": "definition"
+  },
+  {
+    "question": "What is BIDS?",
+    "expected_subtree": "natmeg/bids",
+    "expected_source_urls": [
+      "/natmeg/bids/"
+    ],
+    "intent": "definition"
+  },
+  {
+    "question": "What is SPICE?",
+    "expected_subtree": "SPICE",
+    "expected_source_urls": [
+      "/SPICE/"
+    ],
+    "intent": "definition"
+  },
+  {
+    "question": "What is Cerberos?",
+    "expected_subtree": "natmeg/cerberos",
+    "expected_source_urls": [
+      "/natmeg/cerberos/"
+    ],
+    "intent": "definition"
+  },
+  {
+    "question": "Why is my VNC screen black?",
+    "expected_subtree": "natmeg/server",
+    "expected_source_urls": [
+      "/natmeg/server/troubleshooting/VNC-black-screen-error/"
+    ],
+    "intent": "troubleshooting"
+  },
+  {
+    "question": "Why does the terminal not open on NatMEG?",
+    "expected_subtree": "natmeg/server",
+    "expected_source_urls": [
+      "/natmeg/server/troubleshooting/Terminal-does-not-open/"
+    ],
+    "intent": "troubleshooting"
+  },
+  {
+    "question": "Why is SFTP not working?",
+    "expected_subtree": "natmeg/server",
+    "expected_source_urls": [
+      "/natmeg/server/troubleshooting/SFTP-(or-samba)-not-working/"
+    ],
+    "intent": "troubleshooting"
+  },
+  {
+    "question": "What are the differences between SQUID and OPM acquisition?",
+    "expected_subtree": "natmeg",
+    "expected_source_urls": [
+      "/natmeg/squid-acquisition/",
+      "/natmeg/opm-acquisition/"
+    ],
+    "intent": "comparison"
+  },
+  {
+    "question": "What are the differences between MNE and FieldTrip at NatMEG?",
+    "expected_subtree": "natmeg",
+    "expected_source_urls": [
+      "/natmeg/"
+    ],
+    "intent": "comparison"
+  },
+  {
+    "question": "How do NatMEG and SPICE relate for data analysis?",
+    "expected_subtree": "natmeg",
+    "expected_source_urls": [
+      "/natmeg/",
+      "/SPICE/"
+    ],
+    "intent": "comparison"
+  }
+]

@@ -40,6 +40,47 @@
 }
 */
 
+/* Inline hint icon: small superscript marker that shows a tooltip on hover/focus.
+   Usage in markdown:
+   :material-help-circle-outline:{ .hint title="Explanatory text here" } */
+.md-typeset .hint {
+    cursor: help;
+    vertical-align: super;
+    line-height: 1;
+}
+
+.md-typeset .hint svg,
+.md-typeset .hint img {
+    height: 0.85em;
+    width: 0.85em;
+    fill: var(--md-accent-fg-color);
+}
+
+/* Tooltip bubble: larger, more readable text.
+   Material 9.6 renders title-based tooltips as .md-tooltip2, whose inner box
+   defaults to font-size 0.5rem. The legacy .md-tooltip is used by annotations. */
+.md-tooltip2[role="tooltip"] > .md-tooltip2__inner {
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0.4rem 0.6rem;
+}
+
+.md-tooltip .md-tooltip__inner {
+    font-size: 0.7rem;
+    line-height: 1.5;
+}
+
+/* Opt-in word wrapping for a code block.
+   Usage in markdown: ``` { .text .wrap } ... ``` */
+.md-typeset .wrap code,
+.md-typeset code.wrap,
+.md-typeset pre.wrap > code {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
 /* Float image+caption box to the right with text wrap */
 figure.float-right-box {
     float: right;

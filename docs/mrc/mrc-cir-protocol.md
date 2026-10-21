@@ -39,7 +39,7 @@ Refine head position, patient may slide down while the following imaging require
 
 3D Fast Spin Echo-Spiral, axial, eff.resolution 3.5 mm3, 46 slices 3.5 mm thick, Labeling duration 1450 ms, Post-labeling delay 2525 ms, vascular crushers: none, Gradwarp applied. Dataset contains: M0, PW (difference image label-control) images zero-filled to 128x128 matrix.
 
-This sequence result in 92 dicom files, 1-46 are precalculated perfusion-weighted (PW) images with `Image type: DERIVED, PRIMARY, ASL, PERFUSION_ASL` and 47-92 are M0 images with `Image type: ORIGINAL, PRIMARY, ASL`.
+This sequence results in 92 DICOM files: 1–46 are precalculated perfusion-weighted (PW) images with `Image type: DERIVED, PRIMARY, ASL, PERFUSION_ASL`, and 47–92 are M0 images with `Image type: ORIGINAL, PRIMARY, ASL`.
 
 ## FieldMap fmri (0:05 min)
 The same setting as for FMRI but reverse phase view order. 

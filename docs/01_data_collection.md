@@ -41,6 +41,10 @@ A fundamental principle within CIR is that all data on SPICE is pseudonymized. H
 .narrow-caption figcaption { max-width: 1000px; margin: 0 auto; }
 </style>
 
+Data you collect are gathered in your project folder, e.g: `data/projects/raw/modality`. The raw data is **read-only** by design. This is to 1) ensure the sync-process from the core facilities can keep track of what data has been made available to you, which is difficult if data is moved or renamed. 2) simplify for CIR to offer standardized pre-processing pipelines for all projects.
+
+As soon as your data starts coming in, your next course of action should be to organize it according to the Brain Imaging Data Structure (BIDS) standard. This is the foundation for consistent and reproducible neuroimaging data analysis. You can read more about how CIR supports you in this process on the wiki-page [BIDS on SPICE](https://k-cir.github.io/cir-wiki/SPICE/05_spiceBIDS/).
+
 ![Data flow]({{ picture_path }}/data_structure.png){ width="1200" }
 /// caption
     attrs: {class: narrow-caption}

@@ -3,7 +3,7 @@ site_name: Centre for Imaging Research (CIR)
 repo_url: https://github.com/k-CIR/cir-wiki
 repo_name: Show on GitHub
 edit_uri: blob/dev/docs/
-site_url: https://www.kcir.se
+site_url: https://k-cir.github.io/cir-wiki/
 watch:
   - docs
   - mkdocs.yml
@@ -51,13 +51,18 @@ theme:
       - toc.integrate
       - navigation.footer
       - content.code.copy
+      - content.tooltips # Hover/focus tooltips for title="..." attributes
       - navigation.sections # Makes top level sections expandable
 
 extra_css:
   - assets/extra.css
+  - assets/ginger-chat.css
 
 extra_javascript:
   - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/marked@15/marked.min.js
+  - javascripts/ginger-config.js
+  - javascripts/ginger-chat.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js
   - javascripts/researcher-graph.js
@@ -66,6 +71,8 @@ markdown_extensions:
   - toc:
         toc_depth: 2
   - attr_list
+  - abbr
+  - md_in_html
   - sane_lists
   - admonition
   - pymdownx.details
@@ -85,6 +92,9 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.blocks.caption
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 validation:
   links:
     absolute_links: relative_to_docs
@@ -104,47 +114,60 @@ nav:
     - Collecting data at CIR: 01_data_collection.md
     - How to edit this wiki: 02_how_to_edit_wiki.md
     - Contribute to this wiki: 03_contribute_to_wiki.md
+    - CIRI chat assistant: 04_ciri_chat.md
   - NatMEG: 
     - natmeg/index.md
-    - Preparation: natmeg/preparation/
-    - OPM Acquisition:
-      # - natmeg/opm-acquisition/index.md
-      - natmeg/opm-acquisition/01_OPM-Acquisition.md
-      - natmeg/opm-acquisition/02_OPM-specs.md
-      - natmeg/opm-acquisition/03_known-issues.md
-    - SQUID Acquisition: 
-      - Record headshape: natmeg/squid-acquisition/01_setup_headshape.md
-      - EEG: natmeg/squid-acquisition/05_EEG-specs.md
-      - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
-      - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
-    - Stimulus Equipment:
-      - Audio: natmeg/stimulus-equipment/audio
-      - Visual: natmeg/stimulus-equipment/visual
-      - Other: natmeg/stimulus-equipment/other
-    - Response Equipment: natmeg/response-equipment/
-    - Presentation: natmeg/presentation/
-    - Preprocessing:
-      - Using the GUI: natmeg/preprocessing/config_gui.md
-      - Pipeline: natmeg/preprocessing/pipeline.md
-      # https://github.com/k-CIR/NatMEG-utils/blob/main/README.md
-      - About MaxFilter: natmeg/preprocessing/maxfilter
-    - Other: natmeg/other/
+    - Data acquisition:
+      - natmeg/data-acquisition/index.md
+      - Preparation: natmeg/preparation/
+      - OPM Acquisition:
+        - natmeg/opm-acquisition/index.md
+        - natmeg/opm-acquisition/01_OPM-Acquisition.md
+        - natmeg/opm-acquisition/03_issues.md
+      - SQUID Acquisition: 
+        - natmeg/squid-acquisition/index.md
+        - Record headshape: natmeg/squid-acquisition/01_setup_headshape.md
+        - EEG: natmeg/squid-acquisition/05_EEG-specs.md
+        - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
+        - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
+      - File naming: natmeg/other/file-naming.md
+    - Equipment: 
+      - natmeg/equipment/index.md
+      - Stimulus Equipment:
+        - Audio: natmeg/equipment/stimulus-equipment/audio
+        - Visual: natmeg/equipment/stimulus-equipment/visual
+        - Other: natmeg/equipment/stimulus-equipment/other
+      - Response Equipment: natmeg/equipment/response-equipment/
+      - Other: natmeg/equipment/other/
+      - Cerberos:
+        - natmeg/equipment/cerberos/index.md
+        - natmeg/equipment/cerberos/issues.md
+    - Software:
+      - natmeg/software/index.md
+      - SESHAT: natmeg/software/seshat.md
+      - MaxFilter: natmeg/software/maxfilter.md
+      - BIDS: natmeg/software/bids.md
+      - MNE-Python: natmeg/software/mne-python.md
+      - FieldTrip: natmeg/software/fieldtrip.md
+      - Beyond Compare: natmeg/software/beyond-compare.md
+      - Presentation:
+        - natmeg/presentation/index.md
+        - natmeg/presentation/01_Presentation.md
+        - natmeg/presentation/02_Presentation-script-tips.md
+        - natmeg/presentation/03_Ports.md
+        - Examples:
+          - natmeg/presentation/Examples/Presentation-code-example-Auditory-oddball-paradigm.md
+          - natmeg/presentation/Examples/Presentation‐code‐example‐Resting‐state‐paradigm.md
     - MEEG-analyis: 
       - natmeg/MEEG-analysis/index.md
       - Tips and tricks: natmeg/MEEG-analysis/tips-and-tricks/
-    - Cerberos: natmeg/cerberos/
+      - Troubleshooting: natmeg/MEEG-analysis/troubleshooting
     - Legacy documentation:
-      - natmeg/server/index.md
-      - Acquisition: natmeg/squid-acquisition/acquisition-manual
-      - Set-up connection: natmeg/server/set-up-connection/
-      - Install software: natmeg/server/install-software/
-      - Script tips: natmeg/server/script-tips/
-      - Troubleshooting: natmeg/server/troubleshooting/
+      - natmeg/_legacy/
   - BMIC: 
     - BMIC: bmic/index.md
-    - Getting Started: bmic/01_getting_started
-    - Solena: bmic/02_solena
-    - BIDS at BMIC: bmic/03_bmic_bids
+    - Working on SPICE: bmic/02_bmic_spice
+    - Working Locally: bmic/03_working_locally
   - MRC:
     - mrc/index.md
     - mrc/mrc-bids.md
@@ -163,10 +186,13 @@ nav:
   - SPICE:
     - SPICE/index.md
     - How to connect: SPICE/01_how_to_connect.md
-    - Best practices for using SPICE: SPICE/02_best_practice.md
-    - Tips for using VScode: SPICE/03_Vscode_tips.md
+    - New user guide: SPICE/02_new_user.md
+    - BIDS: SPICE/03_spiceBIDS.md
     - Download your data: SPICE/04_download_your_data.md
-    - BIDS: SPICE/05_spiceBIDS.md
+#    - Legacy Documentation: 
+#      - How to connect: SPICE/legacy-docs/01_how_to_connect_legacy.md
+#      - Best practices for using SPICE: SPICE/legacy-docs/06_best_practice.md
+#      - Tips for using VScode: SPICE/legacy-docs/05_Vscode_tips.md
     - Software:
       - Anaconda: SPICE/software/01_anaconda.md
       - FSL: SPICE/software/02_FSL.md
@@ -179,5 +205,6 @@ nav:
       - Heudiconv: SPICE/singularity_containers/02_heudiconv.md
       - Halfpipe: SPICE/singularity_containers/03_halfpipe.md
       - MRIQC: SPICE/singularity_containers/04_mriqc.md
+      - FreeSurfer and MNE-Python: SPICE/singularity_containers/05_freesurfer_mne.md
   - Active projects:
     - active-projects/index.md

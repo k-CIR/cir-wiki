@@ -38,6 +38,25 @@ nav:
 
 See [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) for more options on navigation and theme
 
+## CIRI (CIR Information Retrieval Interface)
+
+The wiki includes a local chat assistant called CIRI.
+
+- Frontend files live in `docs/javascripts/ginger-chat.js` and `docs/assets/ginger-chat.css`.
+- The backend lives in `ginger_chat_backend/` and serves `POST /api/chat` and `POST /api/feedback`.
+- By default the chat widget is enabled on `localhost` / `127.0.0.1` and expects the backend at `http://127.0.0.1:8000`.
+- Feedback is appended to `ginger_chat_backend/feedback.jsonl` for development review.
+
+To run the backend locally:
+
+```bash
+cd ginger_chat_backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+For full user-facing and developer documentation, see `docs/04_ciri_chat.md`.
+
 ## How to contribute to the wiki
 You can contribute in two ways:  
 
@@ -73,7 +92,7 @@ You can install the necessary dependencies using either pip or conda:
 
 **Using pip:**
 ```bash
-pip install mkdocs mkdocs-material pymdown-extensions mkdocs-include-dir-to-nav mkdocs-macros-plugin
+pip install -r requirements.txt
 ```
 
 **Using conda:**
@@ -92,4 +111,3 @@ To preview the documentation locally, use:
 mkdocs serve
 ```
 Then open the provided local URL in your browser to view the documentation.
-

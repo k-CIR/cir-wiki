@@ -1,0 +1,28 @@
+name: Deploy Ginger Backend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ginger_chat_backend/**'
+      - 'docs/**'
+      - '.github/workflows/deploy_ginger.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage docs for deployment
+        run: |
+          mkdir -p ginger_chat_backend/docs
+          cp -r docs/* ginger_chat_backend/docs/
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'cir-ginger-backend'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: './ginger_chat_backend'

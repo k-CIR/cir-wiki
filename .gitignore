@@ -1,1 +1,9 @@
 .DS_Store
+.env
+.venv/
+__pycache__/
+*.pyc
+*.kilo
+feedback.jsonl
+
+site
