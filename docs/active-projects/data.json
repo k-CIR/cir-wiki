@@ -9,12 +9,25 @@
     { "id": "r7", "label": "Emma Andersson",  "type": "researcher", "role": "PhD Student",               "department": "Cognitive Science" },
     { "id": "r8", "label": "Mikael Persson",  "type": "researcher", "role": "Research Engineer",         "department": "MRI Physics" },
 
-    { "id": "p1", "label": "fMRI Aging Study",          "type": "project", "status": "Active",   "description": "Age-related changes in functional connectivity using 7T fMRI" },
-    { "id": "p2", "label": "MEG Language Processing",   "type": "project", "status": "Active",   "description": "Neural correlates of language processing with SQUID-MEG" },
-    { "id": "p3", "label": "OPM Resting-State",         "type": "project", "status": "Active",   "description": "Resting-state connectivity with on-scalp OPM sensors" },
-    { "id": "p4", "label": "EEG Sleep Research",        "type": "project", "status": "Active",   "description": "Sleep stage classification using high-density EEG" },
-    { "id": "p5", "label": "MRC Clinical Neuroimaging", "type": "project", "status": "Active",   "description": "Clinical 3T MRI protocols for neurological conditions" },
-    { "id": "p6", "label": "Multi-modal Brain Mapping", "type": "project", "status": "Planning", "description": "Combined MRI, MEG and EEG brain mapping" }
+    { "id": "r9",  "label": "Karin Holm",        "type": "researcher", "role": "Postdoctoral Researcher",   "department": "MRI Physics" },
+    { "id": "r10", "label": "Oskar Lindberg",    "type": "researcher", "role": "PhD Student",               "department": "Clinical Neuroscience" },
+    { "id": "r11", "label": "Elin Dahlström",    "type": "researcher", "role": "Research Engineer",         "department": "Cognitive Science" },
+    { "id": "r12", "label": "Gustav Åkesson",    "type": "researcher", "role": "Principal Investigator",    "department": "Medical Physics" },
+    { "id": "r13", "label": "Linnea Forsberg",   "type": "researcher", "role": "PhD Student",               "department": "Neuroscience" },
+    { "id": "r14", "label": "Viktor Sandberg",   "type": "researcher", "role": "Postdoctoral Researcher",   "department": "Clinical Neuroscience" },
+    { "id": "r15", "label": "Hanna Wikström",    "type": "researcher", "role": "Research Engineer",         "department": "MRI Physics" },
+    { "id": "r16", "label": "Fredrik Bergqvist", "type": "researcher", "role": "PhD Student",               "department": "Cognitive Science" },
+
+    { "id": "p1", "label": "fMRI Aging Study",          "type": "project", "status": "Active",   "description": "Age-related changes in functional connectivity using 7T fMRI",                 "modalities": ["7T MRI"] },
+    { "id": "p2", "label": "MEG Language Processing",   "type": "project", "status": "Active",   "description": "Neural correlates of language processing with SQUID-MEG",                      "modalities": ["MEG"] },
+    { "id": "p3", "label": "OPM Resting-State",         "type": "project", "status": "Active",   "description": "Resting-state connectivity with on-scalp OPM sensors",                         "modalities": ["MEG"] },
+    { "id": "p4", "label": "EEG Sleep Research",        "type": "project", "status": "Active",   "description": "Sleep stage classification using high-density EEG",                            "modalities": ["EEG"] },
+    { "id": "p5", "label": "MRC Clinical Neuroimaging", "type": "project", "status": "Active",   "description": "Clinical 3T MRI and PET-CT protocols for neurological conditions",              "modalities": ["3T MRI", "PET-CT"] },
+    { "id": "p6", "label": "Multi-modal Brain Mapping", "type": "project", "status": "Planning", "description": "Combined MRI, MEG and EEG brain mapping",                                       "modalities": ["EEG", "MEG", "3T MRI", "7T MRI"] },
+
+    { "id": "p7", "label": "Legacy EEG Normative Database", "type": "project", "status": "Completed", "description": "Published reference EEG norms across the healthy adult lifespan",        "modalities": ["EEG"] },
+    { "id": "p8", "label": "3T Motor Cortex Mapping",       "type": "project", "status": "Completed", "description": "Pre-surgical motor cortex localization protocol validated at 3T",        "modalities": ["3T MRI"] },
+    { "id": "p9", "label": "MEG-EEG Fusion Pilot",          "type": "project", "status": "Completed", "description": "Feasibility study combining simultaneous MEG and EEG recordings",         "modalities": ["MEG", "EEG"] }
   ],
   "links": [
     { "source": "r1", "target": "p1" },
@@ -32,6 +45,30 @@
     { "source": "r7", "target": "p2" },
     { "source": "r7", "target": "p4" },
     { "source": "r8", "target": "p1" },
-    { "source": "r8", "target": "p5" }
+    { "source": "r8", "target": "p5" },
+
+    { "source": "r4", "target": "p7" },
+    { "source": "r7", "target": "p7" },
+    { "source": "r6", "target": "p8" },
+    { "source": "r8", "target": "p8" },
+    { "source": "r2", "target": "p9" },
+    { "source": "r5", "target": "p9" },
+
+    { "source": "r9",  "target": "p5" },
+    { "source": "r9",  "target": "p8" },
+    { "source": "r10", "target": "p4" },
+    { "source": "r10", "target": "p7" },
+    { "source": "r11", "target": "p2" },
+    { "source": "r11", "target": "p9" },
+    { "source": "r12", "target": "p1" },
+    { "source": "r12", "target": "p6" },
+    { "source": "r13", "target": "p3" },
+    { "source": "r13", "target": "p6" },
+    { "source": "r14", "target": "p5" },
+    { "source": "r14", "target": "p4" },
+    { "source": "r15", "target": "p1" },
+    { "source": "r15", "target": "p8" },
+    { "source": "r16", "target": "p2" },
+    { "source": "r16", "target": "p9" }
   ]
 }
