@@ -6,7 +6,7 @@ BIDS (Brain Imaging Data Structure) provides a standard way to organize MEG data
 
 ## BIDS on SPICE
 
-See general steps (0 to 2) on: [BIDS on SPICE](../../SPICE/05_spiceBIDS.md)
+See general steps (0 to 2) on: [BIDS on SPICE](../../SPICE/03_spiceBIDS.md)
 
 The notes below cover the NatMEG-specific parts of the later workflow.
 

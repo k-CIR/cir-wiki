@@ -7,7 +7,7 @@ Raw imaging data collected at CIR are generally gathered in the corresponding pr
 
 CIR support all projects in using [BIDS](https://bids.neuroimaging.io/), and provide assistance and resources to make your data BIDS-compliant.
 
-See [BIDS on SPICE](05_spiceBIDS.md) for details on how different imaging modalities are organized in BIDS.
+See [BIDS on SPICE](03_spiceBIDS.md) for details on how different imaging modalities are organized in BIDS.
 
 BIDS provides a consistent and structured way to organize and describe neuroimaging data, making it easier to share, analyze, and reproduce research findings. Many neuroimaging analysis tools support BIDS data, which will streamline your analysis workflow.
 
