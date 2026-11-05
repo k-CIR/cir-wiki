@@ -23,7 +23,7 @@ Each `seshat run` executes the stages enabled in the `RUN` section of the config
 1. **Copy raw data** – copies project data from the lab computers (SQUID/OPM systems) to the central processing computer, ensuring a consistent project structure.
 2. **OPM preprocessing** – adds HPI coregistration to OPM-MEG recordings using Polhemus digitization and renames analog channels. More details [here](https://github.com/k-CIR/opm_utility_scripts)
 3. **Sync to server** – synchronizes processed data to the SPICE server, with filtering and optional deletion of remote files not present in the source.
-4. **BIDS** – is done on the SPICE server via an ssh tunnel [See BIDS](../../SPICE/05_spiceBIDS.md)
+4. **BIDS** – is done on the SPICE server via an ssh tunnel [See BIDS](../../SPICE/03_spiceBIDS.md)
 
 ![NatMEG Pipeline Overview]({{ picture_path }}/NatMEG-pipeline.drawio.png){ width="400" }
 /// caption

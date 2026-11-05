@@ -30,7 +30,7 @@ You will find these folders in a sub-folder created for the radioligand used. Ac
 
 Based on the availability of the raw data folder `/data/projects/yourproject/raw/bmic`, a PET tab will show up that includes all tools necessary to BIDSify PET data. If your project folder also contains a raw MRI folder `/data/projects/yourproject/raw/mri`, you will also have an MRI tab with similar functionalities. See [the MRI page](../../mrc/mrc-bids.md) for how to convert your MRI data to BIDS. 
 
-## See general steps (0 to 2) on: [BIDS on SPICE](https://k-cir.github.io/cir-wiki/SPICE/05_spiceBIDS/)
+## See general steps (0 to 2) on: [BIDS on SPICE](https://k-cir.github.io/cir-wiki/SPICE/03_spiceBIDS/)
 There are some common steps you should go through for making any imaging data to BIDS, see link above.
 
 ## 3. Analyze your data
