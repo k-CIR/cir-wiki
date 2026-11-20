@@ -32,7 +32,7 @@ CIR offer support in organizing your data as BIDS and provide an simplified inte
 
 The dcm2bids config file is a JSON file that specify what criteria to look for in the DICOM metadata for each sequence in your protocol and how to name the output files. Building this config file can be a bit tricky, but CIR offer this helper that extract the relevant DICOM metadata from your data and present it in an interactive table in your browser so you can select what criteria to include in your config file.
 
-## See general steps (0 to 2) on: [BIDS on SPICE](https://k-cir.github.io/cir-wiki/SPICE/05_spiceBIDS/)
+## See general steps (0 to 2) on: [BIDS on SPICE](https://k-cir.github.io/cir-wiki/SPICE/03_spiceBIDS/)
 There are some common steps you should go through for making any imaging data to BIDS, see link above.
 
 ## 3. Analyze your data
