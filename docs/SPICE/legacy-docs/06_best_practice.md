@@ -7,7 +7,7 @@ Raw imaging data collected at CIR are generally gathered in the corresponding pr
 
 CIR support all projects in using [BIDS](https://bids.neuroimaging.io/), and provide assistance and resources to make your data BIDS-compliant.
 
-See [BIDS on SPICE](05_spiceBIDS.md) for details on how different imaging modalities are organized in BIDS.
+See [BIDS on SPICE](../03_spiceBIDS.md) for details on how different imaging modalities are organized in BIDS.
 
 BIDS provides a consistent and structured way to organize and describe neuroimaging data, making it easier to share, analyze, and reproduce research findings. Many neuroimaging analysis tools support BIDS data, which will streamline your analysis workflow.
 
@@ -20,7 +20,7 @@ Using [Git](https://git-scm.com/) for version control and structure of analysis 
 Comment and document your code thoroughly to make it easier for your future self (and others) to understand its purpose and functionality. With the AI tools available today, there really is no excuse for not having well documented code!
 
 ## Use Github to share and collaborate
-Using git makes it easy to share and collaborate on code with others. Use a remote repository hosting service like [GitHub](https://www.github.com) or [GitLab](https://www.gitlab.com) to enable collaboration and provide backup for your code. After registering a github account you can set up an SSH key pair to push and pull changes to your remote repository without having to type your password. This is the same principle as for using a [SSH key pair to connect remotely in VScode](03_Vscode_tips.md#login-without-password).
+Using git makes it easy to share and collaborate on code with others. Use a remote repository hosting service like [GitHub](https://www.github.com) or [GitLab](https://www.gitlab.com) to enable collaboration and provide backup for your code. After registering a github account you can set up an SSH key pair to push and pull changes to your remote repository without having to type your password. This is the same principle as for using a [SSH key pair to connect remotely in VScode](05_Vscode_tips.md#login-without-password).
 
 To do this, you need to generate an SSH key pair (one private and one public key) on your local machine and add the public key to your github account. It's called a key-pair, but really you can think of it as a lock (public key) and a key (private key). You generate a key pair, put the lock (public key) on the service you want to access and keep the key (private key) on your local machine. When you connect, the server checks if you have the right key to unlock the lock.
 
