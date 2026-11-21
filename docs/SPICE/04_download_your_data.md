@@ -2,7 +2,7 @@
 title: Download your data
 ---
 
-To download your data from SPICE to your local machine, you can use the SFTP (Secure File Transfer Protocol) client. Download and install the [FileZilla client here](https://filezilla-project.org/).
+To download your data from SPICE to your local machine, you can use the SFTP (Secure File Transfer Protocol) client. Download and install the [FileZilla client here](https://filezilla-project.org/). If you have a [Karyon client](https://staff.ki.se/tools-and-support/it-and-telephony/order-it-and-telephony-services/ki-client-karyon-your-standard-computer-at-ki) you may not be able to install software without elevated rights. In this case, you can download Filezilla from the "Company portal" (windows 11) installed on your PC or the "Self Service" application installed on your MAC. 
 
 The are two ways to download your data. Select either method A or B depending on your needs in setup step 3 below.
 
